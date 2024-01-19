@@ -1,0 +1,865 @@
+# English translations for pygeoapi.
+# Copyright (C) 2021 OSGeo
+# This file is distributed under the same license as the pygeoapi project.
+# FIRST AUTHOR Tom Kralidis, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version:  0.11\n"
+"Report-Msgid-Bugs-To: pygeoapi@lists.osgeo.org\n"
+"POT-Creation-Date: 2024-01-19 15:10-0800\n"
+"PO-Revision-Date: 2021-07-11 00:15+0200\n"
+"Last-Translator: Paul van Genuchten\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.14.0\n"
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:34
+msgid "Skip to main content"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:37
+msgid "Skip to \"About government\""
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:46
+msgid "Language selection"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:103
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:105
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:141
+msgid "Government of Canada"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:115
+msgid "You are here:"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:119
+#: pygeoapi/cgp_pygeoapi/templates/landing_page.html:2
+msgid "Home"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:130
+msgid "Powered by"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:137
+msgid "About this site"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:142
+msgid "https://www.canada.ca/en/contact.html"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:142
+msgid "All contacts"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:143
+msgid "https://www.canada.ca/en/government/dept.html"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:143
+msgid "Departments and agencies"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:144
+msgid "https://www.canada.ca/en/government/system.html"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:144
+msgid "About government"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:145
+msgid "Themes and topics"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:146
+msgid "https://www.canada.ca/en/services/jobs.html"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:146
+#: pygeoapi/cgp_pygeoapi/templates/jobs/index.html:2
+#: pygeoapi/cgp_pygeoapi/templates/jobs/index.html:4
+#: pygeoapi/cgp_pygeoapi/templates/jobs/index.html:11
+#: pygeoapi/cgp_pygeoapi/templates/jobs/job.html:4
+#: pygeoapi/cgp_pygeoapi/templates/jobs/results/index.html:4
+#: pygeoapi/cgp_pygeoapi/templates/landing_page.html:56
+#: pygeoapi/cgp_pygeoapi/templates/processes/process.html:75
+msgid "Jobs"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:147
+msgid "https://www.canada.ca/en/services/immigration-citizenship.html"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:147
+msgid "Immigration and citizenship"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:148
+msgid "https://travel.gc.ca/"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:148
+msgid "Travel and tourism"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:149
+msgid "https://www.canada.ca/en/services/business.html"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:149
+msgid "Business"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:150
+msgid "https://www.canada.ca/en/services/benefits.html"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:150
+msgid "Benefits"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:151
+msgid "https://www.canada.ca/en/services/health.html"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:151
+msgid "Health"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:152
+msgid "https://www.canada.ca/en/services/taxes.html"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:152
+msgid "Taxes"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:153
+msgid "https://www.canada.ca/en/services/environment.html"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:153
+msgid "Environment and natural resources"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:154
+msgid "https://www.canada.ca/en/services/defence.html"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:154
+msgid "National security and defence"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:155
+msgid "https://www.canada.ca/en/services/culture.html"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:155
+msgid "Culture, history and sport"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:156
+msgid "https://www.canada.ca/en/services/policing.html"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:156
+msgid "Policing, justice and emergencies"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:157
+msgid "https://www.canada.ca/en/services/transport.html"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:157
+msgid "Transport and infrastructure"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:158
+msgid "https://international.gc.ca/world-monde/index.aspx?lang=eng"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:158
+msgid "Canada and the world"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:159
+msgid "https://www.canada.ca/en/services/finance.html"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:159
+msgid "Money and finance"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:160
+msgid "https://www.canada.ca/en/services/science.html"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:160
+msgid "Science and innovation"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:161
+msgid "https://www.canada.ca/en/services/indigenous-peoples.html"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:161
+msgid "Indigenous peoples"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:162
+msgid "https://www.canada.ca/en/services/veterans-military.html"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:162
+msgid "Veterans and military"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:163
+msgid "https://www.canada.ca/en/services/youth.html"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:163
+msgid "Youth"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:171
+msgid "Government of Canada Corporate"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:173
+msgid "https://www.canada.ca/en/social.html"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:173
+msgid "Social media"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:174
+msgid "https://www.canada.ca/en/mobile.html"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:174
+msgid "Mobile applications"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:175
+msgid "https://www.canada.ca/en/government/about.html"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:175
+msgid "About Canada.ca"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:176
+msgid "https://www.canada.ca/en/transparency/terms.html"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:176
+msgid "Terms and conditions"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:177
+msgid "https://www.canada.ca/en/transparency/privacy.html"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:177
+msgid "Privacy"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:180
+msgid "Symbol of the Government of Canada"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/conformance.html:2
+#: pygeoapi/cgp_pygeoapi/templates/conformance.html:4
+#: pygeoapi/cgp_pygeoapi/templates/conformance.html:8
+#: pygeoapi/cgp_pygeoapi/templates/landing_page.html:74
+msgid "Conformance"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/exception.html:2
+#: pygeoapi/cgp_pygeoapi/templates/exception.html:7
+msgid "Exception"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/landing_page.html:25
+msgid "MSC GeoMet User Documentation"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/collection.html:4
+#: pygeoapi/cgp_pygeoapi/templates/collections/coverage/domainset.html:4
+#: pygeoapi/cgp_pygeoapi/templates/collections/coverage/rangetype.html:4
+#: pygeoapi/cgp_pygeoapi/templates/collections/index.html:2
+#: pygeoapi/cgp_pygeoapi/templates/collections/index.html:4
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:16
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/item.html:25
+#: pygeoapi/cgp_pygeoapi/templates/collections/queryables.html:4
+#: pygeoapi/cgp_pygeoapi/templates/collections/tiles/index.html:4
+#: pygeoapi/cgp_pygeoapi/templates/collections/tiles/metadata.html:4
+#: pygeoapi/cgp_pygeoapi/templates/landing_page.html:32
+#: pygeoapi/cgp_pygeoapi/templates/stac/collection.html:13
+msgid "Collections"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/landing_page.html:34
+msgid "View the collections in this service"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/landing_page.html:41
+msgid "SpatioTemporal Assets"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/landing_page.html:43
+msgid "View the SpatioTemporal Assets in this service"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/landing_page.html:50
+#: pygeoapi/cgp_pygeoapi/templates/processes/index.html:2
+#: pygeoapi/cgp_pygeoapi/templates/processes/index.html:4
+#: pygeoapi/cgp_pygeoapi/templates/processes/process.html:4
+msgid "Processes"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/landing_page.html:52
+msgid "View the processes in this service"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/landing_page.html:58
+msgid "View the jobs in this service"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/landing_page.html:64
+msgid "API Definition"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/landing_page.html:66
+msgid "Documentation: Swagger UI"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/landing_page.html:69
+msgid "OpenAPI Document"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/landing_page.html:76
+msgid "View the conformance classes of this service"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/landing_page.html:85
+msgid "Provider"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/landing_page.html:95
+msgid "Contact point"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/landing_page.html:98
+msgid "Address"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/landing_page.html:107
+msgid "Email"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/landing_page.html:110
+msgid "Telephone"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/landing_page.html:114
+msgid "Fax"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/landing_page.html:118
+msgid "Contact URL"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/landing_page.html:122
+msgid "Hours"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/landing_page.html:126
+msgid "Contact instructions"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/landing_page.html:135
+msgid "Use of service"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/landing_page.html:139
+msgid "License"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/landing_page.html:144
+msgid "Terms of service"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/collection.html:32
+msgid "Browse"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/collection.html:37
+#, python-format
+msgid "Browse through the items of \"%(data_title)s\""
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/collection.html:40
+#: pygeoapi/cgp_pygeoapi/templates/collections/queryables.html:6
+#: pygeoapi/cgp_pygeoapi/templates/collections/queryables.html:17
+msgid "Queryables"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/collection.html:44
+msgid "Display queryables"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/collection.html:45
+#, python-format
+msgid "Display queryables of \"%(data_title)s\""
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/collection.html:54
+#, python-format
+msgid "Display tiles of \"%(title)s\""
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/collection.html:61
+msgid "Output Formats"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/collection.html:77
+#: pygeoapi/cgp_pygeoapi/templates/jobs/job.html:49
+#: pygeoapi/cgp_pygeoapi/templates/processes/process.html:77
+#: pygeoapi/cgp_pygeoapi/templates/stac/catalog.html:13
+msgid "Links"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/index.html:8
+msgid "Collections in this service"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/index.html:23
+#: pygeoapi/cgp_pygeoapi/templates/collections/index.html:79
+#: pygeoapi/cgp_pygeoapi/templates/collections/tiles/index.html:109
+#: pygeoapi/cgp_pygeoapi/templates/processes/index.html:14
+#: pygeoapi/cgp_pygeoapi/templates/stac/catalog.html:29
+#: pygeoapi/cgp_pygeoapi/templates/stac/catalog.html:101
+#: pygeoapi/cgp_pygeoapi/templates/stac/collection.html:17
+msgid "Name"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/index.html:29
+#: pygeoapi/cgp_pygeoapi/templates/collections/index.html:83
+msgid "Type"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/index.html:30
+#: pygeoapi/cgp_pygeoapi/templates/collections/index.html:87
+#: pygeoapi/cgp_pygeoapi/templates/processes/index.html:15
+#: pygeoapi/cgp_pygeoapi/templates/processes/process.html:25
+#: pygeoapi/cgp_pygeoapi/templates/processes/process.html:55
+#: pygeoapi/cgp_pygeoapi/templates/stac/collection.html:18
+msgid "Description"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/coverage/domainset.html:11
+msgid "Coverage domain set"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/coverage/domainset.html:12
+msgid "Axis labels"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/coverage/domainset.html:18
+msgid "Extent"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/coverage/domainset.html:20
+msgid "minx:"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/coverage/domainset.html:21
+msgid "miny:"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/coverage/domainset.html:22
+msgid "maxx:"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/coverage/domainset.html:23
+msgid "maxy:"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/coverage/domainset.html:24
+msgid "Coordinate reference system:"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/coverage/domainset.html:26
+#: pygeoapi/cgp_pygeoapi/templates/stac/catalog.html:36
+#: pygeoapi/cgp_pygeoapi/templates/stac/catalog.html:114
+#: pygeoapi/cgp_pygeoapi/templates/stac/item.html:34
+msgid "Size"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/coverage/domainset.html:28
+msgid "width:"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/coverage/domainset.html:29
+msgid "height:"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/coverage/domainset.html:31
+msgid "Resolution"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/coverage/domainset.html:33
+msgid "x:"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/coverage/domainset.html:34
+msgid "y:"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/coverage/rangetype.html:11
+msgid "Coverage range type"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/coverage/rangetype.html:12
+msgid "Fields"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/coverage/rangetype.html:15
+#, python-format
+msgid "%(id)s: %(name)s (%(definition)s)"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:8
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:9
+msgid "CSV"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:23
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/item.html:31
+msgid "Items"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:32
+msgid "Items in this collection."
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:47
+msgid "Only show items by map view"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:51
+msgid ""
+"No results. Please modify your search query or <button\n"
+"            :title=\"txt.reset\"  \n"
+"            class=\"btn btn-warning btn-sm\" \n"
+"            @click=\"clearSearch\">reset</button> the table."
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:58
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:63
+msgid "Filter table content"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:73
+msgid "Reset"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:75
+msgid "Apply column keyword search queries to the entire collection"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:79
+msgid "Search by keywords"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:97
+msgid "Keyword search for: [% th.key %]"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:101
+msgid ""
+"eg. &quot;BC QC ON&quot; will search for &quot;BC&quot; or &quot;ON&quot;"
+" or &quot;QC&quot;"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:103
+msgid "Keyword"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:142
+msgid "Limit:"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:160
+msgid "Higher limits are not recommended"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:164
+msgid "Previous"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:166
+#, python-format
+msgid "Page [% currentPage %] / [% maxPages %]"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:168
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/item.html:62
+msgid "Next"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:196
+msgid ""
+"Clear column keyword search queries and reset to display the default "
+"results"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:201
+msgid "Showing $firstPage to $upper of $itemsTotal"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:202
+msgid "Showing 0 results"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:246
+msgid "filtered from $totalSize total entry"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:247
+msgid "filtered from $totalSize total entries"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:248
+msgid "Showing $startEntryOfPage to $lastEntryOfPage of $filteredNumEntries"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/item.html:60
+msgid "Prev"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/item.html:75
+#: pygeoapi/cgp_pygeoapi/templates/stac/item.html:58
+msgid "Property"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/item.html:76
+#: pygeoapi/cgp_pygeoapi/templates/stac/item.html:59
+msgid "Value"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/tiles/index.html:6
+#: pygeoapi/cgp_pygeoapi/templates/collections/tiles/index.html:29
+#: pygeoapi/cgp_pygeoapi/templates/collections/tiles/metadata.html:6
+msgid "Tiles"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/tiles/index.html:31
+msgid "Tile matrix set"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/tiles/index.html:42
+msgid "Metadata"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/tiles/index.html:43
+#, python-format
+msgid "Tiles metadata in %(data_format)s format"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/tiles/index.html:61
+msgid "Map"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/tiles/index.html:110
+msgid "Class"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/tiles/metadata.html:7
+msgid "Tile metadata"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/tiles/metadata.html:18
+#, python-format
+msgid "Tiles metadata - %(data_format)s format"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/tiles/metadata.html:19
+#, python-format
+msgid "Tileset %(data_tileset)s"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/jobs/index.html:14
+msgid "Job ID"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/jobs/index.html:15
+msgid "Process ID"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/jobs/index.html:16
+msgid "Start"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/jobs/index.html:17
+#: pygeoapi/cgp_pygeoapi/templates/jobs/job.html:36
+msgid "Duration"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/jobs/index.html:18
+#: pygeoapi/cgp_pygeoapi/templates/jobs/job.html:34
+msgid "Progress"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/jobs/index.html:19
+msgid "Status"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/jobs/index.html:20
+#: pygeoapi/cgp_pygeoapi/templates/jobs/job.html:21
+msgid "Message"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/jobs/job.html:2
+#: pygeoapi/cgp_pygeoapi/templates/jobs/job.html:10
+msgid "Job status"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/jobs/job.html:16
+msgid "Status:"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/jobs/job.html:17
+msgid "Progress:"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/jobs/job.html:26
+msgid "Parameters"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/jobs/job.html:44
+msgid "Started processing"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/jobs/job.html:46
+msgid "Finished processing"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/jobs/job.html:52
+#, python-format
+msgid "<span>%(title)s</span> (<span>%(type)s</span>)"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/jobs/results/index.html:2
+msgid "Job results"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/jobs/results/index.html:6
+msgid "results"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/jobs/results/index.html:10
+#, python-format
+msgid "Results of job %(id)s"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/processes/index.html:8
+msgid "Processes in this service"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/processes/process.html:19
+msgid "Inputs"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/processes/process.html:22
+#: pygeoapi/cgp_pygeoapi/templates/processes/process.html:53
+msgid "ID"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/processes/process.html:23
+#: pygeoapi/cgp_pygeoapi/templates/processes/process.html:54
+msgid "Title"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/processes/process.html:24
+msgid "Data type"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/processes/process.html:70
+msgid "Execution modes"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/processes/process.html:72
+msgid "Synchronous"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/processes/process.html:73
+msgid "Asynchronous"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/processes/process.html:76
+msgid "Browse jobs"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/processes/process.html:82
+#, python-format
+msgid "%(title)s (%(type)s)"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/stac/catalog.html:2
+#: pygeoapi/cgp_pygeoapi/templates/stac/item.html:2
+#, python-format
+msgid "stac/%(path)s"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/stac/catalog.html:4
+#: pygeoapi/cgp_pygeoapi/templates/stac/collection.html:2
+#: pygeoapi/cgp_pygeoapi/templates/stac/collection.html:4
+#: pygeoapi/cgp_pygeoapi/templates/stac/item.html:4
+msgid "SpatioTemporal Asset Catalog"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/stac/catalog.html:19
+msgid "Filter"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/stac/catalog.html:35
+#: pygeoapi/cgp_pygeoapi/templates/stac/catalog.html:104
+#: pygeoapi/cgp_pygeoapi/templates/stac/item.html:33
+msgid "Last modified"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/stac/collection.html:9
+msgid "STAC version:"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/stac/item.html:19
+#, python-format
+msgid "Item %(id)s"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/stac/item.html:28
+msgid "Assets"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/stac/item.html:32
+msgid "URL"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/stac/item.html:114
+msgid "Map extent preview not available"
+msgstr ""
+
