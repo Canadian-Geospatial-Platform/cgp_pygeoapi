@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  0.11\n"
 "Report-Msgid-Bugs-To: pygeoapi@lists.osgeo.org\n"
-"POT-Creation-Date: 2024-01-19 15:10-0800\n"
+"POT-Creation-Date: 2024-01-22 10:22-0800\n"
 "PO-Revision-Date: 2021-07-11 00:15+0200\n"
 "Last-Translator: Paul van Genuchten\n"
 "Language: fr\n"
@@ -32,7 +32,7 @@ msgstr "Sélection de la langue"
 
 #: pygeoapi/cgp_pygeoapi/templates/_base.html:103
 #: pygeoapi/cgp_pygeoapi/templates/_base.html:105
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:141
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:142
 msgid "Government of Canada"
 msgstr "Gouvernement du Canada"
 
@@ -49,234 +49,235 @@ msgstr "Accueil"
 msgid "Powered by"
 msgstr "Propulsé par"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:137
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:130
+msgid "pygeoapi logo"
+msgstr "logo pygeoapi"
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:133
+msgid "Canadian Geospatial Platform (CGP)"
+msgstr "Plateforme Géospatiale Canadienne (PGC)"
+
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:138
 msgid "About this site"
 msgstr "À propos de ce site"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:142
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:143
 msgid "https://www.canada.ca/en/contact.html"
 msgstr "https://www.canada.ca/fr/contact.html"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:142
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:143
 msgid "All contacts"
 msgstr "Toutes les coordonnées"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:143
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:144
 msgid "https://www.canada.ca/en/government/dept.html"
 msgstr "https://www.canada.ca/fr/gouvernement/min.html"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:143
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:144
 msgid "Departments and agencies"
 msgstr "Ministères et organismes"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:144
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:145
 msgid "https://www.canada.ca/en/government/system.html"
 msgstr "https://www.canada.ca/fr/gouvernement/systeme.html"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:144
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:145
 msgid "About government"
 msgstr "À propos du gouvernement"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:145
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:146
 msgid "Themes and topics"
 msgstr "Thèmes et sujets"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:146
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:147
 msgid "https://www.canada.ca/en/services/jobs.html"
 msgstr "https://www.canada.ca/fr/services/emplois.html"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:146
-#: pygeoapi/cgp_pygeoapi/templates/jobs/index.html:2
-#: pygeoapi/cgp_pygeoapi/templates/jobs/index.html:4
-#: pygeoapi/cgp_pygeoapi/templates/jobs/index.html:11
-#: pygeoapi/cgp_pygeoapi/templates/jobs/job.html:4
-#: pygeoapi/cgp_pygeoapi/templates/jobs/results/index.html:4
-#: pygeoapi/cgp_pygeoapi/templates/landing_page.html:56
-#: pygeoapi/cgp_pygeoapi/templates/processes/process.html:75
-msgid "Jobs"
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:147
+msgid "goc_Jobs"
 msgstr "Emplois"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:147
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:148
 msgid "https://www.canada.ca/en/services/immigration-citizenship.html"
 msgstr "https://www.canada.ca/fr/services/immigration-citoyennete.html"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:147
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:148
 msgid "Immigration and citizenship"
 msgstr "Immigration et citoyenneté"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:148
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:149
 msgid "https://travel.gc.ca/"
 msgstr "https://voyage.gc.ca/"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:148
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:149
 msgid "Travel and tourism"
 msgstr "Voyage et tourisme"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:149
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:150
 msgid "https://www.canada.ca/en/services/business.html"
 msgstr "https://www.canada.ca/fr/services/entreprises.html"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:149
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:150
 msgid "Business"
 msgstr "Entreprises"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:150
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:151
 msgid "https://www.canada.ca/en/services/benefits.html"
 msgstr "https://www.canada.ca/fr/services/prestations.html"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:150
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:151
 msgid "Benefits"
 msgstr "Prestations"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:151
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:152
 msgid "https://www.canada.ca/en/services/health.html"
 msgstr "https://www.canada.ca/fr/services/sante.html"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:151
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:152
 msgid "Health"
 msgstr "Santé"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:152
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:153
 msgid "https://www.canada.ca/en/services/taxes.html"
 msgstr "https://www.canada.ca/fr/services/impots.html"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:152
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:153
 msgid "Taxes"
 msgstr "Impôts"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:153
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:154
 msgid "https://www.canada.ca/en/services/environment.html"
 msgstr "https://www.canada.ca/fr/services/environnement.html"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:153
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:154
 msgid "Environment and natural resources"
 msgstr "Environnement et ressources naturelles"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:154
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:155
 msgid "https://www.canada.ca/en/services/defence.html"
 msgstr "https://www.canada.ca/fr/services/defense.html"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:154
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:155
 msgid "National security and defence"
 msgstr "Sécurité nationale et défense"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:155
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:156
 msgid "https://www.canada.ca/en/services/culture.html"
 msgstr "https://www.canada.ca/fr/services/culture.html"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:155
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:156
 msgid "Culture, history and sport"
 msgstr "Culture, histoire et sport"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:156
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:157
 msgid "https://www.canada.ca/en/services/policing.html"
 msgstr "https://www.canada.ca/fr/services/police.html"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:156
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:157
 msgid "Policing, justice and emergencies"
 msgstr "Services de police, justice et urgences"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:157
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:158
 msgid "https://www.canada.ca/en/services/transport.html"
 msgstr "https://www.canada.ca/fr/services/transport.html"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:157
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:158
 msgid "Transport and infrastructure"
 msgstr "Transport et infrastructure"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:158
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:159
 msgid "https://international.gc.ca/world-monde/index.aspx?lang=eng"
 msgstr "https://www.international.gc.ca/world-monde/index.aspx?lang=fra"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:158
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:159
 msgid "Canada and the world"
 msgstr "Le Canada et le monde"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:159
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:160
 msgid "https://www.canada.ca/en/services/finance.html"
 msgstr "https://www.canada.ca/fr/services/finance.html"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:159
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:160
 msgid "Money and finance"
 msgstr "Argent et finance"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:160
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:161
 msgid "https://www.canada.ca/en/services/science.html"
 msgstr "https://www.canada.ca/fr/services/science.html"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:160
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:161
 msgid "Science and innovation"
 msgstr "Science et innovation"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:161
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:162
 msgid "https://www.canada.ca/en/services/indigenous-peoples.html"
 msgstr "https://www.canada.ca/fr/services/autochtones.html"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:161
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:162
 msgid "Indigenous peoples"
 msgstr "Autochtones"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:162
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:163
 msgid "https://www.canada.ca/en/services/veterans-military.html"
 msgstr "https://www.canada.ca/fr/services/veterans-militaire.html"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:162
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:163
 msgid "Veterans and military"
 msgstr "Vétérans et militaires"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:163
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:164
 msgid "https://www.canada.ca/en/services/youth.html"
 msgstr "https://www.canada.ca/fr/services/jeunesse.html"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:163
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:164
 msgid "Youth"
 msgstr "Jeunesse"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:171
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:172
 msgid "Government of Canada Corporate"
 msgstr "Organisation du gouvernement du Canada"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:173
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:174
 msgid "https://www.canada.ca/en/social.html"
 msgstr "https://www.canada.ca/fr/sociaux.html"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:173
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:174
 msgid "Social media"
 msgstr "Médias sociaux"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:174
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:175
 msgid "https://www.canada.ca/en/mobile.html"
 msgstr "https://www.canada.ca/fr/mobile.html"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:174
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:175
 msgid "Mobile applications"
 msgstr "Applications mobiles"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:175
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:176
 msgid "https://www.canada.ca/en/government/about.html"
 msgstr "https://www.canada.ca/fr/gouvernement/a-propos.html"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:175
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:176
 msgid "About Canada.ca"
 msgstr "À propos de Canada.ca"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:176
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:177
 msgid "https://www.canada.ca/en/transparency/terms.html"
 msgstr "https://www.canada.ca/fr/transparence/avis.html"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:176
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:177
 msgid "Terms and conditions"
 msgstr "Avis"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:177
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:178
 msgid "https://www.canada.ca/en/transparency/privacy.html"
 msgstr "https://www.canada.ca/fr/transparence/confidentialite.html"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:177
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:178
 msgid "Privacy"
 msgstr "Confidentialité"
 
-#: pygeoapi/cgp_pygeoapi/templates/_base.html:180
+#: pygeoapi/cgp_pygeoapi/templates/_base.html:181
 msgid "Symbol of the Government of Canada"
 msgstr "Symbole du gouvernement du Canada"
 
@@ -333,6 +334,16 @@ msgstr "Processus"
 #: pygeoapi/cgp_pygeoapi/templates/landing_page.html:52
 msgid "View the processes in this service"
 msgstr "Voir les processus de ce service"
+
+#: pygeoapi/cgp_pygeoapi/templates/jobs/index.html:2
+#: pygeoapi/cgp_pygeoapi/templates/jobs/index.html:4
+#: pygeoapi/cgp_pygeoapi/templates/jobs/index.html:11
+#: pygeoapi/cgp_pygeoapi/templates/jobs/job.html:4
+#: pygeoapi/cgp_pygeoapi/templates/jobs/results/index.html:4
+#: pygeoapi/cgp_pygeoapi/templates/landing_page.html:56
+#: pygeoapi/cgp_pygeoapi/templates/processes/process.html:75
+msgid "Jobs"
+msgstr "Tâches"
 
 #: pygeoapi/cgp_pygeoapi/templates/landing_page.html:58
 msgid "View the jobs in this service"
