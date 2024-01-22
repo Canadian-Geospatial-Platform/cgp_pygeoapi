@@ -139,9 +139,10 @@
             <div class="col-xs-5 col-sm-6">
               <div class="form-inline">
                 <div class="form-group inline-block">
-                  <label>{% trans %}Limit:{% endtrans %} </label>
+                  <label for="select-limit">{% trans %}Limit:{% endtrans %} </label>
                   <select
                     id="select-limit"
+                    name="select-limit"
                     class="input-sm form-control inline-block"
                     v-model="limit"
                     :disabled="itemsLoading"
@@ -163,7 +164,7 @@
             <li>
               <button class="btn btn-sm btn-default" @click="prevPageItems" rel="prev" :disabled="itemsLoading || currentPage === 1">{% trans %}Previous{% endtrans %}</button>
             </li>
-            <span>{% trans %}Page [% currentPage %] / [% maxPages %]{% endtrans %}</span>
+            <li class="pagination-page-label">{% trans %}Page [% currentPage %] / [% maxPages %]{% endtrans %}</li>
             <li>
               <button class="btn btn-sm btn-default" @click="nextPageItems" :disabled="itemsLoading || currentPage === maxPages" rel="next">{% trans %}Next{% endtrans %}</button>
             </li>
