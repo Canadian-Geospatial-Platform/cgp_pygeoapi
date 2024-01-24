@@ -160,15 +160,38 @@
           <div class="alert alert-warning padding-tb-5 mrgn-bttm-0 mrgn-tp-sm">
             <p><small>{% trans %}Higher limits are not recommended{% endtrans %}</small></p>
           </div>
-          <ul class="pagination pagination-sm clearfix">
-            <li>
-              <button class="btn btn-sm btn-default" @click="prevPageItems" rel="prev" :disabled="itemsLoading || currentPage === 1">{% trans %}Previous{% endtrans %}</button>
-            </li>
-            <li class="pagination-page-label">{% trans %}Page [% currentPage %] / [% maxPages %]{% endtrans %}</li>
-            <li>
-              <button class="btn btn-sm btn-default" @click="nextPageItems" :disabled="itemsLoading || currentPage === maxPages" rel="next">{% trans %}Next{% endtrans %}</button>
-            </li>
-          </ul>
+          <div class="text-center">
+            <ul class="pagination">
+              <li v-if="currentPage !== 1">
+                <a rel="prev" @click="prevPageItems" :disabled="itemsLoading">
+                  {% trans %}Previous{% endtrans %}<span class="wb-inv">{% trans %} page of search results{% endtrans %}</span>
+                </a>
+              </li>
+              <li 
+                v-for="page in maxPages"
+                @click="changePage(page)"
+                :class="{
+                  active : page == currentPage,
+                  'hidden-xs hidden-sm' : (currentPage < 3 && page > 5) ||
+                    (currentPage > (maxPages - 2) && page <= (maxPages - 5)) ||
+                    (currentPage >= 3 && currentPage <= (maxPages - 2) &&
+                    (page > (currentPage + 2) || page < (currentPage - 2))),
+                  'hidden-md hidden-lg' : (currentPage < 5 && page > 10) ||
+                    (currentPage > (maxPages - 5) && page <= (maxPages - 10)) ||
+                    (currentPage >= 5 && currentPage <= (maxPages - 5) &&
+                    (page > (currentPage + 5) || page < (currentPage - 4)))
+                }"
+                :aria-current="page == currentPage ? 'page' : ''"
+              >
+                <a>[% page %]<span class="wb-inv">{% trans %}: Page [% page %] of search results{% endtrans %}</span></a>
+              </li>
+              <li v-if="currentPage !== maxPages">
+                <a rel="next" @click="nextPageItems" :disabled="itemsLoading">
+                  {% trans %}Next{% endtrans %}<span class="wb-inv">{% trans %} page of search results{% endtrans %}</span>
+                </a>
+              </li>
+            </ul>
+          </div>
         </nav>
       </div>
     </div>
@@ -271,6 +294,10 @@
           }
           const nextPageItems = function() {
             nextPage()
+            getItemsSorted()
+          }
+          const changePage = function(page) {
+            currentPage.value = page
             getItemsSorted()
           }
           const limitOptions = [10, 100, 1000, 2000]
@@ -437,7 +464,8 @@
             sortIconClass, changeSortDir, currentSort, currentSortDir,
             limit, limitOptions, showingLimitText, showingFilteredFromText, currentPage, maxPages, limitChange, bboxPermalink,
             itemsPath, linkToRow,
-            queryCols, clearSearch, queryColsIsEmpty, applyKeywordSearch, prevPageItems, nextPageItems, getItemsSorted
+            queryCols, clearSearch, queryColsIsEmpty, applyKeywordSearch, prevPageItems, nextPageItems, getItemsSorted,
+            changePage
           }
         }
       })

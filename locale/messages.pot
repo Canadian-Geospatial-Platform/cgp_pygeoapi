@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-22 10:22-0800\n"
+"POT-Creation-Date: 2024-01-23 17:22-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -613,47 +613,51 @@ msgstr ""
 msgid "Limit:"
 msgstr ""
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:160
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:161
 msgid "Higher limits are not recommended"
 msgstr ""
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:164
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:167
 msgid "Previous"
 msgstr ""
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:166
-#, python-format
-msgid "Page [% currentPage %] / [% maxPages %]"
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:167
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:190
+msgid " page of search results"
 msgstr ""
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:168
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:186
+msgid ": Page [% page %] of search results"
+msgstr ""
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:190
 #: pygeoapi/cgp_pygeoapi/templates/collections/items/item.html:62
 msgid "Next"
 msgstr ""
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:196
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:220
 msgid ""
 "Clear column keyword search queries and reset to display the default "
 "results"
 msgstr ""
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:201
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:225
 msgid "Showing $firstPage to $upper of $itemsTotal"
 msgstr ""
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:202
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:226
 msgid "Showing 0 results"
 msgstr ""
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:246
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:270
 msgid "filtered from $totalSize total entry"
 msgstr ""
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:247
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:271
 msgid "filtered from $totalSize total entries"
 msgstr ""
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:248
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:272
 msgid "Showing $startEntryOfPage to $lastEntryOfPage of $filteredNumEntries"
 msgstr ""
 
