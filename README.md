@@ -33,11 +33,13 @@ server:
 NOTE: Use the ***Absolute*** path for this directory.
 - If your version of babel is 3.0 or higher:
   - Open the default mapping file `babel-mapping.ini`
-  - Comment out the extensions line and save the file. These extensions are now depretiated:
+  - Comment out or remove the `jinja2.ext.autoescape` and `jinja2.ext.with_` extensions. These extensions are now depretiated.
+  - Keep the `jinja2.ext.i18n` extension only and save the file:
   ```
   [python: **.py]
   [jinja2: **/templates/**.html]
   # extensions=jinja2.ext.i18n,jinja2.ext.autoescape,jinja2.ext.with_
+  extensions=jinja2.ext.i18n
   ```
 - Compile the .po files by running the following.:
 ```
