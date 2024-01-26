@@ -280,6 +280,13 @@ class GeoCoreProvider(BaseProvider):
 
             # Remove options and convert to associations
             options = item.pop('options', [])
+            if isinstance(options, str):
+                options = options.replace('\"\"', '\"')
+                try:
+                    options = json.loads(options)
+                except json.JSONDecodeError as err:
+                    LOGGER.error('Failed to parse JSON response', exc_info=err)
+
             for opt in options:
                 url = opt.get('url')
                 title = opt.get('name', {}).get(lang)
@@ -328,13 +335,14 @@ class GeoCoreProvider(BaseProvider):
             collection['numberMatched'] = num_matched
         return collection
 
-    def query(self, startindex=0, limit=10, resulttype='results',
+    def query(self, offset=0, limit=10, resulttype='results',
               bbox=[], datetime_=None, properties=[], sortby=[],
-              select_properties=[], skip_geometry=False, q=None, language=None):
+              select_properties=[], skip_geometry=False, q=None,
+              language=None, crs_transform_spec=None, filterq=None):
         """
         Performs a geoCore search.
 
-        :param startindex: starting record to return (default 0)
+        :param offset: starting record to return (default 0)
         :param limit: number of records to return (default 10)
         :param resulttype: return results or hit limit (default results)
         :param bbox: bounding box [minx,miny,maxx,maxy]
@@ -345,6 +353,8 @@ class GeoCoreProvider(BaseProvider):
         :param skip_geometry: bool of whether to skip geometry (default False)
         :param q: full-text search term(s)
         :param language: Babel locale
+        :param crs_transform_spec: `CrsTransformSpec` instance, optional
+        :param filterq: filter object
 
         :returns: dict of 0..n GeoJSON features
         """
@@ -368,8 +378,8 @@ class GeoCoreProvider(BaseProvider):
 
         # Set min and max (1-based!)
         LOGGER.debug('set query limits')
-        params['min'] = startindex + 1
-        params['max'] = startindex + limit
+        params['min'] = offset + 1
+        params['max'] = offset + limit
 
         # Set queryables
         if properties:
@@ -392,7 +402,7 @@ class GeoCoreProvider(BaseProvider):
         LOGGER.debug('turn geoCore JSON into GeoJSON')
         return self._to_geojson(json_obj, lang, skip_geometry)
 
-    def get(self, identifier, language=None):
+    def get(self, identifier, language=None, crs_transform_spec=None):
         """ Request a single geoCore record by ID.
 
         :param identifier:  The ID of the record to retrieve.
