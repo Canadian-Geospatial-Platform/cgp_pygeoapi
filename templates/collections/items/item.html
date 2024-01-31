@@ -1,25 +1,6 @@
 {% extends "_base.html" %}
+{% from "collections/items/renderItemValue.html" import render_item_value %}
 {% set ptitle = data['properties'][data['title_field']] or ("Item {}".format(data['id'])) %}
-{# Optionally renders an img element, otherwise standard value or link rendering #}
-{% macro render_item_value(v, width) -%}
-    {% set val = v | string | trim %}
-    {% if val|length and val.lower().endswith(('.jpg', '.jpeg', '.png', '.gif', '.bmp')) %}
-        {# Ends with image extension: render img element with link to image #}
-        <a href="{{ val }}"><img src="{{ val }}" alt="{{ val.split('/') | last }}" width="{{ width }}"/></a>
-        {% elif v is string or v is number %}
-        {{ val | urlize() }}
-    {% elif v is mapping %}
-      {% for i,j in v.items() %}
-        <i>{{ i }}:</i> {{ render_item_value(j, 60) }}<br/>
-      {% endfor %}
-    {% elif v is iterable %}
-      {% for i in v %}
-        {{ render_item_value(i, 60) }}
-      {% endfor %}
-    {% else %}
-      {{ val | urlize() }}
-    {% endif %}
-{%- endmacro %}
 {% block title %}{{ super() }} {{ data['title'] }} - {{ data['id'] }}{% endblock %}
 {% block crumbs %}{{ super() }}
 <li><a href="../../../collections?lang={{ (locale|lower)[:2] }}">{% trans %}Collections{% endtrans %}</a></li>

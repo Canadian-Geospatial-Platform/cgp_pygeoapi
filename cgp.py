@@ -309,6 +309,16 @@ class GeoCoreProvider(BaseProvider):
                 }
                 item.setdefault('associations', []).append(lnk)
 
+            # Parse the contacts for easier front-end formatting
+            contact = item.get('contact', [])
+            if isinstance(contact, str):
+                contact = contact.replace('\"\"', '\"')
+                try:
+                    contact = json.loads(contact)
+                except json.JSONDecodeError as err:
+                    LOGGER.error('Failed to parse JSON response', exc_info=err)
+                item['contact'] = contact
+
             # Remove graphicOverview and promote/set first thumbnailUrl
             try:
                 url = item.pop('graphicOverview')[0].get('overviewfilename')

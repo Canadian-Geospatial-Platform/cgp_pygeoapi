@@ -1,4 +1,5 @@
 {% extends "_base.html" %}
+{% from "collections/items/renderItemValue.html" import render_item_value %}
 {% block title %}{{ super() }} {{ data['title'] }} {% endblock %}
 {% block extralang %}
 {% for link in data['links'] %}
@@ -88,7 +89,7 @@
                 <th v-for="(th, index) in tableFields"
                   :class="th.colClass">
                   <div class="sortable ellipsis" @click="changeSortDir(th.key)" :title="th.text">
-                    <span v-text="truncate(th.text, 15)"></span>
+                    <span v-text="truncate(th.text, 25)"></span>
                     <span
                       v-show="currentSort === th.key"
                       :class="[sortIconClass, 'glyphicon']"></span>
@@ -108,23 +109,38 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(item, index) in items">
+              <!--<tr v-for="(item, index) in items">
                 <td v-for="(th, index) in tableFields" v-html="linkToRow(item, th.key, itemsPath, '{{ (locale|lower)[:2] }}')">
                 </td>
-              </tr>
+              </tr>-->
               <!-- START of noJs progressive enhancement -->
               {% for ft in data['features'] %}
-              <tr v-if="noJs">
+              <tr>
                 {% if data.get('uri_field') %}
                 <td data-label="{{ data.get('uri_field') }}"><a href="{{ ft['properties'].get(data['uri_field'])}}" title="{{ ft['properties'][data['uri_field']] }}">{{ft['properties'][data.get('uri_field')]}}</a></td>
                 {% endif %}
-                <td data-label="id"><a href="{{ data['items_path']}}/{{ ft.id }}?lang={{ (locale|lower)[:2] }}" title="{{ ft.id }}">{{ ft.id | string | truncate( 12 )  }}</a></td>
+                <td data-label="id"><a href="{{ data['items_path']}}/{{ ft.id }}?lang={{ (locale|lower)[:2] }}" title="{{ ft.id }}">{{ ft.id | string }}</a></td>
                 {% if data['title_field'] %}
-                  <td data-label="name"><a href="{{ data['items_path']}}/{{ ft['id'] }}?lang={{ (locale|lower)[:2] }}" title="{{ ft['properties'][data['title_field']] }}">{{ ft['properties'][data['title_field']] | string | truncate( 35 ) }}</a></td>
+                  <!--<td data-label="name"><a href="{{ data['items_path']}}/{{ ft['id'] }}?lang={{ (locale|lower)[:2] }}" title="{{ ft['properties'][data['title_field']] }}">{{ ft['properties'][data['title_field']] | string | truncate( 35 ) }}</a></td>
+                  -->
                 {% endif %}
                 {% for k, v in ft['properties'].items() %}
-                  {% if loop.index < 5 and k not in [data['id_field'], data['title_field'], data['uri_field'], 'extent'] %}
-                  <td data-label="{{ k }}">{{ v | string | truncate( 35 ) }}</td>
+                  {% if k in ['links', 'associations'] %}
+                    <td>
+                      <ul>
+                        {% for l in v %}
+                          {% if l['href'] %}
+                            <li><a href="{{ l['href'] }}" title="{{ l['title'] or l['href'].split('/') }}">{{ l['title'] or (l['href'].split('/') | last) | truncate( 25 ) }}</a>
+                            {% if l['type'] %}
+                              ({{ l['type'] }})
+                            {% endif %}
+                            </li>
+                          {% endif %}
+                        {% endfor %}
+                      </ul>
+                    </td>
+                  {% elif k not in [data['id_field'], data['title_field'], data['uri_field']] %}
+                  <td data-label="{{ k }}">{{ render_item_value(v, 80) }}</td>
                   {% endif %}
                 {% endfor %}
               </tr>
