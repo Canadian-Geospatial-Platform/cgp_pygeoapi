@@ -109,21 +109,20 @@
               </tr>
             </thead>
             <tbody>
-              <!--<tr v-for="(item, index) in items">
+              <tr v-for="(item, index) in items">
                 <td v-for="(th, index) in tableFields" v-html="linkToRow(item, th.key, itemsPath, '{{ (locale|lower)[:2] }}')">
                 </td>
-              </tr>-->
+              </tr>
               <!-- START of noJs progressive enhancement -->
               {% for ft in data['features'] %}
-              <tr>
+              <tr v-if="noJs">
                 {% if data.get('uri_field') %}
                 <td data-label="{{ data.get('uri_field') }}"><a href="{{ ft['properties'].get(data['uri_field'])}}" title="{{ ft['properties'][data['uri_field']] }}">{{ft['properties'][data.get('uri_field')]}}</a></td>
                 {% endif %}
                 <td data-label="id"><a href="{{ data['items_path']}}/{{ ft.id }}?lang={{ (locale|lower)[:2] }}" title="{{ ft.id }}">{{ ft.id | string }}</a></td>
-                {% if data['title_field'] %}
-                  <!--<td data-label="name"><a href="{{ data['items_path']}}/{{ ft['id'] }}?lang={{ (locale|lower)[:2] }}" title="{{ ft['properties'][data['title_field']] }}">{{ ft['properties'][data['title_field']] | string | truncate( 35 ) }}</a></td>
-                  -->
-                {% endif %}
+                <!--{% if data['title_field'] %}
+                  <td data-label="name"><a href="{{ data['items_path']}}/{{ ft['id'] }}?lang={{ (locale|lower)[:2] }}" title="{{ ft['properties'][data['title_field']] }}">{{ ft['properties'][data['title_field']] | string | truncate( 35 ) }}</a></td>
+                {% endif %}-->
                 {% for k, v in ft['properties'].items() %}
                   {% if k in ['links', 'associations'] %}
                     <td>
@@ -145,7 +144,7 @@
                 {% endfor %}
               </tr>
               {% endfor %}
-            <!-- END of noJS -->
+              <!-- END of noJS -->
             </tbody>
           </table>
         </div>

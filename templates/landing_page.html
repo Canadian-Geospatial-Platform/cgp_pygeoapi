@@ -22,7 +22,7 @@
     <section class="panel panel-info">
       <div class="panel-body">
         <p class="text-info">
-          <b><span class="glyphicon glyphicon-book"></span> {% trans %}MSC GeoMet User Documentation{% endtrans %}</b><br>
+          <b><span class="glyphicon glyphicon-book"></span> {% trans %}CGP User Documentation{% endtrans %}</b><br>
           <a class="info" href="{{ config['metadata']['identification']['url'] }}" target="_blank">{{ config['metadata']['identification']['url'] }}</a>
         </p>
       </div>
@@ -36,7 +36,7 @@
     </section>
 
 
-    {% if data['stac'] %}
+    <!--{% if data['stac'] %}
     <section id="collections">
       <h2>{% trans %}SpatioTemporal Assets{% endtrans %}</h2>
       <p>
@@ -58,7 +58,7 @@
         <a href="{{ config['server']['url'] }}/jobs?lang={{ (locale|lower)[:2] }}">{% trans %}View the jobs in this service{% endtrans %}</a>
       </p>
     </section>
-    {% endif %}
+    {% endif %}-->
 
     <section id="openapi">
       <h2>{% trans %}API Definition{% endtrans %}</h2>
@@ -106,7 +106,7 @@
         <div>
           <b>{% trans %}Email{% endtrans %}</b><br/>
           <span><a href="mailto:{{ config['metadata']['contact']['email'] }}" class="text-break">{{ config['metadata']['contact']['email'] }}</a></span><br/>
-          {% if config['metadata']['contact']['phone'] %}
+          <!--{% if config['metadata']['contact']['phone'] %}
             <b>{% trans %}Telephone{% endtrans %}</b><br/>
             <span><a href="tel:{{ config['metadata']['contact']['phone'] }}">{{ config['metadata']['contact']['phone'] }}</a></span><br/>
           {% endif %}
@@ -117,7 +117,7 @@
           {% if config['metadata']['contact']['url'] %}
             <b>{% trans %}Contact URL{% endtrans %}</b><br/>
             <span><a href="{{ config['metadata']['contact']['url'] }}" target="_blank" class="text-break">{{ config['metadata']['contact']['url'] }}</a></span><br/>
-          {% endif %}
+          {% endif %}-->
           {% if config['metadata']['contact']['hours'] %}
             <b>{% trans %}Hours{% endtrans %}</b><br/>
             <span>{{ config['metadata']['contact']['hours'] }}</span><br/>
