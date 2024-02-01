@@ -22,6 +22,23 @@ templates:
 NOTE: The paths in your config file must be ***Absolute*** paths only. Resources referenced using relative paths won't load properly and throw a 404 error.
 - save your changes and restart your server
 
+### Geocore Provider
+
+- copy the `cgp.py` file to the following directory:
+```
+pygeoapi/lib/python3.10/site-packages/pygeoapi-0.16.dev0-py3.10.egg/pygeoapi/provider/
+```
+- open `plugin.py`. It can be found in the following directory:
+```
+/pygeoapi/lib/python3.10/site-packages/pygeoapi-0.16.dev0-py3.10.egg/pygeoapi/
+```
+- add the following provider to the PLUGINS.provider object:
+```
+'GeoCore': 'pygeoapi.provider.cgp.GeoCoreProvider'
+```
+- In your `pygeoapi-config.yml` file copy the contents of the `geocore_config.txt` file into the resources object.
+- Restart your server to apply the changes.
+
 ### Translations
 
 - Open the pygeoapi config file. By default this will be pygeoapi-config.yml.
