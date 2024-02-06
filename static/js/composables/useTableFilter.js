@@ -174,23 +174,133 @@ export default function useTableFilter(rows, keyColumns, defaultSortCol, tableTe
   const linkToRow = function(row, key, itemPath, locale) {
     if (key === 'id') {
       return `<a href="${itemPath + '/' + row[key]}?lang=${locale}">${row[key]}</a>`
-    } else if (key === 'links') {
-      let linksList = ''
-      row[key].forEach(element =>
-        linksList += '<li><a href="' + element['href'] + '">' + element['title'] + '</a></li>'
-      ) 
+    } else if (key === 'links', key === 'associations') {
+      let linksList = '<ul>'
+      for (let element in row[key]) {
+        if (row[key][element]['href'] !== null && row[key][element]['href'] !== 'null') {
+          linksList = linksList + '<li><a href="' + row[key][element]['href'] + '">'
+            + row[key][element]['title'] + '</a></li>'
+        }
+      }
+      linksList = linksList + '</ul>'
       return `${linksList}`
-    } else if (typeof row === 'object') {
-      return JSON.stringify(row[key], null, 2)
+    } else if (typeof row[key] === 'object') {
+      return stringifyObj(row[key])
+    } else if (typeof row[key] === 'string') {
+      return formatString(row[key])
     } else {
       return row[key]
     }
   }
 
+  const stringifyObj = function(obj) {
+    let objStr = ''
+    if (Array.isArray(obj)) {
+      for (let k = 0; k < obj.length; k++) {
+        if (k < obj.length - 1) {
+          objStr = objStr + stringifyObj(obj[k]) + ', '
+        } else {
+          objStr = objStr + stringifyObj(obj[k])
+        }
+      }
+      return objStr
+    } else if (typeof obj === 'object') {
+      for (let k in obj) {
+        objStr = objStr + ' <i>' + k + '</i>: ' + stringifyObj(obj[k]) + '<br>'
+      }
+      return objStr
+    } else if (typeof obj === 'string') {
+      return objStr + formatString(obj)
+    } else {
+      return objStr + obj
+    }
+  }
+
+  const formatString = function(str) {
+    str = replaceNewLine(str)
+    str = replaceMarkdownLinks(str)
+    str = renderLinks(str)
+    str = replaceMarkdownBold(str)
+    str = formatDate(str)
+    str = formatMarkdownListItems(str)
+    return str
+  }
+
+  const replaceNewLine = function(str) {
+    // Replace /n with <br>
+    return str.replace(/\\n/g, '<br>');
+  }
+
+  const replaceMarkdownLinks = function(str) {
+    // Replace markdown links with html links
+    // This section is based on the following solution:
+    // https://gist.github.com/alordiel/ed8587044be07e408f5f93b3124836b3
+    let markdownLink = str.match(/\[.*?\]\(.*?\)/g)
+    if (markdownLink != null && markdownLink.length > 0){
+      for (let link of markdownLink) {
+        let txt = link.match(/\[(.*?)\]/)[1]
+        let url = link.match(/\((.*?)\)/)[1]
+        str = str.replace(link,'<a href="' + url + '" target="_blank">' + txt + '</a>')
+      }
+    }
+    return str
+  }
+
+  const renderLinks = function(str) {
+    // replace plain text links with anchor tags
+    let urlList = str.match(/(https?:\/\/[^"\s]+)(?![^<>]*>|[^"]*?<\/a)/g)
+    if (urlList != null && urlList.length > 0){
+      for (let urlTxt of urlList) {
+        str = str.replace(urlTxt, '<a href="' + urlTxt + '" target="_blank">' + urlTxt + '</a>')
+      }
+    }
+    return str
+  }
+
+  const replaceMarkdownBold = function(str) {
+    // Replace markdown bold with html bold
+    let markdownBold = str.match(/\*\*.*?\*\*/g)
+    if (markdownBold != null && markdownBold.length > 0){
+      for (let bold of markdownBold) {
+        str = str.replace('**', '<b>')
+        str = str.replace('**', '</b>')
+      }
+    }
+    return str
+  }
+
+  const formatDate = function(str) {
+    // format date time
+    let dateTimeStr = str.match(/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}([Z]?)/g)
+    if (dateTimeStr != null && dateTimeStr.length > 0){
+      for (let dateTime of dateTimeStr) {
+        let date = dateTime.match(/[0-9]{4}-[0-9]{2}-[0-9]{2}/)
+        let time = dateTime.match(/[0-9]{2}:[0-9]{2}:[0-9]{2}/)
+        str = str.replace(dateTime, date + ', ' + time + ' UTC')
+      }
+    }
+    return str
+  }
+
+  const formatMarkdownListItems = function(str) {
+    // Add line breaks between markdown list item
+    let markdownListItems = str.match(/(?<![\*]+)(\*)([^\*])+/g)
+    if (markdownListItems != null && markdownListItems.length > 0){
+      for (let listItem of markdownListItems) {
+        str = str.replace(listItem, '<br>' + listItem)
+      }
+    }
+    return str
+  }
+
   return {
     filteredRows, searchText, searchTextLowered,
     currentSortDir, currentSort, sortDir, sortIconClass, 
-    pageSize, currentPage, paginatedRows, prevPage, nextPage, showingFilterText, showingFilteredFromText,
-    truncateStripTags, stripTags, truncate, linkToRow
+    pageSize, currentPage, paginatedRows, prevPage, nextPage,
+    showingFilterText, showingFilteredFromText,
+    truncateStripTags, stripTags, truncate, linkToRow,
+    stringifyObj, formatString, replaceNewLine, replaceMarkdownLinks,
+    renderLinks, replaceMarkdownBold, formatDate,
+    formatMarkdownListItems
   }
 }
