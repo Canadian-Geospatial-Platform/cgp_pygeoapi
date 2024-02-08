@@ -223,6 +223,7 @@ export default function useTableFilter(rows, keyColumns, defaultSortCol, tableTe
     str = replaceMarkdownBold(str)
     str = formatDate(str)
     str = formatMarkdownListItems(str)
+    str = formatImgURL(str)
     return str
   }
 
@@ -248,7 +249,7 @@ export default function useTableFilter(rows, keyColumns, defaultSortCol, tableTe
 
   const renderLinks = function(str) {
     // replace plain text links with anchor tags
-    let urlList = str.match(/(https?:\/\/[^"\s]+)(?![^<>]*>|[^"]*?<\/a)/g)
+    let urlList = str.match(/((http)s?:\/\/[^"'\s]+)(?![^<>]*>|[^"]*?<\/a)/g)
     if (urlList != null && urlList.length > 0){
       for (let urlTxt of urlList) {
         str = str.replace(urlTxt, '<a href="' + urlTxt + '" target="_blank">' + urlTxt + '</a>')
@@ -288,6 +289,19 @@ export default function useTableFilter(rows, keyColumns, defaultSortCol, tableTe
     if (markdownListItems != null && markdownListItems.length > 0){
       for (let listItem of markdownListItems) {
         str = str.replace(listItem, '<br>' + listItem)
+      }
+    }
+    return str
+  }
+
+  const formatImgURL = function(str) {
+    // Add line breaks between markdown list item
+    let re = /(?<!(href=['"]))((http)s?:\/\/[^"'\s]+\.(jpg|jpeg|png|gif|bmp|svg))/g
+    let imgURLList = str.match(re)
+    if (imgURLList != null && imgURLList.length > 0){
+      for (let imgURL of imgURLList) {
+        let fileName = imgURL.match(/[^"'\/\s]+\.(jpg|jpeg|png|gif|bmp|svg)/)
+        str = str.replace(re, '<img src="' + imgURL + '" alt="' + fileName[0] + '" width="250" />')
       }
     }
     return str

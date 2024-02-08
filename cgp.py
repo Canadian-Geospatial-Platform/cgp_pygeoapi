@@ -321,8 +321,16 @@ class GeoCoreProvider(BaseProvider):
 
             # Remove graphicOverview and promote/set first thumbnailUrl
             try:
-                url = item.pop('graphicOverview')[0].get('overviewfilename')
-                item['thumbnailUrl'] = url
+                graphicOverview = item.pop('graphicOverview', '')
+                if isinstance(graphicOverview, str):
+                    graphicOverview = graphicOverview.replace('\"\"', '\"')
+                    try:
+                        graphicOverview = json.loads(graphicOverview)
+                    except json.JSONDecodeError as err:
+                        LOGGER.error('Failed to parse JSON response', exc_info=err)
+
+                graphicOverview = graphicOverview[0].get('overviewFileName', '')
+                item['thumbnailUrl'] = graphicOverview
             except (KeyError, IndexError, AttributeError):
                 LOGGER.warning('could not find overview thumbnail')
 
