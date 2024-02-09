@@ -296,12 +296,12 @@ export default function useTableFilter(rows, keyColumns, defaultSortCol, tableTe
 
   const formatImgURL = function(str) {
     // Add line breaks between markdown list item
-    let re = /(?<!(href=['"]))((http)s?:\/\/[^"'\s]+\.(jpg|jpeg|png|gif|bmp|svg))/g
+    let re = /(?<!(href=['"]))((http)s?:\/\/[^"'\s]+\.(jpg|jpeg|png|gif|bmp|svg|JPG|JPEG|PNG|GIF|BMP|SVG))/g
     let imgURLList = str.match(re)
     if (imgURLList != null && imgURLList.length > 0){
       for (let imgURL of imgURLList) {
-        let fileName = imgURL.match(/[^"'\/\s]+\.(jpg|jpeg|png|gif|bmp|svg)/)
-        str = str.replace(re, '<img src="' + imgURL + '" alt="' + fileName[0] + '" width="250" />')
+        let fileName = imgURL.match(/[^"'\/\s]+\.(jpg|jpeg|png|gif|bmp|svg|JPG|JPEG|PNG|GIF|BMP|SVG)/)
+        str = str.replace(re, '<img src="' + imgURL + '" alt="' + fileName[0] + '" width="200" />')
       }
     }
     return str

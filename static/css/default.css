@@ -41,6 +41,24 @@
   position: sticky;
   top: 0; /* sticky table header */
 }
+.items-td-div {
+  max-width: 300px;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item-td {
+  overflow-wrap: anywhere;
+}
+.item-td-property-name {
+  width: 35%;
+}
+.item-td-property-details {
+  width: 65%;
+}
 
 #items-map, #collection-map {
   width: 100%;

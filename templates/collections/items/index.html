@@ -86,8 +86,7 @@
           <table id="items-table" class="table table-striped">
             <thead>
               <tr>
-                <th v-for="(th, index) in tableFields"
-                  :class="th.colClass">
+                <th v-for="(th, index) in tableFields" :class="th.colClass">
                   <div class="sortable ellipsis" @click="changeSortDir(th.key)" :title="th.text">
                     <span v-text="truncate(th.text, 25)"></span>
                     <span
@@ -110,7 +109,8 @@
             </thead>
             <tbody>
               <tr v-for="(item, index) in items">
-                <td v-for="(th, index) in tableFields" v-html="linkToRow(item, th.key, itemsPath, '{{ (locale|lower)[:2] }}')">
+                <td v-for="(th, index) in tableFields">
+                  <div v-html="linkToRow(item, th.key, itemsPath, '{{ (locale|lower)[:2] }}')" class="items-td-div"></div>
                 </td>
               </tr>
               <!-- START of noJs progressive enhancement -->
@@ -171,9 +171,6 @@
               <span v-text="showingLimitText"></span>
               <span v-show="showingFilteredFromText !== ''" v-text="' (' + showingFilteredFromText + ')'"></span>
             </div>
-          </div>
-          <div class="alert alert-warning padding-tb-5 mrgn-bttm-0 mrgn-tp-sm">
-            <p><small>{% trans %}Higher limits are not recommended{% endtrans %}</small></p>
           </div>
           <div class="text-center">
             <ul class="pagination">
@@ -315,7 +312,7 @@
             currentPage.value = page
             getItemsSorted()
           }
-          const limitOptions = [10, 100, 1000, 2000]
+          const limitOptions = [10, 50, 100, 500]
           const limitChange = function () {
             // Cannot have current page > max pages on limit changes
             if (currentPage.value > maxPages.value) {
