@@ -36,12 +36,16 @@
   white-space: nowrap;
   overflow: hidden;
 }
+.items-table-filter-container {
+  padding-bottom: 8px;
+}
 #items-table-container th {
   background: white;
   position: sticky;
   top: 0; /* sticky table header */
 }
 .items-td-div {
+  min-width: 100px;
   max-width: 300px;
   display: -webkit-box;
   -webkit-line-clamp: 5;

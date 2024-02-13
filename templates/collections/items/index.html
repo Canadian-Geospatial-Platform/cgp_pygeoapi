@@ -54,15 +54,17 @@
             class="btn btn-warning btn-sm" 
             @click="clearSearch">reset</button> the table.{% endtrans %}</p>
         </div>
-        <div class="form-inline row" aria-controls="items-table">
+        <div class="form-inline row items-table-filter-container" aria-controls="items-table">
           <div class="form-group col-xs-5">
             <label class="wb-inv" for="filter-table">{% trans %}Filter table content{% endtrans %}</label>
             <input
-              id="filter-table"
               type="text"
-              class="form-control input-sm mrgn-rght-0"
-              placeholder="{% trans %}Filter table content{% endtrans %}"
-              v-model="searchText">
+              class="form-control input-sm keyword-search-input"
+              title="{% trans %}eg. &quot;BC QC ON&quot; will search for &quot;BC&quot; or &quot;ON&quot; or &quot;QC&quot;{% endtrans %}"
+              id="search-keywords"
+              placeholder="{% trans %}Search{% endtrans %}"
+              v-model="queryCols['q']"
+              @keyup.enter="applyKeywordSearch()" />
           </div>
           <div class="col-xs-7 text-right">
             <div class="btn-group btn-group-sm inline-block">
@@ -93,7 +95,7 @@
                       v-show="currentSort === th.key"
                       :class="[sortIconClass, 'glyphicon']"></span>
                   </div>
-                  <div v-if="th.key !== 'id'">
+                  <!-- <div v-if="th.key !== 'id'">
                     <label class="wb-inv" :for="'search-'+th.key">{% trans %}Keyword search for: [% th.key %]{% endtrans %}</label>
                     <input 
                       type="text"
@@ -103,7 +105,7 @@
                       placeholder="{% trans %}Keyword{% endtrans %}"
                       v-model="queryCols[th.key]"
                       @keyup.enter="applyKeywordSearch()" />
-                  </div>
+                  </div> -->
                 </th>
               </tr>
             </thead>
@@ -120,9 +122,6 @@
                 <td data-label="{{ data.get('uri_field') }}"><a href="{{ ft['properties'].get(data['uri_field'])}}" title="{{ ft['properties'][data['uri_field']] }}">{{ft['properties'][data.get('uri_field')]}}</a></td>
                 {% endif %}
                 <td data-label="id"><a href="{{ data['items_path']}}/{{ ft.id }}?lang={{ (locale|lower)[:2] }}" title="{{ ft.id }}">{{ ft.id | string }}</a></td>
-                <!--{% if data['title_field'] %}
-                  <td data-label="name"><a href="{{ data['items_path']}}/{{ ft['id'] }}?lang={{ (locale|lower)[:2] }}" title="{{ ft['properties'][data['title_field']] }}">{{ ft['properties'][data['title_field']] | string | truncate( 35 ) }}</a></td>
-                {% endif %}-->
                 {% for k, v in ft['properties'].items() %}
                   {% if k in ['links', 'associations'] %}
                     <td>
@@ -138,8 +137,8 @@
                         {% endfor %}
                       </ul>
                     </td>
-                  {% elif k not in [data['id_field'], data['title_field'], data['uri_field']] %}
-                  <td data-label="{{ k }}">{{ render_item_value(v, 80) }}</td>
+                  {% elif k not in [data['uri_field']] %}
+                    <td data-label="{{ k }}">{{ render_item_value(v, 80) }}</td>
                   {% endif %}
                 {% endfor %}
               </tr>
@@ -256,12 +255,8 @@
               itemProps.value.forEach((prop) => {
                 // avoid duplicate column id case that matches root id
                 if (prop.toLowerCase() === 'id') {
-                  return // skip
+                  return
                 } 
-                // avoid duplicate columns if root id and ID_FIELD are the same
-                if (prop.toLowerCase() === ID_FIELD.toLowerCase()) {
-                  return // skip
-                }
 
                 fields.push({
                   key: prop,
@@ -364,6 +359,9 @@
             }
             for (const key of itemProps.value) {
               queryParams.delete(key)
+            }
+            if (queryParams.get('q')) {
+              queryParams.delete('q')
             }
             if (!queryColsIsEmpty.value) {
               for (const [key, val] of Object.entries(queryCols.value)) {
@@ -474,10 +472,10 @@
             items: filteredRows, // don't care for unfiltered
             searchText, searchTextLowered, truncate,
             sortIconClass, changeSortDir, currentSort, currentSortDir,
-            limit, limitOptions, showingLimitText, showingFilteredFromText, currentPage, maxPages, limitChange, bboxPermalink,
-            itemsPath, linkToRow,
-            queryCols, clearSearch, queryColsIsEmpty, applyKeywordSearch, prevPageItems, nextPageItems, getItemsSorted,
-            changePage
+            limit, limitOptions, showingLimitText, showingFilteredFromText,
+            currentPage, maxPages, limitChange, bboxPermalink, itemsPath,
+            linkToRow, queryCols, clearSearch, queryColsIsEmpty, applyKeywordSearch,
+            prevPageItems, nextPageItems, getItemsSorted, changePage
           }
         }
       })
