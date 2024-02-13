@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  0.11\n"
 "Report-Msgid-Bugs-To: pygeoapi@lists.osgeo.org\n"
-"POT-Creation-Date: 2024-01-23 17:22-0800\n"
+"POT-Creation-Date: 2024-02-13 09:36-0800\n"
 "PO-Revision-Date: 2021-07-11 00:15+0200\n"
 "Last-Translator: Paul van Genuchten\n"
 "Language: fr\n"
@@ -294,16 +294,16 @@ msgid "Exception"
 msgstr "Exception"
 
 #: pygeoapi/cgp_pygeoapi/templates/landing_page.html:25
-msgid "MSC GeoMet User Documentation"
-msgstr "Documentation utilisateur de la plateforme GeoMet du SMC"
+msgid "CGP User Documentation"
+msgstr "Documentation utilisateur PGC"
 
 #: pygeoapi/cgp_pygeoapi/templates/collections/collection.html:4
 #: pygeoapi/cgp_pygeoapi/templates/collections/coverage/domainset.html:4
 #: pygeoapi/cgp_pygeoapi/templates/collections/coverage/rangetype.html:4
 #: pygeoapi/cgp_pygeoapi/templates/collections/index.html:2
 #: pygeoapi/cgp_pygeoapi/templates/collections/index.html:4
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:16
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/item.html:25
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:17
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/item.html:6
 #: pygeoapi/cgp_pygeoapi/templates/collections/queryables.html:4
 #: pygeoapi/cgp_pygeoapi/templates/collections/tiles/index.html:4
 #: pygeoapi/cgp_pygeoapi/templates/collections/tiles/metadata.html:4
@@ -553,25 +553,25 @@ msgstr "Champs"
 msgid "%(id)s: %(name)s (%(definition)s)"
 msgstr "%(id)s : %(name)s (%(definition)s)"
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:8
 #: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:9
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:10
 msgid "CSV"
 msgstr "CSV"
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:23
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/item.html:31
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:24
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/item.html:12
 msgid "Items"
 msgstr "Items"
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:32
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:33
 msgid "Items in this collection."
 msgstr "Items dans cette collection."
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:47
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:48
 msgid "Only show items by map view"
 msgstr "Afficher les items uniquement par la vue de la carte"
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:51
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:52
 msgid ""
 "No results. Please modify your search query or <button\n"
 "            :title=\"txt.reset\"  \n"
@@ -583,66 +583,71 @@ msgstr ""
 "            class=\"btn btn-warning btn-sm\" \n"
 "            @click=\"clearSearch\">remettre</button> le tableau."
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:58
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:63
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:59
 msgid "Filter table content"
 msgstr "Filtrer le contenu du tableau"
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:73
-msgid "Reset"
-msgstr "Remettre"
-
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:75
-msgid "Apply column keyword search queries to the entire collection"
-msgstr ""
-"Appliquer des requêtes de recherche par mots-clés en colonnes à "
-"l'ensemble de la collection"
-
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:79
-msgid "Search by keywords"
-msgstr "Recherche par mots-clés"
-
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:97
-msgid "Keyword search for: [% th.key %]"
-msgstr "Recherche de mots-clés pour : [% th.key %]"
-
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:101
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:63
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:103
 msgid ""
 "eg. &quot;BC QC ON&quot; will search for &quot;BC&quot; or &quot;ON&quot;"
 " or &quot;QC&quot;"
 msgstr "Par exemple, « BC QC ON » recherchera « BC » ou « ON » ou « QC »"
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:103
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:65
+msgid "Search"
+msgstr "Recherche"
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:76
+msgid "Reset"
+msgstr "Remettre"
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:78
+msgid "Apply column keyword search queries to the entire collection"
+msgstr ""
+"Appliquer des requêtes de recherche par mots-clés en colonnes à "
+"l'ensemble de la collection"
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:82
+msgid "Search by keywords"
+msgstr "Recherche par mots-clés"
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:99
+msgid "Keyword search for: [% th.key %]"
+msgstr "Recherche de mots-clés pour : [% th.key %]"
+
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:105
 msgid "Keyword"
 msgstr "Mot clé"
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:142
-msgid "Limit:"
-msgstr "Limite :"
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:157
+msgid "Show"
+msgstr "Afficher"
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:161
-msgid "Higher limits are not recommended"
-msgstr "Des limites plus élevées ne sont pas recommandées"
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:166
+#, fuzzy
+msgid " entries"
+msgstr " entrées"
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:167
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:180
 msgid "Previous"
 msgstr "Précédent"
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:167
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:190
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:180
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:203
 msgid " page of search results"
 msgstr " des résultats de recherche"
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:186
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:199
 msgid ": Page [% page %] of search results"
 msgstr ": Page [% page %] des résultats de recherche"
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:190
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/item.html:62
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:203
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/item.html:43
 msgid "Next"
 msgstr "Suivant"
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:220
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:233
 msgid ""
 "Clear column keyword search queries and reset to display the default "
 "results"
@@ -650,38 +655,38 @@ msgstr ""
 "Effacer les requêtes de recherche par mots-clés des colonnes et "
 "réinitialiser pour afficher les résultats par défaut"
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:225
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:238
 msgid "Showing $firstPage to $upper of $itemsTotal"
 msgstr "Affichage de $firstPage jusqu'à $upper de $itemsTotal"
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:226
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:239
 msgid "Showing 0 results"
 msgstr "Affichage de 0 résultats"
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:270
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:279
 msgid "filtered from $totalSize total entry"
 msgstr "filtré de $totalSize entrée au total"
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:271
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:280
 msgid "filtered from $totalSize total entries"
 msgstr "filtrées de $totalSize entrées au total"
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:272
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/index.html:281
 msgid "Showing $startEntryOfPage to $lastEntryOfPage of $filteredNumEntries"
 msgstr ""
 "Affichage de $startEntryOfPage jusqu'à $lastEntryOfPage de "
 "$filteredNumEntries"
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/item.html:60
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/item.html:41
 msgid "Prev"
 msgstr "Précédent"
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/item.html:75
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/item.html:56
 #: pygeoapi/cgp_pygeoapi/templates/stac/item.html:58
 msgid "Property"
 msgstr "Propriété"
 
-#: pygeoapi/cgp_pygeoapi/templates/collections/items/item.html:76
+#: pygeoapi/cgp_pygeoapi/templates/collections/items/item.html:57
 #: pygeoapi/cgp_pygeoapi/templates/stac/item.html:59
 msgid "Value"
 msgstr "Valeur"
