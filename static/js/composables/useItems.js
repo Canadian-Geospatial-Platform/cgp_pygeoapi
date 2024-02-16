@@ -81,6 +81,7 @@ export default function useItems(itemsi18n) {
   // Data retrieval
   const requestUrl = ref('')
   const queryCols = ref({}) // optional querying per column
+  const queryableTerms = ref({})
   const queryColsIsEmpty = computed(() => {
     let isEmpty = true
     for (const [key, value] of Object.entries(queryCols.value)) {
@@ -164,6 +165,6 @@ export default function useItems(itemsi18n) {
     itemsJson, itemsTotal, items, itemProps, limit,
     getItems, getTableHeaders, showingLimitText, itemsLoading,
     nextPage, prevPage, currentPage, maxPages, calcOffset,
-    queryCols, clearQueryCols, queryColsIsEmpty
+    queryCols, queryableTerms, clearQueryCols, queryColsIsEmpty
   }
 }

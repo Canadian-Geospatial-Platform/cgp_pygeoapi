@@ -41,8 +41,10 @@
                     queryables:
                         # geoCore does not offer a way to retrieve the queryables: define them here
                         theme:
+                            label-en: Themes
+                            label-fr: Thèmes
                             type: string
-                            values:
+                            values-en:
                                 - administration
                                 - economy
                                 - environment
@@ -52,8 +54,104 @@
                                 - society
                                 - legal
                                 - emergency
-                        org:
+                            values-fr:
+                                - administration
+                                - économie
+                                - environnement
+                                - imagerie
+                                - infrastructure
+                                - renseignements juridiques
+                                - science
+                                - société
+                                - urgences
+                        type:
+                            label-en: Types
+                            label-fr: Types
                             type: string
+                            values-en:
+                                - API
+                                - Application
+                                - Collection
+                                - Community
+                                - Dataset
+                                - Service
+                            values-fr:
+                                - API
+                                - Application
+                                - Collection
+                                - Communauté
+                                - Jeu de données
+                                - Service
+                        org:
+                            label-en: Organizations
+                            label-fr: Organisations
+                            type: string
+                            values-en:
+                                - Agriculture and Agri-Food Canada
+                                - Canadian Geospatial Data Infrastructure Web Harvester
+                                - Canadian Heritage
+                                - Canadian Northern Economic Development Agency
+                                - Canadian Nuclear Safety Commission
+                                - Canadian Space Agency
+                                - Department of Justice
+                                - Elections Canada
+                                - Employment and Social Development Canada
+                                - Environment and Climate Change Canada
+                                - Fisheries and Oceans Canada
+                                - Government and Municipalities of Québec
+                                - Government of Alberta
+                                - Government of British Columbia
+                                - Government of Manitoba
+                                - Government of New Brunswick
+                                - Government of Newfoundland and Labrador
+                                - Government of Northwest Territories
+                                - Government of Nova Scotia
+                                - Government of Nunavut
+                                - Government of Ontario
+                                - Government of Prince Edward Island
+                                - Government of Saskatchewan
+                                - Government of Yukon
+                                - Impact Assessment Agency of Canada
+                                - Indigenous Services Canada
+                                - Innovation, Science and Economic Development Canada
+                                - Natural Resources Canada
+                                - Parks Canada
+                                - Public Health Agency of Canada
+                                - Statistics Canada
+                                - Transport Canada
+                            values-fr:
+                                - Agence Canadienne de Développement économique du Nord
+                                - Agence d'évaluation d'impact du Canada
+                                - Agence de la santé publique du Canada
+                                - Agence spatiale canadienne
+                                - Agriculture et Agroalimentaire Canada
+                                - Commission canadienne de sûreté nucléaire
+                                - Défense nationale
+                                - Élections Canada
+                                - Emploi et Développement social Canada
+                                - Environnement et Changement climatique Canada
+                                - Gouvernement de l'Alberta
+                                - Gouvernement de l'Île-du-Prince-Édouard
+                                - Gouvernement de l'Ontario
+                                - Gouvernement de la Colombie-Britannique
+                                - Gouvernement de la Nouvelle-Écosse
+                                - Gouvernement de la Saskatchewan
+                                - Gouvernement de Terre-Neuve-et-Labrador
+                                - Gouvernement des Territoires du Nord-Ouest
+                                - Gouvernement du Manitoba
+                                - Gouvernement du Nouveau-Brunswick
+                                - Gouvernement du Nunavut
+                                - Gouvernement du Yukon
+                                - Gouvernement et municipalités du Québec
+                                - Ministère de la Justice
+                                - Moissonneur web de l'Infrastructure canadienne de données géospatiales
+                                - Parcs Canada
+                                - Patrimoine canadien
+                                - Pêches et Océans Canada
+                                - Ressources naturelles Canada
+                                - Services aux Autochtones Canada
+                                - Statistique Canada
+                                - Transports Canada
                 id_field: externalId
                 time_field: record-created
                 title_field: title

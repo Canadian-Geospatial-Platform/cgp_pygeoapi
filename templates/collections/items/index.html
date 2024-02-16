@@ -84,6 +84,34 @@
           </div>
         </div>
         <div class="clearfix"></div>
+        {% if data.get('queryables') %}
+          <div>
+            <h3 class="wb-inv">{% trans %}Filtering options{% endtrans %}</h3>
+            <details>
+              <summary>
+                <h4 class="h5">{% trans %}Advanced filter options{% endtrans %}</h4>
+              </summary>
+              <form class="wb-tables-filter" data-bind-to="dataset-filter">
+                <div v-for="(category, categoryName) in queryables" class="form-group">
+                  <fieldset class="legend-brdr-bttm">
+                    <legend><span class="field-name" v-text="category['label-' + '{{ (locale|lower)[:2] }}']"></span></legend>
+                    <ul class="list-unstyled advanced-search-list">
+                      <li v-for="queryable in category['values-'  + '{{ (locale|lower)[:2] }}']" class="checkbox gc-chckbxrdio">
+                        <input
+                          type="checkbox"
+                          :id="'dt_' + queryable"
+                          :value="queryable"
+                          v-model="queryableCheckbox[queryable]"
+                          @change="setAdvancedSearch(categoryName, queryable, queryableCheckbox)"/>
+                        <label :for="'dt_' + queryable" v-text="queryable"></label>
+                      </li>
+                    </ul>
+                  </fieldset>
+                </div>
+              </form>
+            </details>
+          </div>
+        {% endif %}
         <div id="items-table-container" :class="{ 'loading-mask': itemsLoading }">
           <table id="items-table" class="table table-striped">
             <thead>
@@ -228,6 +256,7 @@
         delimiters: ['[%', '%]'],
         setup() {
           const noJs = ref(false) // progressive enhancement
+          const queryableCheckbox = ref({})
           /* Text */
           const txt = {
             'reset': '{% trans %}Clear column keyword search queries and reset to display the default results{% endtrans %}'
@@ -240,7 +269,7 @@
           }
           const { items, itemsJson, itemProps, getItems, getTableHeaders, itemsTotal, itemsLoading,
             currentPage, maxPages, prevPage, nextPage, limit, showingLimitText, calcOffset,
-            queryCols, clearQueryCols, queryColsIsEmpty } = useItems(itemsi18n)
+            queryCols, queryableTerms, clearQueryCols, queryColsIsEmpty } = useItems(itemsi18n)
           
           /* Table columns */
           const tableFields = computed(() => {
@@ -330,6 +359,54 @@
           const bboxPermalink = ref(false)
           const { bbox } = useMap('items-map', itemsJson, itemsPath, tileLayerUrl, tileLayerAttr, bboxPermalink, LOCALE)
 
+          /* Advanced Filter */
+          const queryables = computed(() => {
+            const queryablesRaw = '{{ data.get("queryables") }}' !== 'None' ? '{{ data.get("queryables") }}' : null
+            if (queryablesRaw) {
+              try {
+                // Replace html quotations
+                let queryables = queryablesRaw.replaceAll('&#34;', '"')
+                queryables = queryables.replaceAll('&#39;', "'")
+                //Replace unicode
+                queryables = queryables.replace(/\\u[\dA-F]{4}/gi,
+                  function (match) {
+                      return String.fromCharCode(parseInt(match.replace(/\\u/g, ''), 16))
+                  })
+                return JSON.parse(queryables)
+              } catch(e) {
+                return {}
+              }
+            }
+            return {}
+          })
+
+          const setAdvancedSearch = function(key, term, checked) {
+            let queryableValues = queryableTerms.value
+            if (queryableCheckbox.value[term]) {
+              if (key in queryableValues) {
+                if (!queryableValues[key].includes(term)) {
+                  queryableValues[key].push(term)
+                }
+              } else {
+                queryableValues[key] = [term]
+              }
+            } else {
+              if (key in queryableValues) {
+                if (queryableValues[key].length > 1) {
+                  const index = queryableValues[key].indexOf(term);
+                  queryableValues[key].splice(index, 1);
+                } else {
+                  delete queryableValues[key]
+                }
+              }
+            }
+
+            const queryableValuesStr = queryableValues[key] ?
+              queryableValues[key].join('|').replaceAll("'", "''") : ''
+            queryCols.value[key] = queryableValuesStr
+            applyKeywordSearch()
+          }
+
           /* Permalink handling */
           let queryParams = new URLSearchParams(window.location.search)
           const nonQueryColumns = ['sortby', 'offset', 'limit', 'f', 'bbox']
@@ -360,6 +437,9 @@
               queryParams.delete('sortby')
             }
             for (const key of itemProps.value) {
+              queryParams.delete(key)
+            }
+            for (const key in queryables.value) {
               queryParams.delete(key)
             }
             if (queryParams.get('q')) {
@@ -475,8 +555,9 @@
             searchText, searchTextLowered, truncate,
             sortIconClass, changeSortDir, currentSort, currentSortDir,
             limit, limitOptions, showingLimitText, showingFilteredFromText,
-            currentPage, maxPages, limitChange, bboxPermalink, itemsPath,
-            linkToRow, queryCols, clearSearch, queryColsIsEmpty, applyKeywordSearch,
+            currentPage, maxPages, limitChange, bboxPermalink, queryables,
+            setAdvancedSearch, itemsPath, linkToRow, queryCols, queryableTerms,
+            queryableCheckbox, clearSearch, queryColsIsEmpty, applyKeywordSearch,
             prevPageItems, nextPageItems, getItemsSorted, changePage
           }
         }

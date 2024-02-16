@@ -73,6 +73,22 @@
   overflow: scroll;
 }
 
+@media (min-width: 768px) {
+  .advanced-search-list {
+    column-count: 2;
+  }
+}
+@media (min-width: 992px) {
+  .advanced-search-list {
+    column-count: 3;
+  }
+}
+
+.advanced-search-list .checkbox:first-of-type,
+.advanced-search-list .radio:first-of-type {
+  margin-top: 0px
+}
+
 footer.sticky {
   position: fixed;
   width: 100%;

@@ -246,6 +246,21 @@ class GeoCoreProvider(BaseProvider):
             else:
                 LOGGER.warning(f'non-numeric total "{total}" encountered: paging might not work properly')
 
+            # Remove graphicOverview and promote/set first thumbnailUrl
+            try:
+                graphicOverview = item.pop('graphicOverview', '')
+                if isinstance(graphicOverview, str):
+                    graphicOverview = graphicOverview.replace('\"\"', '\"')
+                    try:
+                        graphicOverview = json.loads(graphicOverview)
+                    except json.JSONDecodeError as err:
+                        LOGGER.error('Failed to parse JSON response', exc_info=err)
+
+                graphicOverview = graphicOverview[0].get('overviewFileName', '')
+                item['thumbnailUrl'] = graphicOverview
+            except (KeyError, IndexError, AttributeError):
+                LOGGER.warning('could not find overview thumbnail')
+
             # Rename and set/fix date properties
             date_created = self._asisodate(item.get('created'))
             date_updated = self._asisodate(item.pop('published', None))
@@ -319,21 +334,6 @@ class GeoCoreProvider(BaseProvider):
                     LOGGER.error('Failed to parse JSON response', exc_info=err)
                 item['contact'] = contact
 
-            # Remove graphicOverview and promote/set first thumbnailUrl
-            try:
-                graphicOverview = item.pop('graphicOverview', '')
-                if isinstance(graphicOverview, str):
-                    graphicOverview = graphicOverview.replace('\"\"', '\"')
-                    try:
-                        graphicOverview = json.loads(graphicOverview)
-                    except json.JSONDecodeError as err:
-                        LOGGER.error('Failed to parse JSON response', exc_info=err)
-
-                graphicOverview = graphicOverview[0].get('overviewFileName', '')
-                item['thumbnailUrl'] = graphicOverview
-            except (KeyError, IndexError, AttributeError):
-                LOGGER.warning('could not find overview thumbnail')
-
             # Set properties and add to feature list
             feature['properties'] = item
             features.append(feature)
@@ -346,6 +346,7 @@ class GeoCoreProvider(BaseProvider):
         collection = {
             'type': 'FeatureCollection',
             'features': features,
+            'queryables': json.dumps(self.fields),
             'numberReturned': len(features)
         }
         LOGGER.debug(f'provider said there are {num_matched} matches')
