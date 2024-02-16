@@ -513,9 +513,20 @@
             }
 
             // other columns / keyword searches
+            let stringifyParam = ''
+            let paramValueList = []
             for (const key of queryParams.keys()) {
               if (!nonQueryColumns.includes(key)) {
-                queryCols.value[key] = params[key] + '' // stringify
+                stringifyParam = params[key] + ''
+                queryCols.value[key] = stringifyParam
+                // Apply advanced filters
+                if (key !== 'lang' && key !== 'q') {
+                  paramValueList = stringifyParam.split('|')
+                  for (let term of paramValueList) {
+                    term = term.replaceAll("''", "'")
+                    queryableCheckbox.value[term] = true
+                  }
+                }
               }
             }
 
