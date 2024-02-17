@@ -1,4 +1,8 @@
-{% extends "_base.html" %}
+{% if config['server']['templates']['base'] %}
+  {% extends config['server']['templates']['base'] %}
+{% else %}
+  {% extends "_base.html" %}
+{% endif %}
 {% block title %}{{ super() }} {{ data['title'] }} {% endblock %}
 {% block crumbs %}{{ super() }}
 <li><a href="../../?lang={{ (locale|lower)[:2] }}">{% trans %}Collections{% endtrans %}</a></li>

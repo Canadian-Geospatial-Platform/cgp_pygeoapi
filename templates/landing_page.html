@@ -1,4 +1,8 @@
-{% extends "_base.html" %}
+{% if config['server']['templates']['base'] %}
+  {% extends config['server']['templates']['base'] %}
+{% else %}
+  {% extends "_base.html" %}
+{% endif %}
 {% block title %}{{ super() }} {% trans %}Home{% endtrans %} {% endblock %}
 {% block body %}
 

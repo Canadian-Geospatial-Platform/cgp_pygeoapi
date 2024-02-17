@@ -1,4 +1,8 @@
-{% extends "_base.html" %}
+{% if config['server']['templates']['base'] %}
+  {% extends config['server']['templates']['base'] %}
+{% else %}
+  {% extends "_base.html" %}
+{% endif %}
 {% from "collections/items/renderItemValue.html" import render_item_value %}
 {% set ptitle = data['properties'][data['title_field']] or ("Item {}".format(data['id'])) %}
 {% block title %}{{ super() }} {{ data['title'] }} - {{ data['id'] }}{% endblock %}

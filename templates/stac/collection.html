@@ -1,4 +1,8 @@
-{% extends "_base.html" %}
+{% if config['server']['templates']['base'] %}
+  {% extends config['server']['templates']['base'] %}
+{% else %}
+  {% extends "_base.html" %}
+{% endif %}
 {% block title %}{{ super() }} {% trans %}SpatioTemporal Asset Catalog{% endtrans %} {% endblock %}
 {% block crumbs %}{{ super() }}
 <li><a href="./stac?lang={{ (locale|lower)[:2] }}">{% trans %}SpatioTemporal Asset Catalog{% endtrans %}</a></li>
