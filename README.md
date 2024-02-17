@@ -22,6 +22,18 @@ templates:
 NOTE: The paths in your config file must be ***Absolute*** paths only. Resources referenced using relative paths won't load properly and throw a 404 error.
 - save your changes and restart your server
 
+### Using an alternate base template
+
+- Open the pygeoapi config file.
+- Under 'server' and 'templates', add a new key, `base`. The value will be the relative path to the file, referenced from its location in the templates folder. For example, to use the `_base_geoca.html` base template, add the following:
+```
+templates:
+        path: /path/to/templates
+        static: /path/to/static/files
+        base: _base_geoca.html
+```
+- Reset your server
+
 ### Geocore Provider
 
 - copy the `cgp.py` file to the following directory:
