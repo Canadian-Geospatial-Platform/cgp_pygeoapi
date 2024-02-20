@@ -1,0 +1,43 @@
+#wb-bnr {
+  width: 100%;
+}
+
+header .brand, #wb-lng li {
+  line-height: 40px;
+}
+
+@media (min-width: 431px) {
+  header .brand, #wb-lng li {
+    line-height: 100px;
+  }
+}
+
+.lang-toggle, .lang-toggle:visited {
+  color: #0f7d21;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: "Noto Sans",sans-serif;
+  font-weight: bold;
+}
+
+.lang-toggle:hover {
+  text-decoration: underline;
+}
+
+header .brand img {
+  max-height: revert;
+  max-width: 200px;
+  margin-bottom: 0;
+}
+
+#wb-bnr+hr, .header-hr-bottom {
+  border-top: 10px solid #515AA9;
+}
+
+.header-hr-top {
+  border-top: 10px solid #0F7D21;
+}
+
+.header-hr-top, #wb-bnr+hr, .header-hr-bottom {
+  margin: 0;
+}

@@ -14,9 +14,8 @@
     <link rel="stylesheet" href="https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/css/theme.min.css">
 
     <link rel="stylesheet" href="{{ config['server']['url'] }}/static/css/default.css">
-    <!--[if lt IE 9]>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" href="{{ config['server']['url'] }}/static/css/geoca.css">
+
     {% for link in data['links'] %}
       {% if (link['rel']=="self" and link['type']=="text/html") %}
       <link rel="canonical" href="{{ link['href'].split('?')[0] }}?lang={{ (locale|lower)[:2] }}" />
@@ -39,10 +38,21 @@
         </ul>
     </nav>
     <header>
+      <hr class="header-hr-top">
       <div id="wb-bnr" class="container">
         <div class="row">
+          <!-- Brand -->
+          <div class="brand col-xs-6 col-md-4" property="publisher" typeof="GovernmentOrganization">
+            <a href="https://geo.ca/home/" property="url">
+              <img src="https://geo.ca/wp-content/uploads/2023/02/geo-ca-logo.svg" alt="{% trans %}GEO.CA logo, blue and green globe{% endtrans %}" property="logo" />
+            </a>
+            <meta property="name" content="{% trans %}Geo.ca{% endtrans %}">
+            <meta property="areaServed" typeof="Country" content="Canada" />
+            <link property="logo" href="https://geo.ca/wp-content/uploads/2023/02/geo-ca-logo.svg" />
+          </div>
+
           <!-- language selection (JSON) -->
-          <section id="wb-lng" class="col-xs-3 col-sm-12 pull-right text-right">
+          <section id="wb-lng" class="col-xs-6 pull-right text-right">
             <h2 class="wb-inv">{% trans %}Language selection{% endtrans %}</h2>
             <ul class="list-inline mrgn-bttm-0">
               {% set links_found = namespace(json=0, jsonld=0) %}
@@ -53,7 +63,7 @@
               <li>
                 <a id="json-format-url" href="{{ link['href'] }}" class="btn btn-xs btn-default">
                   <span class="hidden-xs">JSON</span>
-                  <abbr title="JSON" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-0 text-uppercase">JSON</abbr>
+                  <abbr title="JSON" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-sm text-uppercase">JSON</abbr>
                 </a>
               </li>
               {% elif link['rel'] == 'alternate' and link['type'] and link['type'] == 'application/ld+json' %}
@@ -61,7 +71,7 @@
               <li>
                 <a id="jsonld-format-url" href="{{ link['href'] }}" class="btn btn-xs btn-default">
                   <span class="hidden-xs">JSON-LD</span>
-                  <abbr title="JSON-LD" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-0 text-uppercase">JSON-LD</abbr>
+                  <abbr title="JSON-LD" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-sm text-uppercase">JSON-LD</abbr>
                 </a>
               </li>
               {% endif %}
@@ -71,7 +81,7 @@
               <li>
                 <a id="json-format-url" href="?f=json" class="btn btn-xs btn-default">
                   <span class="hidden-xs">JSON</span>
-                  <abbr title="JSON" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-0 text-uppercase">JSON</abbr>
+                  <abbr title="JSON" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-sm text-uppercase">JSON</abbr>
                 </a>
               </li>
               {% endif %}
@@ -79,7 +89,7 @@
               <li>
                 <a id="jsonld-format-url" href="?f=jsonld" class="btn btn-xs btn-default">
                   <span class="hidden-xs">JSON-LD</span>
-                  <abbr title="JSON-LD" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-0 text-uppercase">JSON-LD</abbr>
+                  <abbr title="JSON-LD" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-sm text-uppercase">JSON-LD</abbr>
                 </a>
               </li>
               {% endif %}
@@ -90,26 +100,24 @@
               {% for langcode in config['server']['languages'] %}
               {% if (locale|upper)[:2] != (langcode|upper)[:2] %}
               <li>
-                <a class="lang-toggle" href="?lang={{ (langcode|lower)[:2] }}" hreflang="{{ langcode }}">{{ (langcode|upper)[:2] }}</a>
+                <a class="lang-toggle" href="?lang={{ (langcode|lower)[:2] }}" hreflang="{{ langcode }}">
+                  {% if (langcode|upper)[:2] == 'FR' %}
+                    <span class="hidden-xs">Français</span>
+                    <abbr title="Français" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-sm text-uppercase">FR</abbr>
+                  {% else %}
+                    <span class="hidden-xs">English</span>
+                    <abbr title="English" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-sm text-uppercase">EN</abbr>
+                  {% endif %}
+                </a>
               </li>
               {% endif %}
               {% endfor %}
             </ul>
           </section>
-
-          <!-- Brand -->
-          <div class="brand col-xs-9 col-sm-5 col-md-4" property="publisher" typeof="GovernmentOrganization">
-            <a href="https://geo.ca/home/" property="url">
-              <img src="https://geo.ca/wp-content/uploads/2023/02/geo-ca-logo.svg" alt="{% trans %}GEO.CA logo, blue and green globe{% endtrans %}" property="logo" /><span class="wb-inv"> / <span lang="fr">Gouvernement du Canada</span></span>
-            </a>
-            <meta property="name" content="{% trans %}Government of Canada{% endtrans %}">
-            <meta property="areaServed" typeof="Country" content="Canada" />
-            <link property="logo" href="https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/assets/wmms-blk.svg" />
-          </div>
         </div>
       </div>
 
-      <hr>
+      <hr class="header-hr-bottom">
 
       <nav id="wb-bc" property="breadcrumb">
         <h2>{% trans %}You are here:{% endtrans %}</h2>
