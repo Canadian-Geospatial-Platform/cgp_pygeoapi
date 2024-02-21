@@ -141,18 +141,29 @@
       <div class="geoca-main-footer"></div>
 
       <div class="gc-sub-footer">
-        <div class="container footer-flex-container">
+        <div class="container footer-container">
           <div class="page-credits-container">
-            <dl class="page-credits">
-              <p>
+            <h3>
+              {% trans %}Contact Us{% endtrans %}
+            </h3>
+            <p class="footer-p">
+              Canada Centre for Mapping and Earth Observation<br>
+              Natural Resources Canada<br>
+              Government of Canada<br>
+              <a href="mailto:geo@nrcan-rncan.gc.ca">geo@nrcan-rncan.gc.ca</a>
+            </p>
+          </div>
+          <div class="wtrmrk footer-right">
+            <img class="footer-logo" src="https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/assets/wmms-blk.svg" alt="{% trans %}Symbol of the Government of Canada{% endtrans %}" />
+            <div class="page-credits">
+              <p class="footer-p">
                 {% trans %}Powered by{% endtrans %} <a title="pygeoapi" href="https://pygeoapi.io"><img src="{{ config['server']['url'] }}/static/img/pygeoapi.png" alt="{% trans %}pygeoapi logo{% endtrans %}" style="height:24px;vertical-align: middle;"/></a>
                 {{ version }} | <a href="https://github.com/Canadian-Geospatial-Platform/cgp_pygeoapi" target="_blank">cgp-pygeoapi</a>
+              </p>
+              <p class="footer-p">  
                 {% trans %}Canadian Geospatial Platform (CGP){% endtrans %}
               </p>
-            </dl>
-          </div>
-          <div class="wtrmrk footer-logo">
-            <img src="https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/assets/wmms-blk.svg" alt="{% trans %}Symbol of the Government of Canada{% endtrans %}" />
+            </div>
           </div>
         </div>
       </div>

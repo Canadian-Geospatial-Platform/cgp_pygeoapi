@@ -63,29 +63,52 @@ header .brand img {
   margin-top: 40px;
 }
 
-.footer-flex-container,
-.page-credits-container,
-.page-credits {
+.footer-container,
+.page-credits-container {
   display: flex;
 }
 
-.footer-logo {
+.footer-right {
   margin-left: auto;
 }
 
 .page-credits-container {
-  align-items : center;
+  flex-direction: column;
 }
 
 .page-credits {
   margin-bottom: 0;
 }
 
-.page-credits dd,
-.page-credits dt {
+.footer-p {
   margin-bottom: 0;
 }
 
-#wb-info .gc-sub-footer img {
+#wb-info .page-credits-container h3 {
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.footer-logo {
+  margin-bottom: 15px;
   vertical-align: revert;
+}
+
+#wb-info .gc-sub-footer img.footer-logo {
+  height: 30px;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+  }
+
+  .footer-right {
+    margin-top: 30px;
+    margin-left: revert;
+  }
+
+  #wb-info .gc-sub-footer .wtrmrk {
+    text-align: left;
+  }
 }
