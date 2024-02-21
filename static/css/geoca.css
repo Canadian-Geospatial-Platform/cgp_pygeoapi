@@ -2,14 +2,24 @@
   width: 100%;
 }
 
-header .brand, #wb-lng li {
-  line-height: 40px;
+.base-header-list-container {
+  display: flex;
+  justify-content: right;
+  align-items : center;
+  height: 100px;
 }
 
-@media (min-width: 431px) {
-  header .brand, #wb-lng li {
-    line-height: 100px;
-  }
+.base-header-list {
+  display: flex;
+  justify-content: right;
+  padding-inline-start: 0;
+  list-style: none;
+  flex-wrap: wrap;
+  column-gap: 10px;
+}
+
+#wb-lng li {
+  padding: 0;
 }
 
 .lang-toggle, .lang-toggle:visited {
@@ -24,8 +34,13 @@ header .brand, #wb-lng li {
   text-decoration: underline;
 }
 
+header .brand {
+  line-height: 100px;
+}
+
 header .brand img {
   max-height: revert;
+  min-height: 40px;
   max-width: 200px;
   margin-bottom: 0;
 }

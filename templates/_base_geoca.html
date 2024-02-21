@@ -7,7 +7,7 @@
     <meta name="language" content="{{ config['server']['languages'] }}">
     <meta name="description" content="{{ config['metadata']['identification']['title'] }}">
     <meta name="keywords" content="{{ config['metadata']['identification']['keywords']|join(',') }}">
-    <link rel="shortcut icon" href="{{ config['server']['url'] }}/static/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="https://geo.ca/wp-content/uploads/2022/11/icon-GEO-300x300-1-150x150.png" type="image/x-icon">
 
     <!-- GCWeb theme -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -42,7 +42,7 @@
       <div id="wb-bnr" class="container">
         <div class="row">
           <!-- Brand -->
-          <div class="brand col-xs-6 col-md-4" property="publisher" typeof="GovernmentOrganization">
+          <div class="brand col-xs-4" property="publisher" typeof="GovernmentOrganization">
             <a href="https://geo.ca/home/" property="url">
               <img src="https://geo.ca/wp-content/uploads/2023/02/geo-ca-logo.svg" alt="{% trans %}GEO.CA logo, blue and green globe{% endtrans %}" property="logo" />
             </a>
@@ -52,67 +52,69 @@
           </div>
 
           <!-- language selection (JSON) -->
-          <section id="wb-lng" class="col-xs-6 pull-right text-right">
+          <section id="wb-lng" class="col-xs-8 pull-right text-right">
             <h2 class="wb-inv">{% trans %}Language selection{% endtrans %}</h2>
-            <ul class="list-inline mrgn-bttm-0">
-              {% set links_found = namespace(json=0, jsonld=0) %}
+            <div class="base-header-list-container">
+              <ul class="base-header-list mrgn-bttm-0">
+                {% set links_found = namespace(json=0, jsonld=0) %}
 
-              {% for link in data['links'] %}
-              {% if link['rel'] == 'alternate' and link['type'] and link['type'] in ['application/json', 'application/geo+json'] %}
-              {% set links_found.json = 1 %}
-              <li>
-                <a id="json-format-url" href="{{ link['href'] }}" class="btn btn-xs btn-default">
-                  <span class="hidden-xs">JSON</span>
-                  <abbr title="JSON" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-sm text-uppercase">JSON</abbr>
-                </a>
-              </li>
-              {% elif link['rel'] == 'alternate' and link['type'] and link['type'] == 'application/ld+json' %}
-              {% set links_found.jsonld = 1 %}
-              <li>
-                <a id="jsonld-format-url" href="{{ link['href'] }}" class="btn btn-xs btn-default">
-                  <span class="hidden-xs">JSON-LD</span>
-                  <abbr title="JSON-LD" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-sm text-uppercase">JSON-LD</abbr>
-                </a>
-              </li>
-              {% endif %}
-              {% endfor %}
+                {% for link in data['links'] %}
+                {% if link['rel'] == 'alternate' and link['type'] and link['type'] in ['application/json', 'application/geo+json'] %}
+                {% set links_found.json = 1 %}
+                <li>
+                  <a id="json-format-url" href="{{ link['href'] }}" class="btn btn-xs btn-default">
+                    <span class="hidden-xs">JSON</span>
+                    <abbr title="JSON" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-0 text-uppercase">JSON</abbr>
+                  </a>
+                </li>
+                {% elif link['rel'] == 'alternate' and link['type'] and link['type'] == 'application/ld+json' %}
+                {% set links_found.jsonld = 1 %}
+                <li>
+                  <a id="jsonld-format-url" href="{{ link['href'] }}" class="btn btn-xs btn-default">
+                    <span class="hidden-xs">JSON-LD</span>
+                    <abbr title="JSON-LD" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-0 text-uppercase">JSON-LD</abbr>
+                  </a>
+                </li>
+                {% endif %}
+                {% endfor %}
 
-              {% if links_found.json == 0 %}
-              <li>
-                <a id="json-format-url" href="?f=json" class="btn btn-xs btn-default">
-                  <span class="hidden-xs">JSON</span>
-                  <abbr title="JSON" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-sm text-uppercase">JSON</abbr>
-                </a>
-              </li>
-              {% endif %}
-              {% if links_found.jsonld == 0 %}
-              <li>
-                <a id="jsonld-format-url" href="?f=jsonld" class="btn btn-xs btn-default">
-                  <span class="hidden-xs">JSON-LD</span>
-                  <abbr title="JSON-LD" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-sm text-uppercase">JSON-LD</abbr>
-                </a>
-              </li>
-              {% endif %}
-              {% block extralang %}
-              {% endblock %}
+                {% if links_found.json == 0 %}
+                <li>
+                  <a id="json-format-url" href="?f=json" class="btn btn-xs btn-default">
+                    <span class="hidden-xs">JSON</span>
+                    <abbr title="JSON" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-0 text-uppercase">JSON</abbr>
+                  </a>
+                </li>
+                {% endif %}
+                {% if links_found.jsonld == 0 %}
+                <li>
+                  <a id="jsonld-format-url" href="?f=jsonld" class="btn btn-xs btn-default">
+                    <span class="hidden-xs">JSON-LD</span>
+                    <abbr title="JSON-LD" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-0 text-uppercase">JSON-LD</abbr>
+                  </a>
+                </li>
+                {% endif %}
+                {% block extralang %}
+                {% endblock %}
 
-              <!-- language toggle -->
-              {% for langcode in config['server']['languages'] %}
-              {% if (locale|upper)[:2] != (langcode|upper)[:2] %}
-              <li>
-                <a class="lang-toggle" href="?lang={{ (langcode|lower)[:2] }}" hreflang="{{ langcode }}">
-                  {% if (langcode|upper)[:2] == 'FR' %}
-                    <span class="hidden-xs">Français</span>
-                    <abbr title="Français" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-sm text-uppercase">FR</abbr>
-                  {% else %}
-                    <span class="hidden-xs">English</span>
-                    <abbr title="English" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-sm text-uppercase">EN</abbr>
-                  {% endif %}
-                </a>
-              </li>
-              {% endif %}
-              {% endfor %}
-            </ul>
+                <!-- language toggle -->
+                {% for langcode in config['server']['languages'] %}
+                {% if (locale|upper)[:2] != (langcode|upper)[:2] %}
+                <li>
+                  <a class="lang-toggle" href="?lang={{ (langcode|lower)[:2] }}" hreflang="{{ langcode }}">
+                    {% if (langcode|upper)[:2] == 'FR' %}
+                      <span class="hidden-xs">Français</span>
+                      <abbr title="Français" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-0 text-uppercase">FR</abbr>
+                    {% else %}
+                      <span class="hidden-xs">English</span>
+                      <abbr title="English" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-0 text-uppercase">EN</abbr>
+                    {% endif %}
+                  </a>
+                </li>
+                {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
           </section>
         </div>
       </div>
