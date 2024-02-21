@@ -56,3 +56,36 @@ header .brand img {
 .header-hr-top, #wb-bnr+hr, .header-hr-bottom {
   margin: 0;
 }
+
+.geoca-main-footer {
+  background-color: #2B3034;
+  min-height: 40px;
+  margin-top: 40px;
+}
+
+.footer-flex-container,
+.page-credits-container,
+.page-credits {
+  display: flex;
+}
+
+.footer-logo {
+  margin-left: auto;
+}
+
+.page-credits-container {
+  align-items : center;
+}
+
+.page-credits {
+  margin-bottom: 0;
+}
+
+.page-credits dd,
+.page-credits dt {
+  margin-bottom: 0;
+}
+
+#wb-info .gc-sub-footer img {
+  vertical-align: revert;
+}
