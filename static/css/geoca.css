@@ -112,3 +112,62 @@ header .brand img {
     text-align: left;
   }
 }
+
+body .btn-primary,
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover,
+.pagination>.active>span,
+.pagination>.active>span:focus,
+.pagination>.active>span:hover {
+  background-color: #515AA9;
+  border-color: #515AA9;
+}
+
+.panel-primary>.panel-heading {
+  background-color: #0F7D21;
+  border-color: #0F7D21;
+}
+
+.panel-info>.panel-heading {
+  color: #2B3034;
+}
+
+.panel-info>.panel-heading,
+.panel-info,
+.panel-primary {
+  border-color: #2B3034;
+}
+
+body .btn-primary:hover {
+  background-color: #2B3035;
+  border-color: #2B3035;
+}
+
+body .btn-warning,
+.panel-info>.panel-heading {
+  background-color: #E2E2E2;
+  border-color: #515AA9;
+}
+
+body .btn-warning:hover {
+  background-color: #AAA;
+  border-color: #515AA9;
+}
+
+a,
+a:visited,
+.pagination>li>a,
+.pagination>li>span,
+details summary {
+  color: #515AA9;
+}
+
+.text-info {
+  color: #2B3034;
+}
+
+.label-info {
+  border-color: #0F7D21;
+  background-color: #D2F9DA;
+}
