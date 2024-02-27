@@ -29,6 +29,8 @@
 {% endblock %}
 {% block extrahead %}
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/esri-leaflet@3.0.10/dist/esri-leaflet.js" crossorigin=""></script>
 {% endblock %}
 
 {% block body %}
@@ -359,10 +361,25 @@
 
           /* Map setup */
           const itemsPath = '{{ data['items_path'] }}'
-          const tileLayerUrl = '{{ config['server']['map']['url'] }}'
-          const tileLayerAttr = '{{ config['server']['map']['attribution'] | safe }}'
           const bboxPermalink = ref(false)
-          const { bbox } = useMap('items-map', itemsJson, itemsPath, tileLayerUrl, tileLayerAttr, bboxPermalink, LOCALE)
+
+          let locale = '{{ (locale|lower)[:2] }}'
+          let labelsURL = locale === 'en' ?
+            'https://maps-cartes.services.geo.ca/server2_serveur2/rest/services/BaseMaps/CBMT_TXT_3857/MapServer' :
+            'https://maps-cartes.services.geo.ca/server2_serveur2/rest/services/BaseMaps/CBCT_TXT_3857/MapServer'
+
+          // Base layer
+          let baseLayer = L.esri.tiledMapLayer({
+            url: "https://maps-cartes.services.geo.ca/server2_serveur2/rest/services/BaseMaps/CBMT_CBCT_GEOM_3857/MapServer"
+          })
+
+          // Labels
+          let labelsLayer = L.esri.tiledMapLayer({
+            url: labelsURL
+          })
+
+          const { bbox } = useMap(
+            'items-map', itemsJson, itemsPath, bboxPermalink, baseLayer, labelsLayer, LOCALE)
 
           /* Advanced Filter */
           const queryables = computed(() => {

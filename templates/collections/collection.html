@@ -12,6 +12,7 @@
 {% block extrahead %}
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/esri-leaflet@3.0.10/dist/esri-leaflet.js" crossorigin=""></script>
 {% endblock %}
 
 {% block body %}
@@ -91,23 +92,31 @@
 {% endblock %}
 
 {% block extrafoot %}
-    <script>
-    var map = L.map('collection-map').setView([{{ 0 }}, {{ 0 }}], 1);
-    map.addLayer(new L.TileLayer(
-      '{{ config['server']['map']['url'] }}', {
-        maxZoom: 18,
-        attribution: '{{ config['server']['map']['attribution'] | safe }}'
-      }
-    ));
+  <script>
+    let locale = '{{ (locale|lower)[:2] }}'
+    let labelsURL = locale === 'en' ?
+      'https://maps-cartes.services.geo.ca/server2_serveur2/rest/services/BaseMaps/CBMT_TXT_3857/MapServer' :
+      'https://maps-cartes.services.geo.ca/server2_serveur2/rest/services/BaseMaps/CBCT_TXT_3857/MapServer'
+    let map = L.map('collection-map').setView([{{ 0 }}, {{ 0 }}], 1)
 
-    var bbox_layer = L.polygon([
+    // Base layer
+    L.esri.tiledMapLayer({
+      url: "https://maps-cartes.services.geo.ca/server2_serveur2/rest/services/BaseMaps/CBMT_CBCT_GEOM_3857/MapServer"
+    }).addTo(map)
+
+    // Labels
+    L.esri.tiledMapLayer({
+      url: labelsURL
+    }).addTo(map)
+
+    let bbox_layer = L.polygon([
       ['{{ data['extent']['spatial']['bbox'][0][1] }}', '{{ data['extent']['spatial']['bbox'][0][0] }}'],
       ['{{ data['extent']['spatial']['bbox'][0][3] }}', '{{ data['extent']['spatial']['bbox'][0][0] }}'],
       ['{{ data['extent']['spatial']['bbox'][0][3] }}', '{{ data['extent']['spatial']['bbox'][0][2] }}'],
       ['{{ data['extent']['spatial']['bbox'][0][1] }}', '{{ data['extent']['spatial']['bbox'][0][2] }}']
-    ]);
+    ])
 
-    map.addLayer(bbox_layer);
-    map.fitBounds(bbox_layer.getBounds(), {maxZoom: 10});
-    </script>
+    map.addLayer(bbox_layer)
+    map.fitBounds(bbox_layer.getBounds(), {maxZoom: 10})
+  </script>
 {% endblock %}

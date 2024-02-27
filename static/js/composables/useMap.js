@@ -1,7 +1,7 @@
 import * as L from 'https://unpkg.com/leaflet@1.7.1/dist/leaflet-src.esm.js'
 import { ref, computed, watch, onMounted } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.7/vue.esm-browser.prod.js'
 
-export default function useMap(mapElemId, geoJsonData, itemsPath, tileLayerUrl, tileLayerAttr, bboxPermalink, locale) {
+export default function useMap(mapElemId, geoJsonData, itemsPath, bboxPermalink, baseLayer, labelLayer, locale) {
   let map, layerItems
   const maxZoom = 15
   const bbox = ref('')
@@ -46,13 +46,8 @@ export default function useMap(mapElemId, geoJsonData, itemsPath, tileLayerUrl, 
       zoomDelta: 0.25,
       zoomSnap: 0.25
     }).setView([45, -75], 5)
-    map.addLayer(new L.TileLayer(
-      tileLayerUrl, {
-        minZoom: 2,
-        maxZoom: maxZoom,
-        attribution: tileLayerAttr
-      }
-    ))
+    map.addLayer(baseLayer)
+    map.addLayer(labelLayer)
     layerItems = new L.GeoJSON({type: 'FeatureCollection', features: []})
     map.addLayer(layerItems)
     // update bbox for permalink feature
