@@ -114,6 +114,7 @@ header .brand img {
 }
 
 body .btn-primary,
+body .btn-primary:focus,
 .pagination>.active>a,
 .pagination>.active>a:focus,
 .pagination>.active>a:hover,
@@ -139,20 +140,27 @@ body .btn-primary,
   border-color: #2B3034;
 }
 
-body .btn-primary:hover {
-  background-color: #2B3035;
-  border-color: #2B3035;
+body .btn-primary:hover,
+body .btn-primary:active,
+body .btn-primary[disabled]:hover,
+body .btn-primary[disabled]:focus {
+  background-color: #2B3035 !important;
+  border-color: #2B3035 !important;
 }
 
 body .btn-warning,
+body .btn-warning:focus,
 .panel-info>.panel-heading {
   background-color: #E2E2E2;
   border-color: #515AA9;
 }
 
-body .btn-warning:hover {
-  background-color: #AAA;
-  border-color: #515AA9;
+body .btn-warning:hover,
+body .btn-warning:active,
+body .btn-warning[disabled]:focus,
+body .btn-warning[disabled]:hover {
+  background-color: #AAA !important;
+  border-color: #515AA9 !important;
 }
 
 a,
