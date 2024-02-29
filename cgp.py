@@ -213,6 +213,21 @@ class GeoCoreProvider(BaseProvider):
         }
 
     @staticmethod
+    def _filter_null(items_list, lang):
+        for item in items_list:
+            filtered = {}
+            for key, val in item.items():
+                if isinstance(val, dict):
+                    if val.get(lang) and val.get(lang) != 'null':
+                        filtered[key] = val.get(lang)
+                    elif not val.get(lang):
+                        filtered[key] = val
+                elif val and val != 'null':
+                    filtered[key] = val
+            item.clear()
+            item.update(filtered)
+
+    @staticmethod
     def _langcode(locale):
         """ Retrieves the ISO 639-1 language code (str) from a Babel locale (or returns the default code). """
         if hasattr(locale, 'language'):
@@ -304,25 +319,26 @@ class GeoCoreProvider(BaseProvider):
 
             for opt in options:
                 url = opt.get('url')
-                title = opt.get('name', {}).get(lang)
-                type_ = opt.get('protocol')
-                rel = 'item'
-                i18n = lang
-                desc = opt.get('description', {}).get(lang, '')
-                if desc and desc.count(';') == 2:
-                    # TODO: retrieve mime type from URL or lookup
-                    rel, type_, i18n = desc.split(';')
-                if not (type_ and url):
-                    # Do not add links without a type or URL
-                    continue
-                lnk = {
-                    'href': url,
-                    'type': type_,
-                    'rel': rel,
-                    'title': title,
-                    'hreflang': i18n.lower()
-                }
-                item.setdefault('associations', []).append(lnk)
+                if url and url != 'null':
+                    title = opt.get('name', {}).get(lang)
+                    type_ = opt.get('protocol')
+                    rel = 'item'
+                    i18n = lang
+                    desc = opt.get('description', {}).get(lang, '')
+                    if desc and desc.count(';') == 2:
+                        # TODO: retrieve mime type from URL or lookup
+                        rel, type_, i18n = desc.split(';')
+                    if not (type_ and url):
+                        # Do not add links without a type or URL
+                        continue
+                    lnk = {
+                        'href': url,
+                        'type': type_,
+                        'rel': rel,
+                        'title': title,
+                        'hreflang': i18n.lower()
+                    }
+                    item.setdefault('associations', []).append(lnk)
 
             # Parse the contacts for easier front-end formatting
             contact = item.get('contact', [])
@@ -332,7 +348,14 @@ class GeoCoreProvider(BaseProvider):
                     contact = json.loads(contact)
                 except json.JSONDecodeError as err:
                     LOGGER.error('Failed to parse JSON response', exc_info=err)
-                item['contact'] = contact
+
+            # Remove null values in contacts and distributor objects
+            self._filter_null(contact, lang)
+            item['contact'] = contact
+
+            distributor = item.get('distributor', [])
+            self._filter_null(distributor, lang)
+            item['distributor'] = distributor
 
             # Set properties and add to feature list
             feature['properties'] = item
