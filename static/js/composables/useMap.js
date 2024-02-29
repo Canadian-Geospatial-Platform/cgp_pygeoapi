@@ -76,8 +76,9 @@ export default function useMap(mapElemId, geoJsonData, itemsPath, bboxPermalink,
     
     layerItems = new L.GeoJSON(geoJsonData.value, {
       onEachFeature: function (feature, layer) {
+        let label = feature.properties.title ? feature.properties.title : feature.id
         let url = itemsPath + '/' + feature.id + `?lang=${locale}`
-        let html = '<span><a href="' + url + '">' + feature.id + '</a></span>'
+        let html = '<span><a href="' + url + '">' + label + '</a></span>'
         layer.bindPopup(html)
       }
     })
