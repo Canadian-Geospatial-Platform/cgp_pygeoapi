@@ -45,7 +45,7 @@
   top: 0; /* sticky table header */
 }
 .items-td-div {
-  min-width: 100px;
+  min-width: 125px;
   max-width: 300px;
   display: -webkit-box;
   -webkit-line-clamp: 5;

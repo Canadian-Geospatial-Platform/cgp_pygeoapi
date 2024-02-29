@@ -178,7 +178,7 @@ export default function useTableFilter(rows, keyColumns, defaultSortCol, tableTe
       let linksList = '<ul>'
       for (let element in row[key]) {
         if (row[key][element]['href'] !== null && row[key][element]['href'] !== 'null') {
-          linksList = linksList + '<li><a href="' + row[key][element]['href'] + '">'
+          linksList = linksList + '<li><a href="' + row[key][element]['href'] + '" target="_blank">'
             + row[key][element]['title'] + '</a></li>'
         }
       }
