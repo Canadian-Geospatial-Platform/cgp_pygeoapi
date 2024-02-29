@@ -353,9 +353,10 @@ class GeoCoreProvider(BaseProvider):
             self._filter_null(contact, lang)
             item['contact'] = contact
 
-            distributor = item.get('distributor', [])
-            self._filter_null(distributor, lang)
-            item['distributor'] = distributor
+            if item.get('distributor'):
+                distributor = item.get('distributor', [])
+                self._filter_null(distributor, lang)
+                item['distributor'] = distributor
 
             # Set properties and add to feature list
             feature['properties'] = item
