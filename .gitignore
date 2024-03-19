@@ -50,10 +50,6 @@ coverage.xml
 *.mo
 *.pot
 
-# Django stuff:
-*.log
-local_settings.py
-
 # Flask stuff:
 instance/
 .webassets-cache
@@ -118,7 +114,6 @@ example-openapi.yml
 *.code-workspace
 
 .DS_Store
-examples/django/sample_project/db.sqlite3
 pygeoapi/db.sqlite3
 
 # Backup files

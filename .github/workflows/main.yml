@@ -44,8 +44,18 @@ jobs:
           pip3 install -r docs/requirements.txt
           python3 setup.py install
 
+      - name: Build translations
+        run: |
+          pybabel extract -F babel-mapping.ini -o locale/messages.pot .
+          pybabel update -d locale -l en -i locale/messages.pot
+          pybabel update -d locale -l fr -i locale/messages.pot
+          pybabel compile -d locale -l en
+          pybabel compile -d locale -l fr
+
       - name: build docs 🏗️
-        run: cd docs && make html
+        run: |
+          cd docs && make html
+          cd ..
 
       - name: Set current date as env variable
         run: echo "NOW=$(date +'%Y%m%d-%H%M')" >> $GITHUB_ENV

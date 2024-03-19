@@ -4,7 +4,7 @@ Running
 =======
 
 Since pygeoapi is a Python API at its core, it can be served via numerous web server scenarios. 
-So far, pygeoapi can be served via Flask `WSGI`_, Starlette `ASGI`_, and `Django`_.
+So far, pygeoapi can be served via Flask `WSGI`_, and Starlette `ASGI`_.
 
 This section covers how pygeoapi can be run in development environments and in production environments. 
 For running pygeoapi using docker, refer to the :ref:`running-with-docker` section.
@@ -14,9 +14,9 @@ Running in development
 
 The ``pygeoapi serve`` is the easiest way to run pygeoapi in your own machine.
 This command starts a pygeoapi server instance. By default, a Flask server is started, 
-but Starlette and Django are available as well.
+but Starlette is available as well.
 
-Using the ``--starlette`` or ``--django`` flags will start pygeoapi using the specified server technology.
+Using the ``--starlette`` flag will start pygeoapi using the specified server technology.
 
 It is also advisable to install the development dependencies (contained in the requirements-dev.txt file) for running pygeoapi for 
 development. To do so, run the following command:
@@ -115,51 +115,6 @@ To integrate pygeoapi as part of another Starlette application:
 
 As a result, your application will be available at http://localhost:5000/ and pygeoapi will be available
 at http://localhost:5000/oapi
-
-Django
-^^^^^^
-
-`Django`_ is a Python web framework that encourages rapid development and clean, pragmatic design. 
-
-Similarly to Flask and Starlette, Django can be used by pygeoapi to communicate with the core API.
-
-.. code-block:: bash
-
-   HTTP request <--> Django (pygeoapi/django_app.py) <--> pygeoapi API (pygeoapi/api.py)
-
-To use Django as a web server it is necessary to install its dependencies running the following command:
-
-.. code-block:: bash
-
-   pip3 install -r requirements-django.txt
-
-After Django rependencies is installed, pygeoapi can be run as follows: 
-
-.. code-block:: bash
-
-    pygeoapi serve --django
-
-As a result, your Django application will be available at http://localhost:5000/.
-
-
-To integrate pygeoapi as part of another Django project in a pluggable it is necessary to add the pygeoapi urls to the 
-main Django application urls:
-
-.. code-block:: python
-
-   from django.contrib import admin
-   from django.urls import path, include
-
-   from pygeoapi.django_pygeoapi import urls as pygeoapi_urls
-
-   urlpatterns = [
-      path('admin/', admin.site.urls),
-      path('sample-project/', include(pygeoapi_urls)),
-   ]
-
-
-This integration can be seen in the provided example Django project. Refer to `examples/django/sample_project/README.md` 
-for the integration of pygeoapi with an already exising Django application.
 
 Hot-reloading
 ^^^^^^^^^^^^^
@@ -292,4 +247,3 @@ and modify accordingly.
 .. _`Gunicorn settings`: https://docs.gunicorn.org/en/stable/settings.html
 .. _`Uvicorn`: https://www.uvicorn.org
 .. _`mod_wsgi`: https://modwsgi.readthedocs.io/en/master
-.. _`Django`: https://www.djangoproject.com

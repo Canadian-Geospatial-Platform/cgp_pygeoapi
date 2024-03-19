@@ -194,7 +194,7 @@ DEFAULT_STORAGE_CRS = DEFAULT_CRS
 def pre_process(func):
     """
     Decorator that transforms an incoming Request instance specific to the
-    web framework (i.e. Flask, Starlette or Django) into a generic
+    web framework (i.e. Flask or Starlette) into a generic
     :class:`APIRequest` instance.
 
     :param func: decorated function
@@ -258,7 +258,7 @@ class APIRequest:
 
     The following example API method will:
 
-    - transform the incoming Flask/Starlette/Django `Request` into an
+    - transform the incoming Flask/Starlette `Request` into an
       `APIRequest`using the :func:`pre_process` decorator;
     - call :meth:`is_valid` to check if the incoming request was valid, i.e.
       that the user requested a valid output format or no format at all
@@ -363,18 +363,14 @@ class APIRequest:
             # Set data from Flask request
             api_req._data = request.data
         elif hasattr(request, 'body'):
-            if 'django' in str(request.__class__):
-                # Set data from Django request
-                api_req._data = request.body
-            else:
-                # Set data from Starlette request after async
-                # coroutine completion
-                # TODO:
-                # this now blocks, but once Flask v2 with async support
-                # has been implemented, with_data() can become async too
-                loop = asyncio.get_event_loop()
-                api_req._data = asyncio.run_coroutine_threadsafe(
-                    request.body(), loop).result(1)
+            # Set data from Starlette request after async
+            # coroutine completion
+            # TODO:
+            # this now blocks, but once Flask v2 with async support
+            # has been implemented, with_data() can become async too
+            loop = asyncio.get_event_loop()
+            api_req._data = asyncio.run_coroutine_threadsafe(
+                request.body(), loop).result(1)
         return api_req
 
     @staticmethod
@@ -392,12 +388,6 @@ class APIRequest:
         elif hasattr(request, 'query_params'):
             # Return ImmutableMultiDict from Starlette request
             return request.query_params
-        elif hasattr(request, 'GET'):
-            # Return QueryDict from Django GET request
-            return request.GET
-        elif hasattr(request, 'POST'):
-            # Return QueryDict from Django GET request
-            return request.POST
         LOGGER.debug('No query parameters found')
         return {}
 
@@ -1423,13 +1413,14 @@ class API:
             p = load_plugin('provider', get_provider_by_type(
                 self.config['resources'][dataset]['providers'], 'feature'))
         except ProviderTypeError:
-            LOGGER.debug('Loading coverage provider')
-            p = load_plugin('provider', get_provider_by_type(
-                self.config['resources'][dataset]['providers'], 'coverage'))
-        except ProviderTypeError:
-            LOGGER.debug('Loading record provider')
-            p = load_plugin('provider', get_provider_by_type(
-                self.config['resources'][dataset]['providers'], 'record'))
+            try:
+                LOGGER.debug('Loading coverage provider')
+                p = load_plugin('provider', get_provider_by_type(
+                    self.config['resources'][dataset]['providers'], 'coverage'))
+            except ProviderTypeError:
+                LOGGER.debug('Loading record provider')
+                p = load_plugin('provider', get_provider_by_type(
+                    self.config['resources'][dataset]['providers'], 'record'))
         except ProviderGenericError as err:
             LOGGER.error(err)
             return self.get_exception(
@@ -1506,13 +1497,14 @@ class API:
             p = load_plugin('provider', get_provider_by_type(
                 self.config['resources'][dataset]['providers'], 'feature'))
         except ProviderTypeError:
-            LOGGER.debug('Loading coverage provider')
-            p = load_plugin('provider', get_provider_by_type(
-                self.config['resources'][dataset]['providers'], 'coverage'))
-        except ProviderTypeError:
-            LOGGER.debug('Loading record provider')
-            p = load_plugin('provider', get_provider_by_type(
-                self.config['resources'][dataset]['providers'], 'record'))
+            try:
+                LOGGER.debug('Loading coverage provider')
+                p = load_plugin('provider', get_provider_by_type(
+                    self.config['resources'][dataset]['providers'], 'coverage'))
+            except ProviderTypeError:
+                LOGGER.debug('Loading record provider')
+                p = load_plugin('provider', get_provider_by_type(
+                    self.config['resources'][dataset]['providers'], 'record'))
         except ProviderGenericError as err:
             LOGGER.error(err)
             return self.get_exception(

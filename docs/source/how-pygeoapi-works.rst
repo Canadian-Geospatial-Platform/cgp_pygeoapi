@@ -22,12 +22,11 @@ files, specified with the following environment variables:
    :ref:`configuration` for more details on pygeoapi settings
 
 The core Python API provides the functionality to list, describe, query, and access geospatial
-data.  From here, standard Python web frameworks like `Flask`_, `Django`_ and `Starlette`_ provide the
+data.  From here, standard Python web frameworks like `Flask`_ and `Starlette`_ provide the
 web API/wrapper atop the core Python API.
 
 .. note::
    pygeoapi ships with Flask and Starlette as web framework options.
 
 .. _`Flask`: https://flask.palletsprojects.com
-.. _`Django`: https://www.djangoproject.com
 .. _`Starlette`: https://www.starlette.io
