@@ -41,7 +41,6 @@ jobs:
       - name: Install requirements
         run: |
           pip3 install -r requirements.txt
-          pip3 install -r docs/requirements.txt
           python3 setup.py install
 
       - name: Build translations
