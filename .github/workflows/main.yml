@@ -52,11 +52,6 @@ jobs:
           pybabel compile -d locale -l en
           pybabel compile -d locale -l fr
 
-      - name: build docs 🏗️
-        run: |
-          cd docs && make html
-          cd ..
-
       - name: Set current date as env variable
         run: echo "NOW=$(date +'%Y%m%d-%H%M')" >> $GITHUB_ENV
 

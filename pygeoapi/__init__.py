@@ -88,7 +88,6 @@ def plugins():
 
 @cli.command()
 @click.option('--flask', 'server', flag_value="flask", default=True)
-@click.option('--starlette', 'server', flag_value="starlette")
 @click.pass_context
 def serve(ctx, server):
     """Run the server with different daemon type (--flask is the default)"""
@@ -97,12 +96,8 @@ def serve(ctx, server):
         from pygeoapi.flask_app import serve as serve_flask
         ctx.forward(serve_flask)
         ctx.invoke(serve_flask)
-    elif server == "starlette":
-        from pygeoapi.starlette_app import serve as serve_starlette
-        ctx.forward(serve_starlette)
-        ctx.invoke(serve_starlette)
     else:
-        raise click.ClickException('--flask/--starlette is required')
+        raise click.ClickException('--flask is required')
 
 
 cli.add_command(config)

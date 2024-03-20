@@ -194,7 +194,7 @@ DEFAULT_STORAGE_CRS = DEFAULT_CRS
 def pre_process(func):
     """
     Decorator that transforms an incoming Request instance specific to the
-    web framework (i.e. Flask or Starlette) into a generic
+    web framework (i.e. Flask) into a generic
     :class:`APIRequest` instance.
 
     :param func: decorated function
@@ -258,7 +258,7 @@ class APIRequest:
 
     The following example API method will:
 
-    - transform the incoming Flask/Starlette `Request` into an
+    - transform the incoming Flask `Request` into an
       `APIRequest`using the :func:`pre_process` decorator;
     - call :meth:`is_valid` to check if the incoming request was valid, i.e.
       that the user requested a valid output format or no format at all
@@ -378,16 +378,13 @@ class APIRequest:
         """
         Extracts the query parameters from the `Request` object.
 
-        :param request: A Flask or Starlette Request instance
+        :param request: A Flask Request instance
         :returns: `ImmutableMultiDict` or empty `dict`
         """
 
         if hasattr(request, 'args'):
             # Return ImmutableMultiDict from Flask request
             return request.args
-        elif hasattr(request, 'query_params'):
-            # Return ImmutableMultiDict from Starlette request
-            return request.query_params
         LOGGER.debug('No query parameters found')
         return {}
 

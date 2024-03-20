@@ -79,7 +79,7 @@ class APIRules(BaseModel):
         """
         Returns an API URL prefix to use in all paths.
         May include a (partial) API version. See docs for syntax.
-        :param style: Set to 'flask' or 'starlette' to return a
+        :param style: Set to 'flask' to return a
                       specific prefix formatted for those frameworks.
                       If not set, only the prefix itself will be returned.
         """
@@ -93,8 +93,8 @@ class APIRules(BaseModel):
             api_build=build
         ).strip('/')
         style = (style or '').lower()
-        if style in ('flask', 'starlette'):
-            # Flask and Starlette need the slash in front
+        if style in ('flask'):
+            # Flask need the slash in front
             return f"/{prefix}"
         # If no format is specified, return only the bare prefix
         return prefix
