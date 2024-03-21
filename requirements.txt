@@ -7,15 +7,11 @@ jinja2
 jsonschema
 pydantic
 pygeofilter
-pygeoif
 pyproj
-python-dateutil
 pytz
 PyYAML
 rasterio
 requests
 shapely<2.0
-SQLAlchemy<2.0.0
 tinydb
-typing-extensions
 unicodecsv
