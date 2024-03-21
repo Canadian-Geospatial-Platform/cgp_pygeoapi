@@ -11,10 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
+        node-version: [18.x]
         include:
           - python-version: '3.10'
     env:
       PYGEOAPI_CONFIG: "$(pwd)/pygeoapi-config.yml"
+      # AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      # AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
     steps:
       - name: Clear up GitHub runner diskspace
@@ -51,11 +54,26 @@ jobs:
           pybabel compile -d locale -l en
           pybabel compile -d locale -l fr
 
-      - name: Set current date as env variable
-        run: echo "NOW=$(date +'%Y%m%d-%H%M')" >> $GITHUB_ENV
-
-      - name: Upload zip file artifact
-        uses: actions/upload-artifact@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
-          name: cgp_pygeoapi-${{ env.NOW }}
-          path: ${{ github.workspace }}/*
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install Plugin and Deploy
+        uses: serverless/github-action@v3.2
+        with:
+          # The following only installs the extensions and creates a serverless package.
+          # To deploy, comment the line below and uncomment the second args line instead.
+          # Deployment requires AWS credentials
+          args: -c "serverless plugin install --name serverless-python-requirements && serverless plugin install --name serverless-wsgi && serverless package"
+          # args: -c "serverless plugin install --name serverless-python-requirements && serverless plugin install --name serverless-wsgi && serverless package && serverless deploy"
+          entrypoint: /bin/sh
+
+      # - name: Set current date as env variable
+      #   run: echo "NOW=$(date +'%Y%m%d-%H%M')" >> $GITHUB_ENV
+
+      # - name: Upload zip file artifact
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: cgp_pygeoapi-${{ env.NOW }}
+      #     path: ${{ github.workspace }}/*
