@@ -1965,12 +1965,22 @@ class API:
                                             'feature')
                     }
                 )
-            except FormatterSerializationError as err:
-                LOGGER.error(err)
-                msg = 'Error serializing output'
-                return self.get_exception(
-                    HTTPStatus.INTERNAL_SERVER_ERROR, headers, request.format,
-                    'NoApplicableCode', msg)
+            except ProviderTypeError:
+                try:
+                    content = formatter.write(
+                        data=content,
+                        options={
+                            'provider_def': get_provider_by_type(
+                                                collections[dataset]['providers'],
+                                                'record')
+                        }
+                    )
+                except FormatterSerializationError as err:
+                    LOGGER.error(err)
+                    msg = 'Error serializing output'
+                    return self.get_exception(
+                        HTTPStatus.INTERNAL_SERVER_ERROR, headers, request.format,
+                        'NoApplicableCode', msg)
 
             headers['Content-Type'] = formatter.mimetype
 
