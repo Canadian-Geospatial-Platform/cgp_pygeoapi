@@ -9,18 +9,27 @@ A set of french translation files are included in the `locale` folder. These fil
 
 ## Installation
 
-### Templates and static files
+### Basic installation
 
-- Clone this repository to any folder within your pygeoapi project.
-- Open the pygeoapi config file. By default this will be pygeoapi-config.yml.
-- Under 'server', uncomment the 'templates' section and edit the 'path' and 'static' values to point to the new folders:
-```
-templates:
-        path: /path/to/templates
-        static: /path/to/static/files
-```
-NOTE: The paths in your config file must be ***Absolute*** paths only. Resources referenced using relative paths won't load properly and throw a 404 error.
-- save your changes and restart your server
+The following steps are recommended for development only. For alternative installation options, see the docs for [pygeoapi](https://docs.pygeoapi.io/en/latest/installation.html).
+
+From a terminal, enter the following commands:
+- python3 -m venv cgp_pygeoapi
+- cd cgp_pygeoapi
+- . bin/activate
+- git clone https://github.com/Canadian-Geospatial-Platform/cgp_pygeoapi.git
+- cd cgp_pygeoapi
+- pip3 install --upgrade pip
+- pip3 install -r requirements.txt
+
+To use an alternate base template, edit the pygeoapi-config.yml file. See the section 'Using an alternate base template' below for details.
+
+To run the app, enter the following commands:
+- python3 setup.py install
+- export PYGEOAPI_CONFIG=pygeoapi-config.yml
+- export PYGEOAPI_OPENAPI=pygeoapi-openapi.yml
+- pygeoapi openapi generate $PYGEOAPI_CONFIG > $PYGEOAPI_OPENAPI
+- pygeoapi serve
 
 ### Using an alternate base template
 
@@ -32,24 +41,8 @@ templates:
         static: /path/to/static/files
         base: _base_geoca.html
 ```
+- From a terminal, enter the following command: python3 setup.py install
 - Reset your server
-
-### Geocore Provider
-
-- copy the `cgp.py` file to the following directory:
-```
-pygeoapi/lib/python3.10/site-packages/pygeoapi-0.16.dev0-py3.10.egg/pygeoapi/provider/
-```
-- open `plugin.py`. It can be found in the following directory:
-```
-/pygeoapi/lib/python3.10/site-packages/pygeoapi-0.16.dev0-py3.10.egg/pygeoapi/
-```
-- add the following provider to the PLUGINS.provider object:
-```
-'GeoCore': 'pygeoapi.provider.cgp.GeoCoreProvider'
-```
-- In your `pygeoapi-config.yml` file copy the contents of the `geocore_config.txt` file into the resources object.
-- Restart your server to apply the changes.
 
 ### Translations
 
@@ -77,6 +70,7 @@ pybabel compile -d <path/to/locale> -l en
 # French
 pybabel compile -d <path/to/locale> -l fr
 ```
+- From a terminal, enter the following command: python3 setup.py install
 - Restart your server
 
 ## Updating Translations
@@ -99,4 +93,5 @@ pybabel compile -d <path/to/locale> -l en
 # French
 pybabel compile -d <path/to/locale> -l fr
 ```
+- From a terminal, enter the following command: python3 setup.py install
 - Restart your server
