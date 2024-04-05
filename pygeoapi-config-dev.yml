@@ -49,7 +49,9 @@ server:
       base: _base_geoca.html
     map:
         url: https://tile.openstreetmap.org/{z}/{x}/{y}.png
-        attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+        attribution:
+            en: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors</a>'
+            fr: '<a href="https://www.openstreetmap.org/copyright">© Contributeurs d&apos;OpenStreetMap</a>'
 #    manager:
 #        name: TinyDB
 #        connection: /tmp/pygeoapi-process-manager.db
@@ -78,31 +80,44 @@ metadata:
                 - données
                 - api
         keywords_type: theme
-        terms_of_service: https://creativecommons.org/licenses/by/4.0/
-        url: https://geo.ca
+        terms_of_service:
+            en: https://geo.ca/terms-and-conditions/
+            fr: https://geo.ca/fr/avis/
+        url:
+            en: https://canadian-geospatial-platform.github.io/geocore/
+            fr: https://canadian-geospatial-platform.github.io/geocore/
     license:
         name: 
-            en: CC-BY 4.0 DEED license
-            fr: License CC-BY 4.0 DEED
+            en: Open Government Licence - Canada 
+            fr: Licence du gouvernement ouvert – Canada 
         url: 
-            en: https://creativecommons.org/licenses/by/4.0/
-            fr: https://creativecommons.org/licenses/by/4.0/deed.fr
+            en: https://open.canada.ca/en/open-government-licence-canada
+            fr: https://ouvert.canada.ca/fr/licence-du-gouvernement-ouvert-canada
     provider:
-        name: Canadian Geospatial Platform (CGP) / Plateforme Géospatiale Canadienne (PGC)
-        url: https://geo.ca
+        name: 
+            en: Canadian Geospatial Platform (CGP)
+            fr: Plateforme Géospatiale Canadienne (PGC)
+        url:
+            en: https://geo.ca/home/
+            fr: https://geo.ca/fr/accueil/
     contact:
         name: Lastname, Firstname
         position: Position Title
-        address: 580 Booth Street
+        address:
+            en: 580 Booth Street
+            fr: 580, rue Booth
         city: Ottawa
         stateorprovince: Ontario
         postalcode: K1A 0E4
         country: Canada
-        phone: N/A
-        fax: N/A
+        phone:
+            en: None
+            fr: Aucun
+        fax:
+            en: None
+            fr: Aucun
         email: geo@nrcan-rncan.gc.ca
         url: Contact URL
-        hours: Mo-Fr 08:00-17:00
         instructions: geo@nrcan-rncan.gc.ca
         role: pointOfContact
 
