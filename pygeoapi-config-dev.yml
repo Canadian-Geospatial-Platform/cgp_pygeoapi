@@ -146,7 +146,9 @@ resources:
         links:
             -   type: text/html
                 rel: canonical
-                title: information
+                title:
+                    en: Information
+                    fr: L'information
                 href: https://geocore.api.geo.ca/id/v2?id=ccmeo-hrdem-lidar-MB-Shoal_Lakes_2019-1m&lang=en
                 hreflang: en-CA
         extents:

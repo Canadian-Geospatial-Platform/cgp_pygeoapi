@@ -50,6 +50,7 @@ import logging
 import re
 from typing import Any, Tuple, Union, Optional
 import urllib.parse
+import gettext
 
 from dateutil.parser import parse as dateparse
 from pygeofilter.parsers.ecql import parse as parse_ecql_text
@@ -87,6 +88,12 @@ from pygeoapi.util import (dategetter, RequestedProcessExecutionMode,
                            get_crs_from_uri, get_supported_crs_list,
                            modify_pygeofilter, CrsTransformSpec,
                            transform_bbox)
+
+for language in ["en", "fr"]:
+    language_translations = gettext.translation('messages', localedir='locale', languages=[language])
+    language_translations.install()
+
+    _ = language_translations.gettext
 
 LOGGER = logging.getLogger(__name__)
 
@@ -704,59 +711,59 @@ class API:
         fcm['links'] = [{
             'rel': request.get_linkrel(F_JSON),
             'type': FORMAT_TYPES[F_JSON],
-            'title': 'This document as JSON',
+            'title': _('This document as JSON'),
             'href': f"{self.base_url}?f={F_JSON}"
         }, {
             'rel': request.get_linkrel(F_JSONLD),
             'type': FORMAT_TYPES[F_JSONLD],
-            'title': 'This document as RDF (JSON-LD)',
+            'title': _('This document as RDF (JSON-LD)'),
             'href': f"{self.base_url}?f={F_JSONLD}"
         }, {
             'rel': request.get_linkrel(F_HTML),
             'type': FORMAT_TYPES[F_HTML],
-            'title': 'This document as HTML',
+            'title': _('This document as HTML'),
             'href': f"{self.base_url}?f={F_HTML}",
             'hreflang': self.default_locale
         }, {
             'rel': 'service-desc',
             'type': 'application/vnd.oai.openapi+json;version=3.0',
-            'title': 'The OpenAPI definition as JSON',
+            'title': _('The OpenAPI definition as JSON'),
             'href': f"{self.base_url}/openapi"
         }, {
             'rel': 'service-doc',
             'type': FORMAT_TYPES[F_HTML],
-            'title': 'The OpenAPI definition as HTML',
+            'title': _('The OpenAPI definition as HTML'),
             'href': f"{self.base_url}/openapi?f={F_HTML}",
             'hreflang': self.default_locale
         }, {
             'rel': 'conformance',
             'type': FORMAT_TYPES[F_JSON],
-            'title': 'Conformance',
+            'title': _('Conformance'),
             'href': f"{self.base_url}/conformance"
         }, {
             'rel': 'data',
             'type': FORMAT_TYPES[F_JSON],
-            'title': 'Collections',
+            'title': _('Collections'),
             'href': self.get_collections_url()
         }, {
             'rel': 'http://www.opengis.net/def/rel/ogc/1.0/processes',
             'type': FORMAT_TYPES[F_JSON],
-            'title': 'Processes',
+            'title': _('Processes'),
             'href': f"{self.base_url}/processes"
         }, {
             'rel': 'http://www.opengis.net/def/rel/ogc/1.0/job-list',
             'type': FORMAT_TYPES[F_JSON],
-            'title': 'Jobs',
+            'title': _('Jobs'),
             'href': f"{self.base_url}/jobs"
         }, {
             'rel': 'http://www.opengis.net/def/rel/ogc/1.0/tiling-schemes',
             'type': FORMAT_TYPES[F_JSON],
-            'title': 'The list of supported tiling schemes (as JSON)',
+            'title': _('The list of supported tiling schemes (as JSON)'),
             'href': f"{self.base_url}/TileMatrixSets?f=json"
         }, {
             'rel': 'http://www.opengis.net/def/rel/ogc/1.0/tiling-schemes',
             'type': FORMAT_TYPES[F_HTML],
-            'title': 'The list of supported tiling schemes (as HTML)',
+            'title': _('The list of supported tiling schemes (as HTML)'),
             'href': f"{self.base_url}/TileMatrixSets?f=html"
         }]
 
@@ -1101,36 +1108,35 @@ class API:
 
                 collection['links'].append(lnk)
 
-            # TODO: provide translations
             LOGGER.debug('Adding JSON and HTML link relations')
             collection['links'].append({
                 'type': FORMAT_TYPES[F_JSON],
                 'rel': 'root',
-                'title': 'The landing page of this server as JSON',
+                'title': _('The landing page of this server as JSON'),
                 'href': f"{self.base_url}?f={F_JSON}"
             })
             collection['links'].append({
                 'type': FORMAT_TYPES[F_HTML],
                 'rel': 'root',
-                'title': 'The landing page of this server as HTML',
+                'title': _('The landing page of this server as HTML'),
                 'href': f"{self.base_url}?f={F_HTML}"
             })
             collection['links'].append({
                 'type': FORMAT_TYPES[F_JSON],
                 'rel': request.get_linkrel(F_JSON),
-                'title': 'This document as JSON',
+                'title': _('This document as JSON'),
                 'href': f'{self.get_collections_url()}/{k}?f={F_JSON}'
             })
             collection['links'].append({
                 'type': FORMAT_TYPES[F_JSONLD],
                 'rel': request.get_linkrel(F_JSONLD),
-                'title': 'This document as RDF (JSON-LD)',
+                'title': _('This document as RDF (JSON-LD)'),
                 'href': f'{self.get_collections_url()}/{k}?f={F_JSONLD}'
             })
             collection['links'].append({
                 'type': FORMAT_TYPES[F_HTML],
                 'rel': request.get_linkrel(F_HTML),
-                'title': 'This document as HTML',
+                'title': _('This document as HTML'),
                 'href': f'{self.get_collections_url()}/{k}?f={F_HTML}'
             })
 
@@ -1138,13 +1144,13 @@ class API:
                 collection['links'].append({
                     'type': FORMAT_TYPES[F_JSON],
                     'rel': f'{OGC_RELTYPES_BASE}/schema',
-                    'title': 'Schema of collection in JSON',
+                    'title': _('Schema of collection in JSON'),
                     'href': f'{self.get_collections_url()}/{k}/schema?f={F_JSON}'  # noqa
                 })
                 collection['links'].append({
                     'type': FORMAT_TYPES[F_HTML],
                     'rel': f'{OGC_RELTYPES_BASE}/schema',
-                    'title': 'Schema of collection in HTML',
+                    'title': _('Schema of collection in HTML'),
                     'href': f'{self.get_collections_url()}/{k}/schema?f={F_HTML}'  # noqa
                 })
 
@@ -1155,31 +1161,31 @@ class API:
                 collection['links'].append({
                     'type': 'application/schema+json',
                     'rel': 'http://www.opengis.net/def/rel/ogc/1.0/queryables',
-                    'title': 'Queryables for this collection as JSON',
+                    'title': _('Queryables for this collection as JSON'),
                     'href': f'{self.get_collections_url()}/{k}/queryables?f={F_JSON}'  # noqa
                 })
                 collection['links'].append({
                     'type': FORMAT_TYPES[F_HTML],
                     'rel': 'http://www.opengis.net/def/rel/ogc/1.0/queryables',
-                    'title': 'Queryables for this collection as HTML',
+                    'title': _('Queryables for this collection as HTML'),
                     'href': f'{self.get_collections_url()}/{k}/queryables?f={F_HTML}'  # noqa
                 })
                 collection['links'].append({
                     'type': 'application/geo+json',
                     'rel': 'items',
-                    'title': 'items as GeoJSON',
+                    'title': _('items as GeoJSON'),
                     'href': f'{self.get_collections_url()}/{k}/items?f={F_JSON}'  # noqa
                 })
                 collection['links'].append({
                     'type': FORMAT_TYPES[F_JSONLD],
                     'rel': 'items',
-                    'title': 'items as RDF (GeoJSON-LD)',
+                    'title': _('items as RDF (GeoJSON-LD)'),
                     'href': f'{self.get_collections_url()}/{k}/items?f={F_JSONLD}'  # noqa
                 })
                 collection['links'].append({
                     'type': FORMAT_TYPES[F_HTML],
                     'rel': 'items',
-                    'title': 'Items as HTML',
+                    'title': _('Items as HTML'),
                     'href': f'{self.get_collections_url()}/{k}/items?f={F_HTML}'  # noqa
                 })
 
@@ -1196,7 +1202,7 @@ class API:
                 collection['links'].append({
                     'type': 'application/prs.coverage+json',
                     'rel': f'{OGC_RELTYPES_BASE}/coverage',
-                    'title': 'Coverage data',
+                    'title': _('Coverage data'),
                     'href': f'{self.get_collections_url()}/{k}/coverage?f={F_JSON}'  # noqa
                 })
                 if collection_data_format is not None:
@@ -1249,13 +1255,13 @@ class API:
                 collection['links'].append({
                     'type': FORMAT_TYPES[F_JSON],
                     'rel': f'http://www.opengis.net/def/rel/ogc/1.0/tilesets-{p.tile_type}',  # noqa
-                    'title': 'Tiles as JSON',
+                    'title': _('Tiles as JSON'),
                     'href': f'{self.get_collections_url()}/{k}/tiles?f={F_JSON}'  # noqa
                 })
                 collection['links'].append({
                     'type': FORMAT_TYPES[F_HTML],
                     'rel': f'http://www.opengis.net/def/rel/ogc/1.0/tilesets-{p.tile_type}',  # noqa
-                    'title': 'Tiles as HTML',
+                    'title': _('Tiles as HTML'),
                     'href': f'{self.get_collections_url()}/{k}/tiles?f={F_HTML}'  # noqa
                 })
 
@@ -1335,19 +1341,19 @@ class API:
             fcm['links'].append({
                 'type': FORMAT_TYPES[F_JSON],
                 'rel': request.get_linkrel(F_JSON),
-                'title': 'This document as JSON',
+                'title': _('This document as JSON'),
                 'href': f'{self.get_collections_url()}?f={F_JSON}'
             })
             fcm['links'].append({
                 'type': FORMAT_TYPES[F_JSONLD],
                 'rel': request.get_linkrel(F_JSONLD),
-                'title': 'This document as RDF (JSON-LD)',
+                'title': _('This document as RDF (JSON-LD)'),
                 'href': f'{self.get_collections_url()}?f={F_JSONLD}'
             })
             fcm['links'].append({
                 'type': FORMAT_TYPES[F_HTML],
                 'rel': request.get_linkrel(F_HTML),
-                'title': 'This document as HTML',
+                'title': _('This document as HTML'),
                 'href': f'{self.get_collections_url()}?f={F_HTML}'
             })
 
@@ -1873,22 +1879,21 @@ class API:
                 serialized_query_params += '='
                 serialized_query_params += urllib.parse.quote(str(v), safe=',')
 
-        # TODO: translate titles
         uri = f'{self.get_collections_url()}/{dataset}/items'
         content['links'] = [{
             'type': 'application/geo+json',
             'rel': request.get_linkrel(F_JSON),
-            'title': 'This document as GeoJSON',
+            'title': _('This document as GeoJSON'),
             'href': f'{uri}?f={F_JSON}{serialized_query_params}'
         }, {
             'rel': request.get_linkrel(F_JSONLD),
             'type': FORMAT_TYPES[F_JSONLD],
-            'title': 'This document as RDF (JSON-LD)',
+            'title': _('This document as RDF (JSON-LD)'),
             'href': f'{uri}?f={F_JSONLD}{serialized_query_params}'
         }, {
             'type': FORMAT_TYPES[F_HTML],
             'rel': request.get_linkrel(F_HTML),
-            'title': 'This document as HTML',
+            'title': _('This document as HTML'),
             'href': f'{uri}?f={F_HTML}{serialized_query_params}'
         }]
 
@@ -1898,7 +1903,7 @@ class API:
                 {
                     'type': 'application/geo+json',
                     'rel': 'prev',
-                    'title': 'items (prev)',
+                    'title': _('items (prev)'),
                     'href': f'{uri}?offset={prev}{serialized_query_params}'
                 })
 
@@ -1910,7 +1915,7 @@ class API:
                     {
                         'type': 'application/geo+json',
                         'rel': 'next',
-                        'title': 'items (next)',
+                        'title': _('items (next)'),
                         'href': next_href
                     })
 
@@ -2514,27 +2519,27 @@ class API:
         content['links'].extend([{
             'type': FORMAT_TYPES[F_JSON],
             'rel': 'root',
-            'title': 'The landing page of this server as JSON',
+            'title': _('The landing page of this server as JSON'),
             'href': f"{self.base_url}?f={F_JSON}"
             }, {
             'type': FORMAT_TYPES[F_HTML],
             'rel': 'root',
-            'title': 'The landing page of this server as HTML',
+            'title': _('The landing page of this server as HTML'),
             'href': f"{self.base_url}?f={F_HTML}"
             }, {
             'rel': request.get_linkrel(F_JSON),
             'type': 'application/geo+json',
-            'title': 'This document as GeoJSON',
+            'title': _('This document as GeoJSON'),
             'href': f'{uri}?f={F_JSON}'
             }, {
             'rel': request.get_linkrel(F_JSONLD),
             'type': FORMAT_TYPES[F_JSONLD],
-            'title': 'This document as RDF (JSON-LD)',
+            'title': _('This document as RDF (JSON-LD)'),
             'href': f'{uri}?f={F_JSONLD}'
             }, {
             'rel': request.get_linkrel(F_HTML),
             'type': FORMAT_TYPES[F_HTML],
-            'title': 'This document as HTML',
+            'title': _('This document as HTML'),
             'href': f'{uri}?f={F_HTML}'
             }, {
             'rel': 'collection',
@@ -2772,19 +2777,19 @@ class API:
         tiles['links'].append({
             'type': FORMAT_TYPES[F_JSON],
             'rel': request.get_linkrel(F_JSON),
-            'title': 'This document as JSON',
+            'title': _('This document as JSON'),
             'href': f'{self.get_collections_url()}/{dataset}/tiles?f={F_JSON}'
         })
         tiles['links'].append({
             'type': FORMAT_TYPES[F_JSONLD],
             'rel': request.get_linkrel(F_JSONLD),
-            'title': 'This document as RDF (JSON-LD)',
+            'title': _('This document as RDF (JSON-LD)'),
             'href': f'{self.get_collections_url()}/{dataset}/tiles?f={F_JSONLD}'  # noqa
         })
         tiles['links'].append({
             'type': FORMAT_TYPES[F_HTML],
             'rel': request.get_linkrel(F_HTML),
-            'title': 'This document as HTML',
+            'title': _('This document as HTML'),
             'href': f'{self.get_collections_url()}/{dataset}/tiles?f={F_HTML}'
         })
 
@@ -3250,7 +3255,7 @@ class API:
                     'type': FORMAT_TYPES[F_JSON],
                     'rel': request.get_linkrel(F_JSON),
                     'href': f'{process_url}?f={F_JSON}',
-                    'title': 'Process description as JSON',
+                    'title': _('Process description as JSON'),
                     'hreflang': self.default_locale
                 }
                 p2['links'].append(link)
@@ -3259,7 +3264,7 @@ class API:
                     'type': FORMAT_TYPES[F_HTML],
                     'rel': request.get_linkrel(F_HTML),
                     'href': f'{process_url}?f={F_HTML}',
-                    'title': 'Process description as HTML',
+                    'title': _('Process description as HTML'),
                     'hreflang': self.default_locale
                 }
                 p2['links'].append(link)
@@ -3268,7 +3273,7 @@ class API:
                     'type': FORMAT_TYPES[F_HTML],
                     'rel': 'http://www.opengis.net/def/rel/ogc/1.0/job-list',
                     'href': f'{jobs_url}?f={F_HTML}',
-                    'title': 'jobs for this process as HTML',
+                    'title': _('jobs for this process as HTML'),
                     'hreflang': self.default_locale
                 }
                 p2['links'].append(link)
@@ -3277,7 +3282,7 @@ class API:
                     'type': FORMAT_TYPES[F_JSON],
                     'rel': 'http://www.opengis.net/def/rel/ogc/1.0/job-list',
                     'href': f'{jobs_url}?f={F_JSON}',
-                    'title': 'jobs for this process as JSON',
+                    'title': _('jobs for this process as JSON'),
                     'hreflang': self.default_locale
                 }
                 p2['links'].append(link)
@@ -3286,7 +3291,7 @@ class API:
                     'type': FORMAT_TYPES[F_JSON],
                     'rel': 'http://www.opengis.net/def/rel/ogc/1.0/execute',
                     'href': f'{process_url}/execution?f={F_JSON}',
-                    'title': 'Execution for this process as JSON',
+                    'title': _('Execution for this process as JSON'),
                     'hreflang': self.default_locale
                 }
                 p2['links'].append(link)
@@ -3302,17 +3307,17 @@ class API:
                 'links': [{
                     'type': FORMAT_TYPES[F_JSON],
                     'rel': request.get_linkrel(F_JSON),
-                    'title': 'This document as JSON',
+                    'title': _('This document as JSON'),
                     'href': f'{process_url}?f={F_JSON}'
                 }, {
                     'type': FORMAT_TYPES[F_JSONLD],
                     'rel': request.get_linkrel(F_JSONLD),
-                    'title': 'This document as RDF (JSON-LD)',
+                    'title': _('This document as RDF (JSON-LD)'),
                     'href': f'{process_url}?f={F_JSONLD}'
                 }, {
                     'type': FORMAT_TYPES[F_HTML],
                     'rel': request.get_linkrel(F_HTML),
-                    'title': 'This document as HTML',
+                    'title': _('This document as HTML'),
                     'href': f'{process_url}?f={F_HTML}'
                 }]
             }
@@ -3366,12 +3371,12 @@ class API:
                 'href': f"{self.base_url}/jobs?f={F_HTML}",
                 'rel': request.get_linkrel(F_HTML),
                 'type': FORMAT_TYPES[F_HTML],
-                'title': 'Jobs list as HTML'
+                'title': _('Jobs list as HTML')
             }, {
                 'href': f"{self.base_url}/jobs?f={F_JSON}",
                 'rel': request.get_linkrel(F_JSON),
                 'type': FORMAT_TYPES[F_JSON],
-                'title': 'Jobs list as JSON'
+                'title': _('Jobs list as JSON')
             }]
         }
         for job_ in jobs:
@@ -3640,7 +3645,7 @@ class API:
                         'href': jobs_url,
                         'rel': 'up',
                         'type': FORMAT_TYPES[F_JSON],
-                        'title': 'The job list for the current process'
+                        'title': _('The job list for the current process')
                     }]
                 }
             else:
