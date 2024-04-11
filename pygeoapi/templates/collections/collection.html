@@ -82,10 +82,19 @@
       <h3>{% trans %}Links{% endtrans %}</h3>
       <ul>
       {% for link in data['links'] %}
+        {% if '?' in link['href'] %}
           <li>
-            <a title="{{ link['rel'] }}" href="{{ link['href'] }}">
+            <a title="{{ link['rel'] }}" href="{{ link['href'] }}&lang={{ (locale|lower)[:2] }}">
             <span>{{ link['title'] }}</span> (<span>{{ link['type'] }}</span>)
-            </a></li>
+            </a>
+          </li>
+        {% else %}
+          <li>
+            <a title="{{ link['rel'] }}" href="{{ link['href'] }}?lang={{ (locale|lower)[:2] }}">
+            <span>{{ link['title'] }}</span> (<span>{{ link['type'] }}</span>)
+            </a>
+          </li>
+        {% endif %}
       {% endfor %}
       </ul>
     </section>
