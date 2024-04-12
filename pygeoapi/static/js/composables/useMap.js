@@ -46,6 +46,7 @@ export default function useMap(mapElemId, geoJsonData, itemsPath, bboxPermalink,
       zoomDelta: 0.25,
       zoomSnap: 0.25
     }).setView([45, -75], 5)
+    map.attributionControl.setPrefix(false)
     map.addLayer(baseLayer)
     map.addLayer(labelLayer)
     layerItems = new L.GeoJSON({type: 'FeatureCollection', features: []})

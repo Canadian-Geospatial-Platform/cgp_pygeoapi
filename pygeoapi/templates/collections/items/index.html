@@ -30,7 +30,6 @@
 {% block extrahead %}
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/esri-leaflet@3.0.10/dist/esri-leaflet.js" crossorigin=""></script>
 {% endblock %}
 
 {% block body %}
@@ -365,18 +364,20 @@
 
           let locale = '{{ (locale|lower)[:2] }}'
           let labelsURL = locale === 'en' ?
-            'https://maps-cartes.services.geo.ca/server2_serveur2/rest/services/BaseMaps/CBMT_TXT_3857/MapServer' :
-            'https://maps-cartes.services.geo.ca/server2_serveur2/rest/services/BaseMaps/CBCT_TXT_3857/MapServer'
+            'https://maps-cartes.services.geo.ca/server2_serveur2/rest/services/BaseMaps/CBMT_TXT_3857/MapServer/tile/{z}/{y}/{x}' :
+            'https://maps-cartes.services.geo.ca/server2_serveur2/rest/services/BaseMaps/CBCT_TXT_3857/MapServer/tile/{z}/{y}/{x}'
+          let attribution = locale === 'en' ?
+            'Powered by <a href="https://geo.ca/">Geo.ca</a> | © His Majesty the King in Right of Canada, as represented by the Minister of Natural Resources Canada' :
+            'Propulsé par <a href="https://geo.ca/">Geo.ca</a> | © Sa Majesté le Roi du chef du Canada, représenté par le ministre de Ressources naturelles Canada'
 
           // Base layer
-          let baseLayer = L.esri.tiledMapLayer({
-            url: "https://maps-cartes.services.geo.ca/server2_serveur2/rest/services/BaseMaps/CBMT_CBCT_GEOM_3857/MapServer"
-          })
+          let baseLayer = L.tileLayer(
+            'https://maps-cartes.services.geo.ca/server2_serveur2/rest/services/BaseMaps/CBMT_CBCT_GEOM_3857/MapServer/tile/{z}/{y}/{x}',
+            {attribution: attribution}
+          )
 
           // Labels
-          let labelsLayer = L.esri.tiledMapLayer({
-            url: labelsURL
-          })
+          let labelsLayer = L.tileLayer(labelsURL)
 
           const { bbox } = useMap(
             'items-map', itemsJson, itemsPath, bboxPermalink, baseLayer, labelsLayer, LOCALE)
