@@ -89,11 +89,6 @@ from pygeoapi.util import (dategetter, RequestedProcessExecutionMode,
                            modify_pygeofilter, CrsTransformSpec,
                            transform_bbox)
 
-for language in ["en", "fr"]:
-    language_translations = gettext.translation('messages', localedir='locale', languages=[language])
-    language_translations.install()
-
-    _ = language_translations.gettext
 
 LOGGER = logging.getLogger(__name__)
 
@@ -342,6 +337,10 @@ class APIRequest:
         self._raw_locale, self._locale = self._get_locale(request.headers,
                                                           supported_locales)
 
+        # Set translations from locale
+        self._translations = gettext.translation(
+            'messages', localedir='locale', languages=[self._raw_locale[:2]])
+
         # Determine format
         self._format = self._get_format(request.headers)
 
@@ -508,6 +507,17 @@ class APIRequest:
         """
 
         return self._raw_locale
+
+    @property
+    def translations(self) -> gettext.GNUTranslations:
+        """
+        Returns a GNUTranslations instance based on the domain of the
+        translation files, the directory where the translation files are located,
+        and the language derived by the request locale.
+
+        :returns: a GNUTranslations instance
+        """
+        return self._translations
 
     @property
     def format(self) -> Union[str, None]:
@@ -694,6 +704,10 @@ class API:
 
         if not request.is_valid():
             return self.get_format_exception(request)
+
+        # Install translations
+        request.translations.install()
+        _ = request.translations.gettext
 
         fcm = {
             'links': [],
@@ -1005,6 +1019,10 @@ class API:
         if not request.is_valid():
             return self.get_format_exception(request)
         headers = request.get_response_headers(**self.api_headers)
+
+        # Install translations
+        request.translations.install()
+        _ = request.translations.gettext
 
         fcm = {
             'collections': [],
@@ -1587,6 +1605,10 @@ class API:
         # has been determined
         headers = request.get_response_headers(SYSTEM_LOCALE,
                                                **self.api_headers)
+
+        # Install translations
+        request.translations.install()
+        _ = request.translations.gettext
 
         properties = []
         reserved_fieldnames = ['bbox', 'bbox-crs', 'crs', 'f', 'lang', 'limit',
@@ -2438,6 +2460,10 @@ class API:
         headers = request.get_response_headers(SYSTEM_LOCALE,
                                                **self.api_headers)
 
+        # Install translations
+        request.translations.install()
+        _ = request.translations.gettext
+
         LOGGER.debug('Processing query parameters')
 
         collections = filter_dict_by_key_value(self.config['resources'],
@@ -2745,6 +2771,11 @@ class API:
             return self.get_format_exception(request)
         headers = request.get_response_headers(SYSTEM_LOCALE,
                                                **self.api_headers)
+
+        # Install translations
+        request.translations.install()
+        _ = request.translations.gettext
+
         if any([dataset is None,
                 dataset not in self.config['resources'].keys()]):
 
@@ -3198,6 +3229,10 @@ class API:
             return self.get_format_exception(request)
         headers = request.get_response_headers(**self.api_headers)
 
+        # Install translations
+        request.translations.install()
+        _ = request.translations.gettext
+
         if process is not None:
             if process not in self.manager.processes.keys():
                 msg = 'Identifier not found'
@@ -3353,6 +3388,11 @@ class API:
             return self.get_format_exception(request)
         headers = request.get_response_headers(SYSTEM_LOCALE,
                                                **self.api_headers)
+
+        # Install translations
+        request.translations.install()
+        _ = request.translations.gettext
+
         if job_id is None:
             jobs = sorted(self.manager.get_jobs(),
                           key=lambda k: k['job_start_datetime'],
@@ -3622,6 +3662,10 @@ class API:
 
         :returns: tuple of headers, status code, content
         """
+        # Install translations
+        request.translations.install()
+        _ = request.translations.gettext
+
         response_headers = request.get_response_headers(
             SYSTEM_LOCALE, **self.api_headers)
         try:

@@ -62,11 +62,11 @@ logging:
 metadata:
     identification:
         title:
-            en: Geo.ca OGC API - Records
-            fr: API OGC de Geo.ca - Dossiers
+            en: OGC API - Records for geo.ca
+            fr: OGC API - Records pour geo.ca
         description:
-            en: An OGC API - Records compliant website for the Canadian Geospatial Platform (CGP). The application is based on the latest mater of the pygeoapi core. This service has been augmented with a provider that parses metadata records from the CGP GeoCore platform.
-            fr: Un site Web conforme à l'API OGC - Records pour la Plateforme Géospatiale Canadienne (PGC). L'application est basée sur le dernier matériau du noyau pygeoapi. Ce service a été complété par un fournisseur qui analyse les enregistrements de métadonnées de la plateforme PGC GeoCore.
+            en: An OGC API - Records compliant website for the Canadian Geospatial Platform (CGP). The application is based on the pygeoapi core version provided in the footer. This service has been augmented with a 'geocore' provider  to connect with the geo.ca backend
+            fr: Un site Web conforme à l'API OGC - Records pour la Plateforme géospatiale canadienne (CGP). L'application est basée sur la version principale de pygeoapi fournie dans le pied de page. Ce service a été complété par un fournisseur « geocore » pour se connecter au backend geo.ca.
         keywords:
             en:
                 - geospatial
@@ -77,28 +77,45 @@ metadata:
                 - données
                 - api
         keywords_type: theme
-        terms_of_service: https://creativecommons.org/licenses/by/4.0/
-        url: https://geo.ca
+        terms_of_service:
+            en: https://geo.ca/terms-and-conditions/
+            fr: https://geo.ca/fr/avis/
+        url:
+            en: https://canadian-geospatial-platform.github.io/geocore/
+            fr: https://canadian-geospatial-platform.github.io/geocore/
     license:
-        name: CC-BY 4.0 license
-        url: https://creativecommons.org/licenses/by/4.0/
+        name: 
+            en: Open Government Licence - Canada 
+            fr: Licence du gouvernement ouvert – Canada 
+        url: 
+            en: https://open.canada.ca/en/open-government-licence-canada
+            fr: https://ouvert.canada.ca/fr/licence-du-gouvernement-ouvert-canada
     provider:
-        name: Canadian Geospatial Platform (CGP) / Plateforme Géospatiale Canadienne (PGC)
-        url: https://geo.ca
+        name: 
+            en: Canadian Geospatial Platform (CGP)
+            fr: Plateforme Géospatiale Canadienne (PGC)
+        url:
+            en: https://geo.ca/home/
+            fr: https://geo.ca/fr/accueil/
     contact:
         name: Lastname, Firstname
         position: Position Title
-        address: 580 Booth Street, 18th Floor
+        address:
+            en: 580 Booth Street
+            fr: 580, rue Booth
         city: Ottawa
         stateorprovince: Ontario
         postalcode: K1A 0E4
         country: Canada
-        phone: N/A
-        fax: N/A
+        phone:
+            en: None
+            fr: Aucun
+        fax:
+            en: None
+            fr: Aucun
         email: geo@nrcan-rncan.gc.ca
         url: Contact URL
-        hours: Mo-Fr 08:00-17:00
-        instructions: During hours of service. Off on weekends.
+        instructions: geo@nrcan-rncan.gc.ca
         role: pointOfContact
 
 resources:

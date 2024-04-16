@@ -173,7 +173,7 @@
     <script>
       // Requests and embeds JSON-LD representation of current page
       var xhr = new XMLHttpRequest();
-      var path = window.location.protocol + "//" + window.location.host + window.location.pathname + "?f=jsonld";
+      var path = window.location.protocol + "//" + window.location.host + window.location.pathname + "?f=jsonld&lang={{ (locale|lower)[:2] }}";
       if (window.location.pathname.match(/\/items(#)*/gi)) { // reduce load on /items page
         path += '&limit=10';
       }

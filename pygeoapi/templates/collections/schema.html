@@ -20,11 +20,11 @@
       </p>
       <h3>{% trans %}Schema{% endtrans %}</h3>
       <table class="table table-striped table-bordered">
-        <th>Name</th>
-        <th>Title</th>
-        <th>Type</th>
-        <th>Units</th>
-        <th>Values</th>
+        <th>{% trans %}Name{% endtrans %}</th>
+        <th>{% trans %}Title{% endtrans %}</th>
+        <th>{% trans %}Type{% endtrans %}</th>
+        <th>{% trans %}Units{% endtrans %}</th>
+        <th>{% trans %}Values{% endtrans %}</th>
       <ul>
       {% for qname, qinfo in data['properties'].items() %}
         <tr>

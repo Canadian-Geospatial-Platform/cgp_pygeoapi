@@ -187,18 +187,27 @@ components:
 info:
   contact:
     email: geo@nrcan-rncan.gc.ca
-    name: "Canadian Geospatial Platform (CGP) / Plateforme G\xE9ospatiale Canadienne\
-      \ (PGC)"
-    url: https://geo.ca
+    name:
+      en: Canadian Geospatial Platform (CGP)
+      fr: "Plateforme G\xE9ospatiale Canadienne (PGC)"
+    url:
+      en: https://geo.ca/home/
+      fr: https://geo.ca/fr/accueil/
   description: An OGC API - Records compliant website for the Canadian Geospatial
-    Platform (CGP). The application is based on the latest mater of the pygeoapi core.
-    This service has been augmented with a provider that parses metadata records from
-    the CGP GeoCore platform.
+    Platform (CGP). The application is based on the pygeoapi core version provided
+    in the footer. This service has been augmented with a 'geocore' provider  to connect
+    with the geo.ca backend
   license:
-    name: CC-BY 4.0 license
-    url: https://creativecommons.org/licenses/by/4.0/
-  termsOfService: https://creativecommons.org/licenses/by/4.0/
-  title: Geo.ca OGC API - Records
+    name:
+      en: Open Government Licence - Canada
+      fr: "Licence du gouvernement ouvert \u2013 Canada"
+    url:
+      en: https://open.canada.ca/en/open-government-licence-canada
+      fr: https://ouvert.canada.ca/fr/licence-du-gouvernement-ouvert-canada
+  termsOfService:
+    en: https://geo.ca/terms-and-conditions/
+    fr: https://geo.ca/fr/avis/
+  title: OGC API - Records for geo.ca
   version: 0.16.dev0
   x-keywords:
   - geospatial
@@ -590,18 +599,20 @@ paths:
       - server
 servers:
 - description: An OGC API - Records compliant website for the Canadian Geospatial
-    Platform (CGP). The application is based on the latest mater of the pygeoapi core.
-    This service has been augmented with a provider that parses metadata records from
-    the CGP GeoCore platform.
+    Platform (CGP). The application is based on the pygeoapi core version provided
+    in the footer. This service has been augmented with a 'geocore' provider  to connect
+    with the geo.ca backend
   url: http://localhost:5000
 tags:
 - description: An OGC API - Records compliant website for the Canadian Geospatial
-    Platform (CGP). The application is based on the latest mater of the pygeoapi core.
-    This service has been augmented with a provider that parses metadata records from
-    the CGP GeoCore platform.
+    Platform (CGP). The application is based on the pygeoapi core version provided
+    in the footer. This service has been augmented with a 'geocore' provider  to connect
+    with the geo.ca backend
   externalDocs:
     description: information
-    url: https://geo.ca
+    url:
+      en: https://canadian-geospatial-platform.github.io/geocore/
+      fr: https://canadian-geospatial-platform.github.io/geocore/
   name: server
 - description: SpatioTemporal Asset Catalog
   name: stac
