@@ -44,6 +44,7 @@ jobs:
 
       - name: Install requirements
         run: |
+          sudo apt-get install unzip -y
           pip3 install -r requirements.txt
           python3 setup.py install
 
