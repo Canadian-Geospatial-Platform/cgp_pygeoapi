@@ -48,7 +48,7 @@ jobs:
           python3 setup.py install
           
       - name: Install unzip
-        run: sudo apt-get update && sudo apt-get install unzip -y
+        run: 
 
       - name: Build translations
         run: |
@@ -69,15 +69,21 @@ jobs:
           # The following only installs the extensions and creates a serverless package.
           # To deploy, comment the line below and uncomment the second args line instead.
           # Deployment requires AWS credentials
-          args: -c "serverless plugin install --name serverless-python-requirements && serverless plugin install --name serverless-wsgi && serverless package && unzip .serverless/pygeoapi.zip"
+          args: -c "serverless plugin install --name serverless-python-requirements && serverless plugin install --name serverless-wsgi && serverless package"
           # args: -c "serverless plugin install --name serverless-python-requirements && serverless plugin install --name serverless-wsgi && serverless package && serverless deploy && unzip pygeoapi.zip"
           entrypoint: /bin/sh
 
       - name: Set current date as env variable
         run: echo "NOW=$(date +'%Y%m%d-%H%M')" >> $GITHUB_ENV
 
+      - name: Post packaging steps
+        run: |
+           sudo apt-get update
+           sudo apt-get install unzip -y
+           unzip ${{ github.workspace }}/.serverless/pygeoapi.zip
+
       - name: Upload zip file artifact
         uses: actions/upload-artifact@v4
         with:
           name: cgp_pygeoapi-${{ env.NOW }}
-          path: ${{ github.workspace }}/.serverless/pygeoapi
+          path: ${{ github.workspace }}/.serverless/pygeoapi/
