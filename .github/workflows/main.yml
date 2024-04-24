@@ -75,7 +75,7 @@ jobs:
 
       - name: Post packaging steps
         run: |
-          echo "no" | sudo unzip -qq ${{ github.workspace }}/.serverless/pygeoapi.zip
+          echo "n" | sudo unzip -qq ${{ github.workspace }}/.serverless/pygeoapi.zip
 
       - name: Upload zip file artifact
         uses: actions/upload-artifact@v4
