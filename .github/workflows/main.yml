@@ -75,8 +75,6 @@ jobs:
 
       - name: Post packaging steps
         run: |
-          sudo apt-get update
-          sudo apt-get install unzip -y
           unzip ${{ github.workspace }}/.serverless/pygeoapi.zip
 
       - name: Upload zip file artifact
