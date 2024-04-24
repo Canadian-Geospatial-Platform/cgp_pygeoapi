@@ -98,6 +98,31 @@ table:not(.horizontal) {
   max-height: none;
 }
 
+#items-table .gc-chckbxrdio.checkbox input[type=checkbox]+label::before {
+  top: 0;
+}
+
+#items-table .gc-chckbxrdio.checkbox input[type=checkbox]:checked+label::after {
+  top: 1px;
+}
+
+#items-table .gc-chckbxrdio.checkbox input[type=checkbox]+label {
+  line-height: revert;
+  font-weight: revert;
+  font-size: 20px;
+  margin-left: 20px;
+  white-space: nowrap;
+}
+
+.checkbox.showhideall {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#items-table-container th {
+  z-index: 100;
+}
+
 .label-job {
   color: #000;
 }

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  0.11\n"
 "Report-Msgid-Bugs-To: pygeoapi@lists.osgeo.org\n"
-"POT-Creation-Date: 2024-04-16 15:07-0700\n"
+"POT-Creation-Date: 2024-04-23 18:06-0700\n"
 "PO-Revision-Date: 2021-07-11 00:15+0200\n"
 "Last-Translator: Paul van Genuchten\n"
 "Language: en\n"
@@ -18,51 +18,51 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: build/lib/pygeoapi/api.py:724 build/lib/pygeoapi/api.py:1141
-#: build/lib/pygeoapi/api.py:1358 build/lib/pygeoapi/api.py:2807
-#: build/lib/pygeoapi/api.py:3341 pygeoapi/api.py:724 pygeoapi/api.py:1141
-#: pygeoapi/api.py:1358 pygeoapi/api.py:2807 pygeoapi/api.py:3341
+#: build/lib/pygeoapi/api.py:728 build/lib/pygeoapi/api.py:1145
+#: build/lib/pygeoapi/api.py:1362 build/lib/pygeoapi/api.py:2811
+#: build/lib/pygeoapi/api.py:3345 pygeoapi/api.py:728 pygeoapi/api.py:1145
+#: pygeoapi/api.py:1362 pygeoapi/api.py:2811 pygeoapi/api.py:3345
 msgid "This document as JSON"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:729 build/lib/pygeoapi/api.py:1147
-#: build/lib/pygeoapi/api.py:1364 build/lib/pygeoapi/api.py:1909
-#: build/lib/pygeoapi/api.py:2559 build/lib/pygeoapi/api.py:2813
-#: build/lib/pygeoapi/api.py:3346 pygeoapi/api.py:729 pygeoapi/api.py:1147
-#: pygeoapi/api.py:1364 pygeoapi/api.py:1909 pygeoapi/api.py:2559
-#: pygeoapi/api.py:2813 pygeoapi/api.py:3346
+#: build/lib/pygeoapi/api.py:733 build/lib/pygeoapi/api.py:1151
+#: build/lib/pygeoapi/api.py:1368 build/lib/pygeoapi/api.py:1913
+#: build/lib/pygeoapi/api.py:2563 build/lib/pygeoapi/api.py:2817
+#: build/lib/pygeoapi/api.py:3350 pygeoapi/api.py:733 pygeoapi/api.py:1151
+#: pygeoapi/api.py:1368 pygeoapi/api.py:1913 pygeoapi/api.py:2563
+#: pygeoapi/api.py:2817 pygeoapi/api.py:3350
 msgid "This document as RDF (JSON-LD)"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:734 build/lib/pygeoapi/api.py:1153
-#: build/lib/pygeoapi/api.py:1370 build/lib/pygeoapi/api.py:1914
-#: build/lib/pygeoapi/api.py:2564 build/lib/pygeoapi/api.py:2819
-#: build/lib/pygeoapi/api.py:3351 pygeoapi/api.py:734 pygeoapi/api.py:1153
-#: pygeoapi/api.py:1370 pygeoapi/api.py:1914 pygeoapi/api.py:2564
-#: pygeoapi/api.py:2819 pygeoapi/api.py:3351
+#: build/lib/pygeoapi/api.py:738 build/lib/pygeoapi/api.py:1157
+#: build/lib/pygeoapi/api.py:1374 build/lib/pygeoapi/api.py:1918
+#: build/lib/pygeoapi/api.py:2568 build/lib/pygeoapi/api.py:2823
+#: build/lib/pygeoapi/api.py:3355 pygeoapi/api.py:738 pygeoapi/api.py:1157
+#: pygeoapi/api.py:1374 pygeoapi/api.py:1918 pygeoapi/api.py:2568
+#: pygeoapi/api.py:2823 pygeoapi/api.py:3355
 msgid "This document as HTML"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:740 pygeoapi/api.py:740
+#: build/lib/pygeoapi/api.py:744 pygeoapi/api.py:744
 msgid "The OpenAPI definition as JSON"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:745 pygeoapi/api.py:745
+#: build/lib/pygeoapi/api.py:749 pygeoapi/api.py:749
 msgid "The OpenAPI definition as HTML"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:751
+#: build/lib/pygeoapi/api.py:755
 #: build/lib/pygeoapi/templates/conformance.html:6
 #: build/lib/pygeoapi/templates/conformance.html:8
 #: build/lib/pygeoapi/templates/conformance.html:12
-#: build/lib/pygeoapi/templates/landing_page.html:78 pygeoapi/api.py:751
+#: build/lib/pygeoapi/templates/landing_page.html:78 pygeoapi/api.py:755
 #: pygeoapi/templates/conformance.html:6 pygeoapi/templates/conformance.html:8
 #: pygeoapi/templates/conformance.html:12
 #: pygeoapi/templates/landing_page.html:78
 msgid "Conformance"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:756
+#: build/lib/pygeoapi/api.py:760
 #: build/lib/pygeoapi/templates/collections/collection.html:8
 #: build/lib/pygeoapi/templates/collections/coverage/domainset.html:8
 #: build/lib/pygeoapi/templates/collections/coverage/rangetype.html:8
@@ -75,7 +75,7 @@ msgstr ""
 #: build/lib/pygeoapi/templates/collections/tiles/index.html:8
 #: build/lib/pygeoapi/templates/collections/tiles/metadata.html:8
 #: build/lib/pygeoapi/templates/landing_page.html:36
-#: build/lib/pygeoapi/templates/stac/collection.html:17 pygeoapi/api.py:756
+#: build/lib/pygeoapi/templates/stac/collection.html:17 pygeoapi/api.py:760
 #: pygeoapi/templates/collections/collection.html:8
 #: pygeoapi/templates/collections/coverage/domainset.html:8
 #: pygeoapi/templates/collections/coverage/rangetype.html:8
@@ -92,11 +92,11 @@ msgstr ""
 msgid "Collections"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:761
+#: build/lib/pygeoapi/api.py:765
 #: build/lib/pygeoapi/templates/landing_page.html:54
 #: build/lib/pygeoapi/templates/processes/index.html:6
 #: build/lib/pygeoapi/templates/processes/index.html:8
-#: build/lib/pygeoapi/templates/processes/process.html:8 pygeoapi/api.py:761
+#: build/lib/pygeoapi/templates/processes/process.html:8 pygeoapi/api.py:765
 #: pygeoapi/templates/landing_page.html:54
 #: pygeoapi/templates/processes/index.html:6
 #: pygeoapi/templates/processes/index.html:8
@@ -104,13 +104,13 @@ msgstr ""
 msgid "Processes"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:766 build/lib/pygeoapi/templates/jobs/index.html:6
+#: build/lib/pygeoapi/api.py:770 build/lib/pygeoapi/templates/jobs/index.html:6
 #: build/lib/pygeoapi/templates/jobs/index.html:8
 #: build/lib/pygeoapi/templates/jobs/index.html:15
 #: build/lib/pygeoapi/templates/jobs/job.html:8
 #: build/lib/pygeoapi/templates/jobs/results/index.html:8
 #: build/lib/pygeoapi/templates/landing_page.html:60
-#: build/lib/pygeoapi/templates/processes/process.html:79 pygeoapi/api.py:766
+#: build/lib/pygeoapi/templates/processes/process.html:79 pygeoapi/api.py:770
 #: pygeoapi/templates/jobs/index.html:6 pygeoapi/templates/jobs/index.html:8
 #: pygeoapi/templates/jobs/index.html:15 pygeoapi/templates/jobs/job.html:8
 #: pygeoapi/templates/jobs/results/index.html:8
@@ -119,106 +119,106 @@ msgstr ""
 msgid "Jobs"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:771 pygeoapi/api.py:771
+#: build/lib/pygeoapi/api.py:775 pygeoapi/api.py:775
 msgid "The list of supported tiling schemes (as JSON)"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:776 pygeoapi/api.py:776
+#: build/lib/pygeoapi/api.py:780 pygeoapi/api.py:780
 msgid "The list of supported tiling schemes (as HTML)"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:1129 build/lib/pygeoapi/api.py:2544
-#: pygeoapi/api.py:1129 pygeoapi/api.py:2544
+#: build/lib/pygeoapi/api.py:1133 build/lib/pygeoapi/api.py:2548
+#: pygeoapi/api.py:1133 pygeoapi/api.py:2548
 msgid "The landing page of this server as JSON"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:1135 build/lib/pygeoapi/api.py:2549
-#: pygeoapi/api.py:1135 pygeoapi/api.py:2549
+#: build/lib/pygeoapi/api.py:1139 build/lib/pygeoapi/api.py:2553
+#: pygeoapi/api.py:1139 pygeoapi/api.py:2553
 msgid "The landing page of this server as HTML"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:1161 pygeoapi/api.py:1161
+#: build/lib/pygeoapi/api.py:1165 pygeoapi/api.py:1165
 msgid "Schema of collection in JSON"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:1167 pygeoapi/api.py:1167
+#: build/lib/pygeoapi/api.py:1171 pygeoapi/api.py:1171
 msgid "Schema of collection in HTML"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:1178 pygeoapi/api.py:1178
+#: build/lib/pygeoapi/api.py:1182 pygeoapi/api.py:1182
 msgid "Queryables for this collection as JSON"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:1184 pygeoapi/api.py:1184
+#: build/lib/pygeoapi/api.py:1188 pygeoapi/api.py:1188
 msgid "Queryables for this collection as HTML"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:1190 pygeoapi/api.py:1190
+#: build/lib/pygeoapi/api.py:1194 pygeoapi/api.py:1194
 msgid "items as GeoJSON"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:1196 pygeoapi/api.py:1196
+#: build/lib/pygeoapi/api.py:1200 pygeoapi/api.py:1200
 msgid "items as RDF (GeoJSON-LD)"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:1202 pygeoapi/api.py:1202
+#: build/lib/pygeoapi/api.py:1206 pygeoapi/api.py:1206
 msgid "Items as HTML"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:1219 pygeoapi/api.py:1219
+#: build/lib/pygeoapi/api.py:1223 pygeoapi/api.py:1223
 msgid "Coverage data"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:1272 pygeoapi/api.py:1272
+#: build/lib/pygeoapi/api.py:1276 pygeoapi/api.py:1276
 msgid "Tiles as JSON"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:1278 pygeoapi/api.py:1278
+#: build/lib/pygeoapi/api.py:1282 pygeoapi/api.py:1282
 msgid "Tiles as HTML"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:1904 build/lib/pygeoapi/api.py:2554
-#: pygeoapi/api.py:1904 pygeoapi/api.py:2554
+#: build/lib/pygeoapi/api.py:1908 build/lib/pygeoapi/api.py:2558
+#: pygeoapi/api.py:1908 pygeoapi/api.py:2558
 msgid "This document as GeoJSON"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:1924 pygeoapi/api.py:1924
+#: build/lib/pygeoapi/api.py:1928 pygeoapi/api.py:1928
 msgid "items (prev)"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:1936 pygeoapi/api.py:1936
+#: build/lib/pygeoapi/api.py:1940 pygeoapi/api.py:1940
 msgid "items (next)"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:3289 pygeoapi/api.py:3289
+#: build/lib/pygeoapi/api.py:3293 pygeoapi/api.py:3293
 msgid "Process description as JSON"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:3298 pygeoapi/api.py:3298
+#: build/lib/pygeoapi/api.py:3302 pygeoapi/api.py:3302
 msgid "Process description as HTML"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:3307 pygeoapi/api.py:3307
+#: build/lib/pygeoapi/api.py:3311 pygeoapi/api.py:3311
 msgid "jobs for this process as HTML"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:3316 pygeoapi/api.py:3316
+#: build/lib/pygeoapi/api.py:3320 pygeoapi/api.py:3320
 msgid "jobs for this process as JSON"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:3325 pygeoapi/api.py:3325
+#: build/lib/pygeoapi/api.py:3329 pygeoapi/api.py:3329
 msgid "Execution for this process as JSON"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:3410 pygeoapi/api.py:3410
+#: build/lib/pygeoapi/api.py:3414 pygeoapi/api.py:3414
 msgid "Jobs list as HTML"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:3415 pygeoapi/api.py:3415
+#: build/lib/pygeoapi/api.py:3419 pygeoapi/api.py:3419
 msgid "Jobs list as JSON"
 msgstr ""
 
-#: build/lib/pygeoapi/api.py:3688 pygeoapi/api.py:3688
+#: build/lib/pygeoapi/api.py:3692 pygeoapi/api.py:3692
 msgid "The job list for the current process"
 msgstr ""
 
@@ -969,9 +969,9 @@ msgid "Filter table content"
 msgstr ""
 
 #: build/lib/pygeoapi/templates/collections/items/index.html:68
-#: build/lib/pygeoapi/templates/collections/items/index.html:136
+#: build/lib/pygeoapi/templates/collections/items/index.html:147
 #: pygeoapi/templates/collections/items/index.html:68
-#: pygeoapi/templates/collections/items/index.html:136
+#: pygeoapi/templates/collections/items/index.html:147
 msgid ""
 "eg. &quot;BC QC ON&quot; will search for &quot;BC&quot; or &quot;ON&quot;"
 " or &quot;QC&quot;"
@@ -1009,77 +1009,84 @@ msgstr ""
 
 #: build/lib/pygeoapi/templates/collections/items/index.html:132
 #: pygeoapi/templates/collections/items/index.html:132
+msgid "Show All"
+msgstr ""
+
+#: build/lib/pygeoapi/templates/collections/items/index.html:143
+#: pygeoapi/templates/collections/items/index.html:143
 msgid "Keyword search for: [% th.key %]"
 msgstr ""
 
-#: build/lib/pygeoapi/templates/collections/items/index.html:138
-#: pygeoapi/templates/collections/items/index.html:138
+#: build/lib/pygeoapi/templates/collections/items/index.html:149
+#: pygeoapi/templates/collections/items/index.html:149
 msgid "Keyword"
 msgstr ""
 
-#: build/lib/pygeoapi/templates/collections/items/index.html:190
-#: pygeoapi/templates/collections/items/index.html:190
+#: build/lib/pygeoapi/templates/collections/items/index.html:167
+#: build/lib/pygeoapi/templates/collections/items/index.html:213
+#: pygeoapi/templates/collections/items/index.html:167
+#: pygeoapi/templates/collections/items/index.html:213
 msgid "Show"
 msgstr ""
 
-#: build/lib/pygeoapi/templates/collections/items/index.html:199
-#: pygeoapi/templates/collections/items/index.html:199
+#: build/lib/pygeoapi/templates/collections/items/index.html:222
+#: pygeoapi/templates/collections/items/index.html:222
 msgid " entries"
 msgstr ""
 
-#: build/lib/pygeoapi/templates/collections/items/index.html:213
-#: pygeoapi/templates/collections/items/index.html:213
+#: build/lib/pygeoapi/templates/collections/items/index.html:236
+#: pygeoapi/templates/collections/items/index.html:236
 msgid "Previous"
 msgstr ""
 
-#: build/lib/pygeoapi/templates/collections/items/index.html:213
 #: build/lib/pygeoapi/templates/collections/items/index.html:236
-#: pygeoapi/templates/collections/items/index.html:213
+#: build/lib/pygeoapi/templates/collections/items/index.html:259
 #: pygeoapi/templates/collections/items/index.html:236
+#: pygeoapi/templates/collections/items/index.html:259
 msgid " page of search results"
 msgstr ""
 
-#: build/lib/pygeoapi/templates/collections/items/index.html:232
-#: pygeoapi/templates/collections/items/index.html:232
+#: build/lib/pygeoapi/templates/collections/items/index.html:255
+#: pygeoapi/templates/collections/items/index.html:255
 msgid ": Page [% page %] of search results"
 msgstr ""
 
-#: build/lib/pygeoapi/templates/collections/items/index.html:236
+#: build/lib/pygeoapi/templates/collections/items/index.html:259
 #: build/lib/pygeoapi/templates/collections/items/item.html:47
-#: pygeoapi/templates/collections/items/index.html:236
+#: pygeoapi/templates/collections/items/index.html:259
 #: pygeoapi/templates/collections/items/item.html:47
 msgid "Next"
 msgstr ""
 
-#: build/lib/pygeoapi/templates/collections/items/index.html:267
-#: pygeoapi/templates/collections/items/index.html:267
+#: build/lib/pygeoapi/templates/collections/items/index.html:290
+#: pygeoapi/templates/collections/items/index.html:290
 msgid ""
 "Clear column keyword search queries and reset to display the default "
 "results"
 msgstr ""
 
-#: build/lib/pygeoapi/templates/collections/items/index.html:272
-#: pygeoapi/templates/collections/items/index.html:272
+#: build/lib/pygeoapi/templates/collections/items/index.html:295
+#: pygeoapi/templates/collections/items/index.html:295
 msgid "Showing $firstPage to $upper of $itemsTotal"
 msgstr ""
 
-#: build/lib/pygeoapi/templates/collections/items/index.html:273
-#: pygeoapi/templates/collections/items/index.html:273
+#: build/lib/pygeoapi/templates/collections/items/index.html:296
+#: pygeoapi/templates/collections/items/index.html:296
 msgid "Showing 0 results"
 msgstr ""
 
-#: build/lib/pygeoapi/templates/collections/items/index.html:313
-#: pygeoapi/templates/collections/items/index.html:313
+#: build/lib/pygeoapi/templates/collections/items/index.html:363
+#: pygeoapi/templates/collections/items/index.html:363
 msgid "filtered from $totalSize total entry"
 msgstr ""
 
-#: build/lib/pygeoapi/templates/collections/items/index.html:314
-#: pygeoapi/templates/collections/items/index.html:314
+#: build/lib/pygeoapi/templates/collections/items/index.html:364
+#: pygeoapi/templates/collections/items/index.html:364
 msgid "filtered from $totalSize total entries"
 msgstr ""
 
-#: build/lib/pygeoapi/templates/collections/items/index.html:315
-#: pygeoapi/templates/collections/items/index.html:315
+#: build/lib/pygeoapi/templates/collections/items/index.html:365
+#: pygeoapi/templates/collections/items/index.html:365
 msgid "Showing $startEntryOfPage to $lastEntryOfPage of $filteredNumEntries"
 msgstr ""
 

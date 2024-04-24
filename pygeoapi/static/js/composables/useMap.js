@@ -1,7 +1,7 @@
 import * as L from 'https://unpkg.com/leaflet@1.7.1/dist/leaflet-src.esm.js'
 import { ref, computed, watch, onMounted } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.7/vue.esm-browser.prod.js'
 
-export default function useMap(mapElemId, geoJsonData, itemsPath, bboxPermalink, baseLayer, labelLayer, locale) {
+export default function useMap(mapElemId, geoJsonData, itemsPath, bboxPermalink, baseLayer, labelLayer, checkedItems, locale) {
   let map, layerItems
   const maxZoom = 15
   const bbox = ref('')
@@ -94,6 +94,30 @@ export default function useMap(mapElemId, geoJsonData, itemsPath, bboxPermalink,
         map.on('moveend', updateBboxEvent)
       }, 2000)
     }
+  })
+
+  // filter features when list of checked items changes
+  watch(checkedItems, (newList, oldList) => {
+    if (map.hasLayer(layerItems)) {
+      map.removeLayer(layerItems)
+    }
+
+    layerItems = new L.GeoJSON(geoJsonData.value, {
+      filter: function(feature, layer) {
+        let showfeature = false
+        if (checkedItems.value.includes(feature.id)) {
+          showfeature = true
+        }
+        return showfeature
+      },
+      onEachFeature: function (feature, layer) {
+        let label = feature.properties.title ? feature.properties.title : feature.id
+        let url = itemsPath + '/' + feature.id + `?lang=${locale}`
+        let html = '<span><a href="' + url + '">' + label + '</a></span>'
+        layer.bindPopup(html)
+      }
+    })
+    map.addLayer(layerItems)
   })
 
   return {

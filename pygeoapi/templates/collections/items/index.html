@@ -121,6 +121,17 @@
           <table id="items-table" class="table table-striped">
             <thead>
               <tr>
+                <th>
+                  <div class="checkbox gc-chckbxrdio showhideall">
+                    <input
+                      id="showhideall"
+                      type="checkbox"
+                      v-model="isAllChecked"
+                      @change="toggleCheckAll()"
+                    />
+                    <label for="showhideall">{% trans %}Show All{% endtrans %}</label>
+                  </div>
+                </th>
                 <th v-for="(th, index) in tableFields" :class="th.colClass">
                   <div class="sortable ellipsis" @click="changeSortDir(th.key)" :title="th.text">
                     <span v-text="truncate(th.text, 25)"></span>
@@ -144,6 +155,18 @@
             </thead>
             <tbody>
               <tr v-for="(item, index) in items">
+                <td>
+                  <div class="checkbox gc-chckbxrdio">
+                    <input
+                      :id="'showhide_' + item['id']"
+                      type="checkbox"
+                      :value="item['id']"
+                      v-model="checkedItems"
+                      @change="updateCheckedList()"
+                    />
+                    <label :for="'showhide_' + item['id']">{% trans %}Show{% endtrans %}</label>
+                  </div>
+                </td>
                 <td v-for="(th, index) in tableFields">
                   <div v-html="linkToRow(item, th.key, itemsPath, '{{ (locale|lower)[:2] }}')" class="items-td-div"></div>
                 </td>
@@ -307,6 +330,33 @@
             return tableFields.value.map(field => field.key)
           })
 
+          /* Feature display checkboxes */
+          let isAllChecked = ref(false)
+          let checkedItems = ref([])
+
+          const checkAll = function() {
+            checkedItems.value = []
+            let row;
+            for (row of filteredRows.value) {
+              checkedItems.value.push(row.id)
+            }
+            updateCheckedList()
+          }
+          const toggleCheckAll = function() {
+            if (isAllChecked.value) {
+              checkAll()
+            } else {
+              checkedItems.value = []
+            }
+          }
+          const updateCheckedList = function() {
+            if (checkedItems.value.length == filteredRows.value.length) {
+              isAllChecked.value = true;
+            } else {
+              isAllChecked.value = false;
+            }
+          }
+
           /* Table filtering */
           const defaultSortCol = 'id' // root id
           const tableTexti18n = {
@@ -380,7 +430,7 @@
           let labelsLayer = L.tileLayer(labelsURL)
 
           const { bbox } = useMap(
-            'items-map', itemsJson, itemsPath, bboxPermalink, baseLayer, labelsLayer, LOCALE)
+            'items-map', itemsJson, itemsPath, bboxPermalink, baseLayer, labelsLayer, checkedItems, LOCALE)
 
           /* Advanced Filter */
           const queryables = computed(() => {
@@ -575,6 +625,12 @@
             updateJsonLinks()
           })
 
+          watch(itemsJson, (newVal, oldVal) => {
+            if (newVal !== oldVal) {
+              checkAll()
+            }
+          })
+
           // history back handling
           window.onpopstate = function (evt) {
             evt.preventDefault()
@@ -592,7 +648,8 @@
             currentPage, maxPages, limitChange, bboxPermalink, queryables,
             setAdvancedSearch, itemsPath, linkToRow, queryCols, queryableTerms,
             queryableCheckbox, clearSearch, queryColsIsEmpty, applyKeywordSearch,
-            prevPageItems, nextPageItems, getItemsSorted, changePage
+            prevPageItems, nextPageItems, getItemsSorted, changePage,
+            checkAll, toggleCheckAll, updateCheckedList, isAllChecked, checkedItems
           }
         }
       })
