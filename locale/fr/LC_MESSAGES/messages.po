@@ -713,7 +713,7 @@ msgstr "Parcourir"
 #: pygeoapi/templates/collections/collection.html:41
 #, python-format
 msgid "Browse through the items of \"%(data_title)s\""
-msgstr "Parcourez les items de « %(data_title)s »"
+msgstr "Parcourir les items de « %(data_title)s »"
 
 #: build/lib/pygeoapi/templates/collections/collection.html:44
 #: build/lib/pygeoapi/templates/collections/queryables.html:10
@@ -722,7 +722,7 @@ msgstr "Parcourez les items de « %(data_title)s »"
 #: pygeoapi/templates/collections/queryables.html:10
 #: pygeoapi/templates/collections/queryables.html:21
 msgid "Queryables"
-msgstr "Interrogeables"
+msgstr "Champs de requête"
 
 #: build/lib/pygeoapi/templates/collections/collection.html:48
 #: pygeoapi/templates/collections/collection.html:48
@@ -744,7 +744,7 @@ msgstr "Afficher les tuiles de \"%(title)s\"."
 #: build/lib/pygeoapi/templates/collections/collection.html:65
 #: pygeoapi/templates/collections/collection.html:65
 msgid "Output Formats"
-msgstr "Formats de fichiers"
+msgstr "Formats de sortie"
 
 #: build/lib/pygeoapi/templates/collections/collection.html:81
 #: build/lib/pygeoapi/templates/jobs/job.html:53

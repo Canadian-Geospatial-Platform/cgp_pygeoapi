@@ -126,7 +126,7 @@ resources:
             fr: Métadonnées de la Plateforme géospatiale canadienne (PGC)
         description: 
             en: Canadian Geospatial Platform metadata (GeoCore API provider)
-            fr: Métadonnées de la Plateforme géospatiale canadienne (fournisseur d'API GeoCore)
+            fr: Métadonnées de la Plateforme géospatiale canadienne (fournisseur de l'API GeoCore)
         keywords:
             en:
                 - canada
