@@ -81,4 +81,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: cgp_pygeoapi-${{ env.NOW }}
-          path: ${{ github.workspace }}/.serverless/pygeoapi/pygeoapi
+          path: ${{ github.workspace }}/.serverless/pygeoapi
