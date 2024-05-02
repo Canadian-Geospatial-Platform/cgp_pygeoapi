@@ -188,8 +188,8 @@
     <script>
       // Requests and embeds JSON-LD representation of current page
       var xhr = new XMLHttpRequest();
-      var locale = "{{ (locale|lower)[:2] }}";
-      var path = window.location.protocol + "//" + window.location.host + window.location.pathname + "?f=jsonld&lang={{ (locale|lower)[:2] }}";
+      var lang = "{{ (locale|lower)[:2] }}" ? "{{ (locale|lower)[:2] }}" : "{{ config['server']['languages'][0][:2] }}"
+      var path = window.location.protocol + "//" + window.location.host + window.location.pathname + "?f=jsonld&lang=" + lang;
       if (window.location.pathname.match(/\/items(#)*/gi)) { // reduce load on /items page
         path += '&limit=10';
       }
