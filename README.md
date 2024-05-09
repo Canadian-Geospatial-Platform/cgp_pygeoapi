@@ -1,3 +1,5 @@
+[![pygeoapi AWS Lambda build](https://github.com/Canadian-Geospatial-Platform/cgp_pygeoapi/actions/workflows/main.yml/badge.svg)](https://github.com/Canadian-Geospatial-Platform/cgp_pygeoapi/actions/workflows/main.yml)
+
 # cgp_pygeoapi
 
 ## About
