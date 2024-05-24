@@ -46,7 +46,7 @@ jobs:
         run: |
           pip3 install -r requirements.txt
           python3 setup.py install
-          
+
       - name: Build translations
         run: |
           pybabel extract -F babel-mapping.ini -o locale/messages.pot .
@@ -67,13 +67,13 @@ jobs:
           # To deploy, comment the line below and uncomment the second args line instead.
           # Deployment requires AWS credentials
           args: -c "serverless plugin install --name serverless-python-requirements && serverless plugin install --name serverless-wsgi && serverless package"
-          # args: -c "serverless plugin install --name serverless-python-requirements && serverless plugin install --name serverless-wsgi && serverless package && serverless deploy && unzip pygeoapi.zip"
+          # args: -c "serverless plugin install --name serverless-python-requirements && serverless plugin install --name serverless-wsgi && serverless package && serverless deploy"
           entrypoint: /bin/sh
 
       - name: Set current date as env variable
         run: echo "NOW=$(date +'%Y%m%d-%H%M')" >> $GITHUB_ENV
 
-      - name: Post packaging steps
+      - name: Post packaging steps necessary to prevent a twice zipped deployment file
         run: |
           mkdir temp
           unzip -o ${{ github.workspace }}/.serverless/pygeoapi.zip -d temp
@@ -83,3 +83,28 @@ jobs:
         with:
           name: cgp_pygeoapi-${{ env.NOW }}
           path: ${{ github.workspace }}/temp
+
+  copy-artifact-to-dev-branch:
+    runs-on: ubuntu-latest
+    needs: main
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Download zipped artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: cgp_pygeoapi-${{ env.NOW }}
+        path: ${{ github.workspace }}/temp
+
+    - name: Create new dev branch and overwrite artifact with force push 
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        branch_name="dev-release"
+        git checkout -b $branch_name
+        mv ${{ github.workspace }}/temp .
+        git add .
+        git commit -m "Add artifact from workflow run ${{ github.run_id }}"
+        git push -u origin $branch_name
