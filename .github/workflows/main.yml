@@ -103,7 +103,6 @@ jobs:
       run: |
         branch_name="dev-release"
         git checkout -b $branch_name
-        mv ${{ github.workspace }}/temp .
-        git add .
+        git add ${{ github.workspace }}/temp
         git commit -m "Add artifact from workflow run ${{ github.run_id }}"
         git push -u origin $branch_name
