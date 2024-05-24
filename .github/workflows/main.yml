@@ -101,6 +101,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
+        git config --global user.name "bo-lu"
+        git config --global user.email "bo.lu@nrcan-rncan.gc.ca"
         branch_name="dev-release"
         git checkout -b $branch_name
         git add ${{ github.workspace }}/temp
