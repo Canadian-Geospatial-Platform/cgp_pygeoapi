@@ -95,6 +95,7 @@ jobs:
     - name: Download zipped artifact
       uses: actions/download-artifact@v4
       with:
+        name: cgp_pygeoapi-${{ env.NOW }}
         path: ${{ github.workspace }}/temp
 
     - name: Create new dev branch and overwrite artifact with force push 
