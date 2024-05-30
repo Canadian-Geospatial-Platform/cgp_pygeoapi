@@ -86,7 +86,7 @@ jobs:
       - name: Upload zip file artifact
         uses: actions/upload-artifact@v4
         with:
-          name: cgp_pygeoapi-${{ ${{ env.TIMESTAMP }} }}
+          name: cgp_pygeoapi-${{ env.TIMESTAMP }}
           path: ${{ github.workspace }}/temp
 
   copy-artifact-to-dev-branch:
