@@ -99,14 +99,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-
-    - name: Download zipped artifact
-      uses: actions/download-artifact@v4
-      with:
-        name: cgp_pygeoapi-${{ env.TIMESTAMP }}
-        path: ${{ github.workspace }}/temp
-
-    - name: Create new dev branch and overwrite artifact with force push 
+      
+    - name: Create new dev branch and remove everything 
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
@@ -119,7 +113,21 @@ jobs:
         # Clear the branch
         git rm -rf .
         git clean -fdx
+        
+    - name: Download zipped artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: cgp_pygeoapi-${{ env.TIMESTAMP }}
+        path: ${{ github.workspace }}/temp
 
+    - name: Overwrite branch with packaged zip with force push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        branch_name="dev-release"
+        #debug
+        pwd
+        
         # Copy the contents of the temp directory
         cp -r ${{ github.workspace }}/temp .
 
