@@ -118,16 +118,24 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: cgp_pygeoapi-${{ env.TIMESTAMP }}
-        path: ${{ github.workspace }}
+        path: temp
 
     - name: Overwrite branch with packaged zip with force push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         branch_name="dev-release"
+
+        cd temp
+        zip -r ../cgp_pygeoapi-${{ env.TIMESTAMP }}.zip ./*
+        cd ..
+
+        #debug
+        pwd
+        ls
        
         # Add and commit changes
-        git add .
+        git add cgp_pygeoapi-${{ env.TIMESTAMP }}.zip
         git commit -m "Add artifact from workflow run ${{ github.run_id }}" || echo "No changes to commit"
 
         # Force push to the branch
