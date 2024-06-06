@@ -112,8 +112,21 @@ jobs:
       run: |
         git config --global user.name "bo-lu"
         git config --global user.email "bo.lu@nrcan-rncan.gc.ca"
+
         branch_name="dev-release"
-        git checkout -b $branch_name
-        git add ${{ github.workspace }}/temp
-        git commit -m "Add artifact from workflow run ${{ github.run_id }}"
-        git push -u origin $branch_name
+        git checkout $branch_name || git checkout -b $branch_name
+
+        # Clear the branch
+        git rm -rf .
+        git clean -fdx
+
+        # Copy the contents of the temp directory
+        cp -r ${{ github.workspace }}/temp/* .
+
+        # Add and commit changes
+        git add .
+        git commit -m "Add artifact from workflow run ${{ github.run_id }}" || echo "No changes to commit"
+
+        # Force push to the branch
+        git push --force origin $branch_name
+        
