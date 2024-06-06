@@ -121,7 +121,7 @@ jobs:
         git clean -fdx
 
         # Copy the contents of the temp directory
-        cp -r ${{ github.workspace }}/temp/* .
+        cp -r ${{ github.workspace }}/temp .
 
         # Add and commit changes
         git add .
