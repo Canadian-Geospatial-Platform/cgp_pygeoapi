@@ -4,6 +4,31 @@
   }
 }
 
+.announcement-banner {
+  background-color: midnightblue;
+  color: white;
+  position: relative;
+  margin-top: 0px;
+  padding: 12px 0;
+  display: flex;
+}
+
+.announcement-banner-container {
+  display: flex;
+}
+
+.announcement-text {
+  align-self: center;
+}
+
+.announcement-close-button {
+  background-color: midnightblue;
+  border: none;
+  margin-left: auto;
+  font-size: 36px;
+  padding: 0 16px;
+}
+
 .sortable {
   cursor: pointer;
 }

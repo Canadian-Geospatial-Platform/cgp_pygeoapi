@@ -37,7 +37,7 @@
             </li>
         </ul>
     </nav>
-    <header>
+    <header id="header">
       <hr class="header-hr-top">
       <div id="wb-bnr" class="container">
         <div class="row">
@@ -121,6 +121,13 @@
 
       <hr class="header-hr-bottom">
 
+      <div class="announcement-banner" v-if="displayAnnouncement && announcementClosed != 'true'">
+        <div class="container announcement-banner-container">
+          <div class="announcement-text">{% trans %}announcement_text{% endtrans %}</div>
+          <button class="announcement-close-button" @click="closeAnnouncement()">&times;</button>
+        </div>
+      </div>
+
       <nav id="wb-bc" property="breadcrumb">
         <h2>{% trans %}You are here:{% endtrans %}</h2>
         <div class="container">
@@ -190,6 +197,45 @@
         }
       };
       xhr.send();
+    </script>
+    <script type="module">
+      import { createApp, ref } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.7/vue.esm-browser.prod.js'
+
+      const app = createApp({
+        setup() {
+
+          /*******************************************************
+           *                                                     *
+           *    SET TO false TO PERMANENTLY HIDE ANNOUNCEMENT    *
+           *                                                     *
+           *    To set the announcement text, edit the msgstr    *
+           *    for the announcement_text key in each .po file   *
+           *    then recompile the translations using the        *
+           *    usual pybable commands                           *
+           *                                                     *
+           *******************************************************/
+          let displayAnnouncement = true;
+
+          let announcementClosed = ref(sessionStorage.getItem("closeButtonClicked"));
+
+          if(announcementClosed.value == null) {
+            sessionStorage.setItem("closeButtonClicked", "false");
+            announcementClosed.value = sessionStorage.getItem("closeButtonClicked");
+          }
+
+          const closeAnnouncement = function() {
+            let closed = sessionStorage.getItem("closeButtonClicked");
+            if (closed != "true") {
+              sessionStorage.setItem("closeButtonClicked", "true");
+              announcementClosed.value = sessionStorage.getItem("closeButtonClicked");
+            }
+          }
+
+          return {
+            displayAnnouncement, announcementClosed, closeAnnouncement
+          }
+        }
+      }).mount('#header')
     </script>
   </body>
 </html>

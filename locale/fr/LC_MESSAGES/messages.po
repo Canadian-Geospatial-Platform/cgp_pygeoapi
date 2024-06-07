@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  0.11\n"
 "Report-Msgid-Bugs-To: pygeoapi@lists.osgeo.org\n"
-"POT-Creation-Date: 2024-04-23 18:06-0700\n"
+"POT-Creation-Date: 2024-06-07 11:59-0700\n"
 "PO-Revision-Date: 2021-07-11 00:15+0200\n"
 "Last-Translator: Paul van Genuchten\n"
 "Language: fr\n"
@@ -243,47 +243,47 @@ msgstr "Sélection de la langue"
 #: build/lib/pygeoapi/templates/_base.html:103
 #: build/lib/pygeoapi/templates/_base.html:105
 #: build/lib/pygeoapi/templates/_base.html:142
-#: build/lib/pygeoapi/templates/_base_geoca.html:152
+#: build/lib/pygeoapi/templates/_base_geoca.html:159
 #: pygeoapi/templates/_base.html:103 pygeoapi/templates/_base.html:105
-#: pygeoapi/templates/_base.html:142 pygeoapi/templates/_base_geoca.html:152
+#: pygeoapi/templates/_base.html:142 pygeoapi/templates/_base_geoca.html:159
 msgid "Government of Canada"
 msgstr "Gouvernement du Canada"
 
 #: build/lib/pygeoapi/templates/_base.html:115
-#: build/lib/pygeoapi/templates/_base_geoca.html:125
-#: pygeoapi/templates/_base.html:115 pygeoapi/templates/_base_geoca.html:125
+#: build/lib/pygeoapi/templates/_base_geoca.html:132
+#: pygeoapi/templates/_base.html:115 pygeoapi/templates/_base_geoca.html:132
 msgid "You are here:"
 msgstr "Vous êtes ici:"
 
 #: build/lib/pygeoapi/templates/_base.html:119
-#: build/lib/pygeoapi/templates/_base_geoca.html:129
+#: build/lib/pygeoapi/templates/_base_geoca.html:136
 #: build/lib/pygeoapi/templates/landing_page.html:6
-#: pygeoapi/templates/_base.html:119 pygeoapi/templates/_base_geoca.html:129
+#: pygeoapi/templates/_base.html:119 pygeoapi/templates/_base_geoca.html:136
 #: pygeoapi/templates/landing_page.html:6
 msgid "Home"
 msgstr "Accueil"
 
 #: build/lib/pygeoapi/templates/_base.html:130
-#: build/lib/pygeoapi/templates/_base_geoca.html:160
-#: pygeoapi/templates/_base.html:130 pygeoapi/templates/_base_geoca.html:160
+#: build/lib/pygeoapi/templates/_base_geoca.html:167
+#: pygeoapi/templates/_base.html:130 pygeoapi/templates/_base_geoca.html:167
 msgid "Powered by"
 msgstr "Propulsé par"
 
 #: build/lib/pygeoapi/templates/_base.html:130
-#: build/lib/pygeoapi/templates/_base_geoca.html:160
-#: pygeoapi/templates/_base.html:130 pygeoapi/templates/_base_geoca.html:160
+#: build/lib/pygeoapi/templates/_base_geoca.html:167
+#: pygeoapi/templates/_base.html:130 pygeoapi/templates/_base_geoca.html:167
 msgid "pygeoapi logo"
 msgstr "logo pygeoapi"
 
 #: build/lib/pygeoapi/templates/_base.html:133
-#: build/lib/pygeoapi/templates/_base_geoca.html:164
-#: pygeoapi/templates/_base.html:133 pygeoapi/templates/_base_geoca.html:164
+#: build/lib/pygeoapi/templates/_base_geoca.html:171
+#: pygeoapi/templates/_base.html:133 pygeoapi/templates/_base_geoca.html:171
 msgid "Canadian Geospatial Platform (CGP)"
 msgstr "Plateforme Géospatiale Canadienne (PGC)"
 
 #: build/lib/pygeoapi/templates/_base.html:138
-#: build/lib/pygeoapi/templates/_base_geoca.html:140
-#: pygeoapi/templates/_base.html:138 pygeoapi/templates/_base_geoca.html:140
+#: build/lib/pygeoapi/templates/_base_geoca.html:147
+#: pygeoapi/templates/_base.html:138 pygeoapi/templates/_base_geoca.html:147
 msgid "About this site"
 msgstr "À propos de ce site"
 
@@ -558,8 +558,8 @@ msgid "Privacy"
 msgstr "Confidentialité"
 
 #: build/lib/pygeoapi/templates/_base.html:181
-#: build/lib/pygeoapi/templates/_base_geoca.html:157
-#: pygeoapi/templates/_base.html:181 pygeoapi/templates/_base_geoca.html:157
+#: build/lib/pygeoapi/templates/_base_geoca.html:164
+#: pygeoapi/templates/_base.html:181 pygeoapi/templates/_base_geoca.html:164
 msgid "Symbol of the Government of Canada"
 msgstr "Symbole du gouvernement du Canada"
 
@@ -573,18 +573,26 @@ msgstr "Logo de GEO.CA, globe bleu et vert"
 msgid "Geo.ca"
 msgstr "Geo.ca"
 
-#: build/lib/pygeoapi/templates/_base_geoca.html:147
-#: pygeoapi/templates/_base_geoca.html:147
+#: build/lib/pygeoapi/templates/_base_geoca.html:126
+#: pygeoapi/templates/_base_geoca.html:126
+msgid "announcement_text"
+msgstr ""
+"Voici un texte d'espace réservé. Cliquez sur le bouton x pour fermer. "
+"Mettez à jour ce message à partir de la clé annonçant_text dans les "
+"fichiers de traduction .po."
+
+#: build/lib/pygeoapi/templates/_base_geoca.html:154
+#: pygeoapi/templates/_base_geoca.html:154
 msgid "Contact Us"
 msgstr "Contactez-nous"
 
-#: build/lib/pygeoapi/templates/_base_geoca.html:150
-#: pygeoapi/templates/_base_geoca.html:150
+#: build/lib/pygeoapi/templates/_base_geoca.html:157
+#: pygeoapi/templates/_base_geoca.html:157
 msgid "Canada Centre for Mapping and Earth Observation"
 msgstr "Centre Canadien de cartographie et d’observation de la terre"
 
-#: build/lib/pygeoapi/templates/_base_geoca.html:151
-#: pygeoapi/templates/_base_geoca.html:151
+#: build/lib/pygeoapi/templates/_base_geoca.html:158
+#: pygeoapi/templates/_base_geoca.html:158
 msgid "Natural Resources Canada"
 msgstr "Ressources naturelles Canada"
 
