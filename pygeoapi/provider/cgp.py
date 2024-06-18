@@ -216,16 +216,17 @@ class GeoCoreProvider(BaseProvider):
     def _filter_null(items_list, lang):
         for item in items_list:
             filtered = {}
-            for key, val in item.items():
-                if isinstance(val, dict):
-                    if val.get(lang) and val.get(lang) != 'null':
-                        filtered[key] = val.get(lang)
-                    elif not val.get(lang):
+            if item is not None:
+                for key, val in item.items():
+                    if isinstance(val, dict):
+                        if val.get(lang) and val.get(lang) != 'null':
+                            filtered[key] = val.get(lang)
+                        elif not val.get(lang):
+                            filtered[key] = val
+                    elif val and val != 'null':
                         filtered[key] = val
-                elif val and val != 'null':
-                    filtered[key] = val
-            item.clear()
-            item.update(filtered)
+                item.clear()
+                item.update(filtered)
 
     @staticmethod
     def _langcode(locale):
