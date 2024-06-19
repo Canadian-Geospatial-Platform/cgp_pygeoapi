@@ -337,6 +337,10 @@ class APIRequest:
         self._raw_locale, self._locale = self._get_locale(request.headers,
                                                           supported_locales)
 
+        # Set _raw_locale to "en" if it is None
+        if self._raw_locale is None:
+            self._raw_locale = "en"
+
         # Set translations from locale
         self._translations = gettext.translation(
             'messages', localedir='locale', languages=[self._raw_locale[:2]])
