@@ -133,7 +133,7 @@
 
       <hr class="header-hr-bottom">
 
-      <div class="announcement-banner" v-if="displayAnnouncement && announcementClosed != 'true'">
+      <div class="announcement-banner" :class="{ 'banner-visible': displayAnnouncement && announcementClosed == 'false' }">
         <div class="container announcement-banner-container">
           <div class="announcement-text">{% trans %}announcement_text{% endtrans %}</div>
           <button class="announcement-close-button" @click="closeAnnouncement()">&times;</button>
